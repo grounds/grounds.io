@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : t('site.title') %></title>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'modernizr' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tag %>
+  </head>
+
+  <header>
+
+    <%= render 'layouts/header' %>
+
+  </header>
+
+  <body>
+
+    <section id="wrapper" role="document">
+
+      <div class="top-buffer"></div>
+      <%= yield %>
+
+    </section>
+
+    <footer id="footer">
+
+      <%= render 'layouts/footer' %>
+
+    </footer>
+
+  </body>
+</html>

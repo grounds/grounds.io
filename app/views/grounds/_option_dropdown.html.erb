@@ -1,0 +1,19 @@
+<a href="#" data-dropdown="<%= "#{option}-dropdown" %>" class="tiny radius dropdown">
+  <%= t("editor.select.#{option}") %> <b id="<%= option %>-name" ><%= @ground.selected_label(option) %></b></a>
+
+<ul id=<%= "#{option}-dropdown" %> data-dropdown-content class="f-dropdown">
+
+  <% @ground.options(option).each do |code, label| %>
+
+    <li>
+
+    <%= link_to(label,
+                ground_switch_option_path(option: "#{option}", code: code),
+                data: { "#{option}" => code },
+                class: "#{option}-link", method: :put, remote: true) %>
+
+    </li>
+
+  <% end %>
+
+</ul>

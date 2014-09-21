@@ -1,0 +1,29 @@
+<div class="footer-text top-buffer">
+
+  <div class="row text-center">
+  
+    <p>MADE WITH <%= fa_icon('heart', class: 'icon-heart') %> IN PARIS</p>
+  
+  </div>
+  
+  <ul class="inline-list">
+  
+    <li><%= t('site.copyright') %></li>
+  
+    <li>
+      <%= link_to('https://github.com/grounds/grounds.io/issues/new', target: '_blank') do 
+        content_tag(:span, fa_icon('envelope-o', text: t('site.contact')))
+      end %>
+    </li>
+    
+    <li>
+      <%= link_to('https://github.com/grounds', target: '_blank') do 
+        content_tag(:span, fa_icon('github', text: t('site.sources')))
+      end %>
+    </li>
+    
+    <li><%= link_to(t('site.about'), page_path('about')) %></li>
+    
+  </ul>
+
+</div>

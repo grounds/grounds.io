@@ -1,0 +1,20 @@
+en:
+  site:
+    title: 'Grounds Beta'
+    contact: 'Contact'
+    sources: 'Sources'
+    about: 'About'
+    copyright: '© 2014 Adrien Folie'
+  editor:
+    error:
+      connect: 'Connection with remote server failed. Trying to reconnect...'
+    waiting: 'Waiting for remote server...'
+    run: 'Run'
+    back: 'Back to editor'
+    share: 'Share'
+    console: 'Console'
+    select:
+      language: 'Language:'
+      theme: 'Theme:'
+      indent: 'Indent mode:'
+      keyboard: 'Keyboard:'
