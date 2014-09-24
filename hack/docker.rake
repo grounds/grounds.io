@@ -13,7 +13,7 @@ task :build do
 end
 
 task :test => [:build] do
-  sh "docker run -ti #{IMAGE} rake test"
+  sh "docker run -t #{IMAGE} rake test"
 end
 
 task :run => [:build, 'detach:redis', 'detach:exec'] do
@@ -23,7 +23,7 @@ docker run \
 -e RAILS_PORT=#{RAILS_PORT} \
 -p #{RAILS_PORT}:#{RAILS_PORT} \
 --link #{redis}:redis \
--ti #{IMAGE} \
+-t #{IMAGE} \
 rake run
 EOF
 
