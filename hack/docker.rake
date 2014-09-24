@@ -8,23 +8,23 @@ IMAGE = "#{REPOSITORY}/grounds.io"
 redis = 'grounds-redis'
 exec  = 'grounds-exec-latest'
 
-task :build => :environment do
+task :build do
   sh "docker build -t #{IMAGE} ."
 end
 
 task :test => [:build] do
-  sh "docker run -ti #{IMAGE} bundle exec rspec"
+  sh "docker run -ti #{IMAGE} rake test"
 end
 
 task :run => [:build, 'detach:redis', 'detach:exec'] do
 sh <<-EOF
 docker run \
 -e WEBSOCKET_URL=#{DOCKER_URL.gsub(/:\d{4}/, ":#{EXEC_PORT}")} \
+-e RAILS_PORT=#{RAILS_PORT} \
 -p #{RAILS_PORT}:#{RAILS_PORT} \
 --link #{redis}:redis \
 -ti #{IMAGE} \
-bundle exec rails server \
--p #{RAILS_PORT}
+rake run
 EOF
 
 Rake::Task['clean:redis'].execute
@@ -55,13 +55,13 @@ namespace :detach do
 end
 
 namespace :clean do
-  task :redis => :environment do
+  task :redis do
     if container_exist?(redis)
       sh "docker rm -f #{redis}"
     end
   end
 
-  task :exec => :environment do
+  task :exec do
     if container_exist?(exec)
       sh "docker rm -f #{exec}"
     end
@@ -69,5 +69,5 @@ namespace :clean do
 end
 
 def container_exist?(name)
-  `docker inspect --format={{.Created}} #{name} 2>/dev/null`.present?
+  !`docker inspect --format={{.Created}} #{name} 2>/dev/null`.empty?
 end

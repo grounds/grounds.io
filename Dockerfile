@@ -62,5 +62,8 @@ RUN chown -R grounds:grounds $APP
 # Set user as grounds-io.
 USER grounds
 
+# Make the app knows it's running inside a container
+ENV CONTAINER $HOSTNAME
+
 # Set the final working dir to the Rails app's location.
 WORKDIR /grounds
