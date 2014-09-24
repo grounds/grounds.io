@@ -5,16 +5,15 @@ class GroundsController < ApplicationController
   end
 
   def shared
-    ground = Ground.from_storage!(params[:id])
+    ground = Ground.find(params[:id])
     @ground = GroundDecorator.new(ground, view_context)
     render 'show'
   end
 
   def share
     @ground = Ground.new(ground_params)
-    @ground.save
 
-    if @ground.persisted?
+    if @ground.save
       render json: { status: :ok, shared_url: ground_shared_url(@ground.id) }
     else
       render json: { status: :service_unavailable }

@@ -7,7 +7,7 @@ describe Ground do
 
   it 'is convertible to an hash' do
     expected = {'language' => ground.language, 'code' => ground.code}
-    expect(ground.serializable_hash).to eq(expected)
+    expect(ground.attributes).to eq(expected)
   end 
   
   context 'when language is specified' do
@@ -27,7 +27,7 @@ describe Ground do
       expect(invalid_ground.save).to be false
     end
     
-    it "can't be persisted" do
+    it "can't be persistent" do
       invalid_ground.save
       expect(invalid_ground).not_to be_persisted
     end
@@ -38,30 +38,30 @@ describe Ground do
       ground.save
     end
 
-    it 'generates a key' do
-      expected = '8aa8697c05f23db0083eb2114f83be44e8801929dbf78fb8d25b0f057a423fad'
-      expect(ground.id).to eq(expected)
-    end
-    
     context 'when saved again' do
       it 'has the same id' do
-        expected = ground.id
+        old_id = ground.id
         ground.save
-        expect(ground.id).to eq(expected)
+        expect(ground.id).to eq(old_id)
+      end
+      
+      context 'with different attributes' do
+        it "hasn't the same id" do
+          old_id = ground.id
+          ground.code << ';'
+          ground.save
+          expect(ground.id).not_to eq(old_id)
+        end
       end
     end
 
-    it 'is persisted' do
+    it 'is persistent' do
       expect(ground).to be_persisted
     end
 
-    it 'is exists in storage' do
-      expect(storage.exists(ground.id)).to be true
-    end
-
-    it 'can be retrieve from storage' do
-      expected = Ground.from_storage!(ground.id)
-      expect(ground.serializable_hash).to eq(expected.serializable_hash)
+    it 'can be found by its id' do
+      expected = Ground.find(ground.id)
+      expect(ground.attributes).to eq(expected.attributes)
     end
 
     it 'is destroyable' do
@@ -79,8 +79,8 @@ describe Ground do
       expect(ground.save).not_to be_nil
     end
 
-    it "can't be retrieve from storage" do
-      expect { Ground.from_storage!(ground.id) }.to raise_error
+    it "can't be found" do
+      expect { Ground.find(ground.id) }.to raise_error
     end
   end
 end
