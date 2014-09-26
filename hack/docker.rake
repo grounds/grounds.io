@@ -3,7 +3,8 @@ DOCKER_URL = ENV['DOCKER_URL'] || 'http://127.0.0.1:2375'
 RAILS_PORT = ENV['RAILS_PORT'] || 3000
 EXEC_PORT  = ENV['EXEC_PORT']  || 8080
 
-IMAGE = "#{REPOSITORY}/grounds.io"
+BRANCH = `git rev-parse --abbrev-ref HEAD 2>/dev/null`.gsub("\n", '')
+IMAGE  = "#{REPOSITORY}/grounds.io:#{BRANCH}"
 
 redis = 'grounds-redis'
 exec  = 'grounds-exec-latest'
@@ -56,15 +57,17 @@ end
 
 namespace :clean do
   task :redis do
-    if container_exist?(redis)
-      sh "docker rm -f #{redis}"
-    end
+    container_delete(redis)
   end
 
   task :exec do
-    if container_exist?(exec)
-      sh "docker rm -f #{exec}"
-    end
+    container_delete(exec)
+  end
+end
+
+def container_delete(name)
+  if container_exist?(name)
+    sh "docker rm -f #{name}"
   end
 end
 
