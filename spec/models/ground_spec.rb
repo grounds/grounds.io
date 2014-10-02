@@ -33,7 +33,7 @@ describe Ground do
     end
   end
 
-  context 'when ground is already saved' do
+  context 'when already saved' do
     before(:each) do
       ground.save
     end
@@ -70,7 +70,7 @@ describe Ground do
     end
   end
 
-  context 'when ground is not saved' do
+  context 'when not already saved' do
     it 'has no id' do
       expect(ground.id).to be_nil
     end

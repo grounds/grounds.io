@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ground sharing' do
+describe 'Ground Sharing' do
   include GroundSupport
   
   let(:storage) { $redis }
