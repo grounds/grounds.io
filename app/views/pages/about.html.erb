@@ -21,7 +21,7 @@
           
           <li>
             Grounds doesn't support HTML, CSS and Javascript, and there is no plan to do it
-            in the future. Checkout the awesome <a href="http://jsfiddle.net/">JS Fiddle</a> for that.
+            in the future. Checkout the awesome <%= link_to('JS Fiddle', 'http://jsfiddle.net/', target: '_blank') %> for that.
           </li>
         </ul>
         
@@ -29,22 +29,25 @@
       
       <p>
       Grounds strives to use the latest stable release of each supported language. If you find
-      that your favorite language is not up to date, you are welcome to open an issue on
-      <a href="https://github.com/grounds/grounds.io/issues/new">GitHub</a>.
+      that your favorite language is not up to date, you are welcomed to open an issue on
+      <%= link_to('GitHub', 'https://github.com/grounds/grounds.io/issues/new', target: '_blank') %>.
       </p>
+
       <p>
       Pull requests are also welcomed. There is a lot of documentation on the official 
-      <a href="https://github.com/grounds/grounds.io">repository</a> to help
+      <%= link_to('repository', 'https://github.com/grounds/grounds.io', target: '_blank') %> to help
       new contributors getting started.
       </p>
 
     </div>
 
     <center>
-    <img class="circle-img" src="https://secure.gravatar.com/avatar/6b030f9d40af0aacef77ba4ba2076985?s=128" alt="Adrien Folie" />
+      <%= image_tag('https://secure.gravatar.com/avatar/6b030f9d40af0aacef77ba4ba2076985?s=128', alt: 'Adrien Folie', class: 'circle-img') %>
 
-    <h5>ADRIEN FOLIE</h5>
-    <%= link_to('www.foliea.io', 'http://www.foliea.io') %>
+      <h5>ADRIEN FOLIE</h5>
+
+      <%= link_to('www.foliea.io', 'http://www.foliea.io', target: '_blank') %>
+  
     </center>
 
   </div>
