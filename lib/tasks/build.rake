@@ -8,7 +8,7 @@ task :run => :environment do
 end
 
 task :test => :environment do
-  sh 'bundle exec rspec'
+  sh 'bundle exec rspec --format documentation --color'
 end
 
 def production?
