@@ -9,6 +9,7 @@
 //= require ace/mode-python
 //= require ace/mode-c_cpp
 //= require ace/mode-csharp
+//= require ace/mode-php
 
 //= require ace/theme-tomorrow_night
 //= require ace/theme-textmate
