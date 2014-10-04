@@ -1,12 +1,12 @@
 function Console() {
-    this.output = $("#output");
-    this.connectError = $("#connect_error");
-    this.waiting = $("#waiting");
+    this.output = $('#output');
+    this.connectError = $('connect_error');
+    this.waiting = $('#waiting');
 }
 
 Console.prototype.clean = function() {
     this.connectError.hide();
-    this.output.find("span").each(function() {
+    this.output.find('span').each(function() {
         this.remove();
     });
 };

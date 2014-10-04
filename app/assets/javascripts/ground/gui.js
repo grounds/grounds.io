@@ -2,25 +2,25 @@ function GUI(ground, client) {
     this._ground = ground;
     this._client = client;
 
-    this.sharedURL = $("#sharedURL").hide();
+    this.sharedURL = $('#sharedURL').hide();
 
     this.button = {
-        share: $("#share"),
-        run: $("#run"),
-        back: $("#back"),
+        share: $('#share'),
+        run: $('#run'),
+        back: $('#back'),
     };
 
     this.form = {
-        obj: $("#share_ground"),
-        code: $("#ground_code"),
-        language: $("#ground_language"),
+        obj: $('#share_ground'),
+        code: $('#ground_code'),
+        language: $('#ground_language'),
     };
 
     this.link = {
-        language: $(".language-link"),
-        theme: $(".theme-link"),
-        indent: $(".indent-link"),
-        keyboard: $(".keyboard-link"),
+        language: $('.language-link'),
+        theme: $('.theme-link'),
+        indent: $('.indent-link'),
+        keyboard: $('.keyboard-link'),
     }
 
     this.bindEvents();
@@ -47,7 +47,7 @@ GUI.prototype.dropdownUpdate = function(option, label) {
 };
 
 GUI.prototype.scrollToTop = function() {
-    $("body").animate({scrollTop: 0}, 'fast');
+    $('body').animate({scrollTop: 0}, 'fast');
 };
 
 GUI.prototype.switchToSelectedOption = function(option, link) {

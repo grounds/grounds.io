@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'header' do
+describe 'Header' do
   include HeaderFooterSupport
 
   before(:each) do

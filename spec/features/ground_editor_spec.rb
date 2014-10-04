@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ground editor' do
+describe 'Ground Editor' do
   include GroundSupport
 
   let(:options) { TestOptionsTable }
@@ -13,7 +13,7 @@ describe 'ground editor' do
     expect(shared_url_not_visible?).to be true
   end
 
-  context 'when first visit to a new ground' do
+  context 'when visiting for the first time' do
     it 'initializes selected options labels from default option' do
       options.each do |option, _|
         expect(selected_label(option)).to eq(default_label(option))
@@ -28,7 +28,7 @@ describe 'ground editor' do
     end
   end
 
-  context 'when selecting an option and refreshing ground editor' do
+  context 'when selecting an option and refreshing the page' do
     it 'initializes selected option label from session' do
       options.each do |option, code|
         select_option(option, code)

@@ -1,19 +1,18 @@
 var utils = {
-    getMode: function (language) {
+    getMode: function(language) {
         return this._getFor(language, 1);
     },
     
-    getSample: function (language) {
+    getSample: function(language) {
         return this._getFor(language, 2);
     },
     
-    _getFor: function (language, key) {
-        for (var i = 0; i < this._samples.length; i++) { 
-            if (this._samples[i][0] === language) {
-                return this._samples[i][key];
-            }
-        }
-        return '';
+    _getFor: function(language, key) {
+        var value = '';
+        this._samples.forEach(function(sample) { 
+            if (sample[0] == language) value = sample[key]; 
+        });
+        return value;
     },
   
     _samples: [
