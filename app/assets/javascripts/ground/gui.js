@@ -81,20 +81,10 @@ GUI.prototype.bindEvents = function() {
         self._ground._editor.focus(); 
     });
 
-    this.link.language.on('click', function(event, date) {
-        self.switchToSelectedOption('language', $(this));
-    });
-
-    this.link.theme.on('click', function(event, date) {
-        self.switchToSelectedOption('theme', $(this));
-    });
-
-    this.link.indent.on('click', function(event, date) {
-        self.switchToSelectedOption('indent', $(this));
-    });
-
-    this.link.keyboard.on('click', function(event, date) {
-        self.switchToSelectedOption('keyboard', $(this));
+    $.each(this.link, function(language, link) {
+        link.on('click', function(event, date) {
+            self.switchToSelectedOption(language, $(this));
+        });
     });
 
     this.form.obj.on('ajax:success', function(data, response, xhr) {
