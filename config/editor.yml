@@ -18,6 +18,7 @@ languages:
   c: 'C'
   cpp: 'C++'
   csharp: 'C#'
+  php: 'PHP'
 
 keyboards:
   ace: 'Ace'
