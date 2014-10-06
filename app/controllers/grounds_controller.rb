@@ -24,8 +24,10 @@ class GroundsController < ApplicationController
     option, code = params[:option], params[:code]
     if option.present? && code.present? && GroundEditor.has_option?(option, code)
       session[option] = code
+      render json: {}
+    else
+      render json: {}, status: :bad_request
     end
-    render nothing: true
   end
 
   private
