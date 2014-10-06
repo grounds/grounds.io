@@ -3,25 +3,25 @@
 
 This project is the web application behind [Grounds](http://beta.42grounds.io).
 
-`grounds.io` aims to provide a way to share runnable code snippets within various languages inside a web browser.
+`Grounds` aims to provide a way to share runnable code snippets within various languages inside a web browser.
 
 All you need is `docker` and `rake` to run this project inside
 `docker`containers with the same environment used in production.
 
-`grounds.io` uses a `socket.io` server to execute arbitrary code inside `docker` containers, called `grounds-exec`. `grounds-exec` has its own repository
+`Grounds` uses a `socket.io` server to execute arbitrary code inside `docker` containers, called `grounds-exec`. `grounds-exec` has its own repository
 [here](https://github.com/grounds/grounds-exec).
 
 ## Run
 
-`grounds.io` uses the latest version of `grounds-exec` and will automatically
+`Grounds` uses the latest version of `grounds-exec` and will automatically
 pull the official `docker` image.
 
-`grounds.io` requires a `redis` instance and will automatically spawn a `docker`
+`Grounds` requires a `redis` instance and will automatically spawn a `docker`
 container with a new `redis` instance.
 
-You need to specify a docker remote API url to connect with.
+You need to specify a `docker` remote API url to connect with.
 
-eg: If you're using `boot2docker` on `darwin`:
+e.g. With `boot2docker` on `darwin`:
 
     DOCKER_URL="http://192.168.59.103:2375" rake run
 

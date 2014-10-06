@@ -44,5 +44,6 @@ gem 'ace-rails-ap'
 gem 'modernizr-rails'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
-gem 'puma'
 gem 'socket.io-rails'
+
+gem 'puma'
