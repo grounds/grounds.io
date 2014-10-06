@@ -1,6 +1,8 @@
 function Ground(editor, language, theme, indent, keyboard) {
     this._editor = editor;
 
+    this._editor.getSession().setUseWorker(false);
+
     if (this.getCode() !== '')
         this.setLanguage(language, true);
     else
