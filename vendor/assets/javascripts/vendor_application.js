@@ -11,8 +11,6 @@
 //= require ace/mode-csharp
 //= require ace/mode-php
 
-//= require ace/worker-php
-
 //= require ace/theme-tomorrow_night
 //= require ace/theme-textmate
 //= require ace/theme-monokai
