@@ -14,9 +14,9 @@ class GroundsController < ApplicationController
     @ground = Ground.new(ground_params)
 
     if @ground.save
-      render json: { status: :ok, shared_url: ground_shared_url(@ground.id) }
+      render json: { shared_url: ground_shared_url(@ground) }
     else
-      render json: { status: :service_unavailable }
+      render json: {}, status: :bad_request
     end
   end
 
@@ -25,7 +25,7 @@ class GroundsController < ApplicationController
     if option.present? && code.present? && GroundEditor.has_option?(option, code)
       session[option] = code
     end
-    render json: { status: :ok }
+    render nothing: true
   end
 
   private

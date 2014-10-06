@@ -24,7 +24,7 @@ docker run \
 -e RAILS_PORT=#{RAILS_PORT} \
 -p #{RAILS_PORT}:#{RAILS_PORT} \
 --link #{redis}:redis \
--t #{IMAGE} \
+-ti #{IMAGE} \
 rake run
 EOF
 
