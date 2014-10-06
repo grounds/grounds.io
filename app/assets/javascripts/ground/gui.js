@@ -88,8 +88,6 @@ GUI.prototype.bindEvents = function() {
     });
 
     this.form.obj.on('ajax:success', function(data, response, xhr) {
-        if (response.status !== 'ok') return;
-
         self.sharedURL.val(response.shared_url).show().focus().select();
     });
 
