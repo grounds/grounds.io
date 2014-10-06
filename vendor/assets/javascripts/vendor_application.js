@@ -4,8 +4,6 @@
 //= require foundation
 
 //= require ace/ace
-//= require ace/worker-html
-//= require ace/worker-php
 
 //= require ace/mode-ruby
 //= require ace/mode-golang
