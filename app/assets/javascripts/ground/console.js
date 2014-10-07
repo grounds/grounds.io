@@ -1,6 +1,6 @@
 function Console() {
     this.output = $('#output');
-    this.connectError = $('connect_error');
+    this.connectError = $('#connect_error');
     this.waiting = $('#waiting');
 }
 
