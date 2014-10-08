@@ -3,7 +3,7 @@
 
 This project is the web application behind [Grounds](http://beta.42grounds.io).
 
-`Grounds` aims to provide a way to share runnable code snippets within various languages inside a web browser.
+`Grounds` aims to provide a way to share runnable snippets within various languages inside a web browser.
 
 All you need is `docker` and `rake` to run this project inside
 `docker`containers with the same environment used in production.
