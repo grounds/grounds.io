@@ -4,7 +4,7 @@ FROM ubuntu:14.04
 ENV RUBY_MAJOR 2.1
 ENV RUBY_MINOR 2.1.2
 
-# Set app's location
+# Set app's location.
 ENV APP /grounds
 
 # Add user grounds.
@@ -59,10 +59,10 @@ COPY . $APP
 # Changes app's files owner.
 RUN chown -R grounds:grounds $APP
 
-# Set user as grounds-io.
+# Set user as grounds.
 USER grounds
 
-# Make the app knows it's running inside a container
+# Make the app knows it's running inside a container.
 ENV CONTAINER $HOSTNAME
 
 # Set the final working dir to the Rails app's location.
