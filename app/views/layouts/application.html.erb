@@ -7,23 +7,28 @@
     <title><%= content_for?(:title) ? yield(:title) : t('site.title') %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'modernizr' %>
     <%= csrf_meta_tag %>
   </head>
 
-  <header>
+  <body>
+  
+    <header>
 
     <%= render 'layouts/header' %>
 
-  </header>
-
-  <body>
+    </header>
 
     <section id="wrapper" role="document">
 
       <div class="top-buffer"></div>
-      <%= yield %>
+
+      <div class="container">
+
+        <%= yield %>
+
+      </div>
 
     </section>
 
