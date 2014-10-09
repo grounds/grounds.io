@@ -1,6 +1,6 @@
-<div class="contain-to-grid fixed">
+<div class="grid-sized">
 
-  <nav class="top-bar" data-topbar role="navigation">
+  <nav class="header" data-topbar role="navigation">
 
     <ul class="title-area">
 
@@ -12,17 +12,11 @@
 
     </ul>
 
-    <section class="top-bar-section">
+    <section class="header-section">
 
       <ul class="right">
         
-        <li><%= link_to(t('site.about'), page_path('about')) %></li>
-
-        <li>
-          <%= link_to('https://github.com/grounds', target: '_blank') do 
-            content_tag(:span, fa_icon('github', text: t('site.sources')))
-          end %>
-        </li>
+        <%= render 'layouts/links' %>
 
       </ul>
 
@@ -31,3 +25,19 @@
   </nav>
 
 </div>
+
+<nav class="header-small">
+
+  <section class="left-small">
+
+    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+
+  </section>
+   
+  <section class="middle tab-bar-section">
+
+    <h1 class="title"><%= link_to(fa_icon('code', text: t('site.title')), root_path) %></h1>
+
+  </section>
+
+</nav>

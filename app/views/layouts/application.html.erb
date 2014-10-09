@@ -13,30 +13,40 @@
   </head>
 
   <body>
+    
+    <div class="off-canvas-wrap" data-offcanvas>
+
+      <div class="inner-wrap">
+
+        <%= render 'layouts/sidemenu' %>
+
+        <section role="page">
+        
+          <header>
+        
+            <%= render 'layouts/header' %>
   
-    <header>
+          </header>
 
-    <%= render 'layouts/header' %>
-
-    </header>
-
-    <section id="wrapper" role="document">
-
-      <div class="top-buffer"></div>
-
-      <div class="container">
-
-        <%= yield %>
-
+          <section class="content-wrap" role="document">
+  
+            <div class="top-buffer"></div>
+  
+            <%= yield %>
+      
+          </section>
+          
+          <footer id="footer">
+  
+            <%= render 'layouts/footer' %>
+      
+          </footer>
+        
+        </section>
+    
       </div>
 
-    </section>
-
-    <footer id="footer">
-
-      <%= render 'layouts/footer' %>
-
-    </footer>
+    </div>
 
   </body>
 </html>
