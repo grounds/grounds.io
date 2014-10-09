@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Ground Sharing' do
+feature 'Ground Sharing' do
   include GroundSupport
   
   let(:storage) { $redis }
@@ -12,20 +12,20 @@ describe 'Ground Sharing' do
       share
     end
 
-    it 'has a link to this ground shared url', js: :true do
+    scenario 'has a link to this ground shared url', js: :true do
       expect(shared_url).not_to be_empty
     end
 
-    it 'has a visible link to this ground shared url', js: :true do
+    scenario 'has a visible link to this ground shared url', js: :true do
       expect(shared_url_visible?).to be true
     end
     
-    it 'has focus on this visible link', js: :true do
+    scenario 'has focus on this visible link', js: :true do
       expect(shared_url_has_focus?).to be true
     end
 
     context 'when selecting another language' do
-      it 'has no visible link to this ground shared url', js: :true do
+      scenario 'has no visible link to this ground shared url', js: :true do
         show_dropdown('language')
         select_option('language', 'golang')
         expect(shared_url_not_visible?).to be true
@@ -33,7 +33,7 @@ describe 'Ground Sharing' do
     end
 
     context 'when typing inside the code editor' do
-      it 'has no visible link to this ground shared url', js: :true do
+      scenario 'has no visible link to this ground shared url', js: :true do
         type_inside_editor
         expect(shared_url_not_visible?).to be true
       end
@@ -46,24 +46,24 @@ describe 'Ground Sharing' do
       visit(ground_shared_path(ground))
     end
 
-    it 'has code editor content equal to ground code', js: :true do
+    scenario 'has code editor content equal to ground code', js: :true do
       expect(editor_content).to eq(ground.code)
     end
 
-    it 'has selected language label equal to shared ground language label' do
+    scenario 'has selected language label equal to shared ground language label' do
       selected = selected_label('language')
       shared = label('language', ground.language)
       expect(selected).to eq(shared)
     end
 
-    it 'will share the same url', js: :true do
+    scenario 'will share the same url', js: :true do
       share
       expect(URI(shared_url).path).to eq(ground_shared_path(ground))
     end
   end
 
   context 'when visiting a non-existent shared ground' do
-    it 'raises an error' do
+    scenario 'raises an error' do
       expect { visit(ground_shared_path(0)) }.to raise_error
     end
   end

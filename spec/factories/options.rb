@@ -1,4 +1,4 @@
-TestOptionsTable = [
+TestOptions = [
   ['language', 'golang'],
   ['language', 'python2'],
 

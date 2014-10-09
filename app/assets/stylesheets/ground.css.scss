@@ -157,15 +157,18 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .menu-icon span::after {
-    box-shadow: 0 0px 0 1px $primary-hover-color, 
-                0 7px 0 1px $primary-hover-color,
-                0 14px 0 1px $primary-hover-color;
+      box-shadow: 0 0px 0 1px $primary-hover-color, 
+                  0 7px 0 1px $primary-hover-color,
+                  0 14px 0 1px $primary-hover-color;
   }
 
   @include border(bottom);
 }
 
-
+.header-small-section {
+  @extend .tab-bar-section;
+  @extend .middle;
+}
 
 .left-small {
   @extend .left-small;
