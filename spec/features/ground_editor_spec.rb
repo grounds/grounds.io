@@ -22,8 +22,7 @@ feature 'Ground Editor' do
     
     scenario 'initializes code editor options from default option', js: :true do
       options.each do |option, _|
-        verified = verify_editor_option?(option, default_code(option))
-        expect(verified).to be true
+        expect(verify_editor_option?(option, default_code(option))).to be true
       end
     end
   end
@@ -41,8 +40,7 @@ feature 'Ground Editor' do
       options.each do |option, code|
         set_session(option, code)
         refresh
-        verified = verify_editor_option?(option, code)
-        expect(verified).to be true
+        expect(verify_editor_option?(option, code)).to be true
       end
     end
   end
@@ -56,12 +54,11 @@ feature 'Ground Editor' do
       end
     end
     
-    scenario 'update code editor option', js: :true do
+    scenario 'updates code editor option', js: :true do
       options.each do |option, code|
         show_dropdown(option)
         select_option(option, code)
-        verified = verify_editor_option?(option, code)
-        expect(verified).to be true
+        expect(verify_editor_option?(option, code)).to be true
       end
     end
 
@@ -82,6 +79,8 @@ feature 'Ground Editor' do
     end
   end
   
+  private
+  
   def verify_editor_option?(option, code)
     send("verify_editor_#{option}?", code)
   end
@@ -99,12 +98,13 @@ feature 'Ground Editor' do
   def verify_editor_indent?(indent)
     use_soft_tabs = indent == 'tab' ? false : true
     tab_size = indent == 'tab' ? 8 : indent.to_i
+
     editor_use_soft_tabs? == use_soft_tabs &&
     editor_tab_size == tab_size
   end
   
   def verify_editor_keyboard?(keyboard)
-    keyboard = keyboard == 'ace' ? '' : keyboard
+    keyboard = '' if keyboard == 'ace'
     editor_keyboard == keyboard
   end
 end

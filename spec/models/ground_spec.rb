@@ -70,7 +70,7 @@ describe Ground do
     end
   end
 
-  context 'when not already saved' do
+  context 'when not saved' do
     it 'has no id' do
       expect(ground.id).to be_nil
     end
