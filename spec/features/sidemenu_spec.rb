@@ -16,7 +16,21 @@ feature 'Sidemenu' do
   
   MenuExternalLinks.each do |name, url|
     scenario "has an external link to #{name}" do
-      expect(header).to have_selector(ext_url_selector(url))
+      expect(header).to have_external_url(url)
+    end
+  end
+  
+  context 'when opened', js: true do
+    before(:each) do
+      reduce_screen
+      open_sidemenu
+    end
+    
+    scenario 'can be closed' do
+      close_sidemenu
+      within(:css, selectors[:header_small]) do
+        expect(page).to have_sidemenu_open(false)
+      end
     end
   end
 end

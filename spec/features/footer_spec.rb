@@ -16,7 +16,7 @@ feature 'Footer' do
   
   FooterExternalLinks.each do |name, url|
     scenario "has an external link to #{name}" do
-      expect(footer).to have_selector(ext_url_selector(url))
+      expect(footer).to have_external_url(url)
     end
   end
 end

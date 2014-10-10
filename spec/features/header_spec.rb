@@ -21,13 +21,13 @@ feature 'Header' do
   
   MenuExternalLinks.each do |name, url|
     scenario "has an external link to #{name}" do
-      expect(header).to have_selector(ext_url_selector(url))
+      expect(header).to have_external_url(url)
     end
   end
   
   context "when user's screen is small", js: true do
     before(:each) do
-      page.driver.resize(320, 320)
+      reduce_screen
     end
 
     scenario 'has a link to site root' do
@@ -35,8 +35,11 @@ feature 'Header' do
       expect(current_path).to eq(root_path)
     end
     
-    scenario 'has a button to open the sidemenu' do
-      
+    scenario 'clicking on the left button open the side menu' do
+      click_sidemenu_button
+      within(:css, selectors[:header_small]) do
+        expect(page).to have_sidemenu_open(true)
+      end
     end
   end
 end
