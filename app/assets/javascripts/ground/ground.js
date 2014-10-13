@@ -1,7 +1,7 @@
 function Ground(editor, language, theme, indent, keyboard) {
-    this._editor = editor;
+    this.editor = editor;
 
-    this._editor.getSession().setUseWorker(false);
+    this.editor.getSession().setUseWorker(false);
 
     if (this.getCode() !== '')
         this.setLanguage(language, true);
@@ -14,42 +14,42 @@ function Ground(editor, language, theme, indent, keyboard) {
 }
 
 Ground.prototype.getCode = function () {
-    return this._editor.getValue();
+    return this.editor.getValue();
 };
 
 Ground.prototype.getLanguage = function () {
-    return this._language;
+    return this.language;
 };
 
 Ground.prototype.setCursor = function (cursor) {
-    var lastLine = this._editor.session.getLength();
-    this._editor.gotoLine(lastLine);
-    this._editor.focus();
+    var lastLine = this.editor.session.getLength();
+    this.editor.gotoLine(lastLine);
+    this.editor.focus();
 };
 
 Ground.prototype.setCode = function (code) {
-    this._editor.setValue(code);
-}
+    this.editor.setValue(code);
+};
 
 Ground.prototype.setLanguage = function (language, withoutSample) {
-    this._language = language;
-    this._editor.getSession().setMode('ace/mode/' + utils.getMode(language));
+    this.language = language;
+    this.editor.getSession().setMode('ace/mode/' + utils.getMode(language));
     if (!withoutSample)
         this.setCode(utils.getSample(language));
     this.setCursor();
 };
 
 Ground.prototype.setTheme = function (theme) {
-    this._editor.setTheme('ace/theme/' + theme);
+    this.editor.setTheme('ace/theme/' + theme);
 };
 
 Ground.prototype.setIndent = function (indent) {
     if (indent == 'tab') {
-        this._editor.getSession().setUseSoftTabs(false);
-        this._editor.getSession().setTabSize(8);
+        this.editor.getSession().setUseSoftTabs(false);
+        this.editor.getSession().setTabSize(8);
     } else {
-        this._editor.getSession().setUseSoftTabs(true);
-        this._editor.getSession().setTabSize(indent);
+        this.editor.getSession().setUseSoftTabs(true);
+        this.editor.getSession().setTabSize(indent);
     }
 };
 
@@ -59,7 +59,7 @@ Ground.prototype.setKeyboard = function (keyboard) {
     if (keyboard !== 'ace') {
         keyboardHandler = 'ace/keyboard/' + keyboard;
     }
-    this._editor.setKeyboardHandler(keyboardHandler);
+    this.editor.setKeyboardHandler(keyboardHandler);
 };
 
 Ground.prototype.set = function (option, code) {
@@ -77,4 +77,4 @@ Ground.prototype.set = function (option, code) {
             this.setKeyboard(code);
             break;
     }
-}
+};
