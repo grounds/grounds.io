@@ -66,9 +66,7 @@ namespace :clean do
 end
 
 def container_delete(name)
-  if container_exist?(name)
-    sh "docker rm -f #{name}"
-  end
+  sh "docker rm -f #{name}" if container_exist?(name)
 end
 
 def container_exist?(name)

@@ -13,13 +13,9 @@
 
   <div class="editor-heading">
   
-    <%= render 'option_dropdown', option: :language %>
-  
-    <%= render 'option_dropdown', option: :theme %>
-  
-    <%= render 'option_dropdown', option: :indent %>
-  
-    <%= render 'option_dropdown', option: :keyboard %>
+    <% [:language, :theme, :indent, :keyboard].each do |option| %>
+       <%= render 'option_dropdown', option: option %>
+    <% end %>
   
     <%= button_tag(type: 'button', id: :share, class: 'button') do
       content_tag(:strong, fa_icon('share', text: t('editor.share')))
