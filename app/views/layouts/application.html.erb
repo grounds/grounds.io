@@ -7,31 +7,40 @@
     <title><%= content_for?(:title) ? yield(:title) : t('site.title') %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'modernizr' %>
     <%= csrf_meta_tag %>
   </head>
 
-  <header>
-
-    <%= render 'layouts/header' %>
-
-  </header>
-
   <body>
 
-    <section id="wrapper" role="document">
+    <section class="off-canvas-wrap" data-offcanvas>
 
-      <div class="top-buffer"></div>
-      <%= yield %>
+      <section class="inner-wrap">
+
+        <%= render 'layouts/sidemenu' %>
+
+        <section class="main-content" role="page">
+        
+          <header>
+        
+            <%= render 'layouts/header' %>
+  
+          </header>
+
+          <%= yield %>
+          
+          <footer>
+  
+            <%= render 'layouts/footer' %>
+      
+          </footer>
+        
+        </section>
+    
+      </section>
 
     </section>
-
-    <footer id="footer">
-
-      <%= render 'layouts/footer' %>
-
-    </footer>
 
   </body>
 </html>

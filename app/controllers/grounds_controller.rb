@@ -22,7 +22,7 @@ class GroundsController < ApplicationController
 
   def switch_option
     option, code = params[:option], params[:code]
-    if option.present? && code.present? && GroundEditor.has_option?(option, code)
+    if GroundEditor.has_option?(option, code)
       session[option] = code
       render json: {}
     else

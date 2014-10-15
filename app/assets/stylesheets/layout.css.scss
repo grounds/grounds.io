@@ -1,0 +1,107 @@
+.menu-link {
+  color: $font-color;
+  
+  &:hover {
+    color: $link-hover-color;
+  }
+  &:focus {
+    color: $link-hover-color;
+  }
+}
+
+header {
+  @extend .bottom-buffer;
+}
+
+.header {
+  @extend .top-bar;
+  @extend .hide-for-small;
+
+  background-color: $primary-color;
+  padding-bottom: 1px;
+
+  .name h1 a {
+    @extend .menu-link;
+  }
+
+  .header-section li:not(.has-form) a:not(.button) {
+    background-color: $primary-color;
+    @extend .menu-link;
+  }
+}
+
+.header-section {
+  @extend .top-bar-section;
+}
+
+.header-small {
+  @extend .tab-bar;
+  @extend .show-for-small;
+
+  background-color: $primary-color;
+  
+  h1 a {
+    @extend .menu-link;
+    
+    font-weight: normal;
+    font-size: rem-calc(16);
+  }
+  
+  .menu-icon span::after {
+      box-shadow: 0 0px 0 1px $primary-hover-color, 
+                  0 7px 0 1px $primary-hover-color,
+                  0 14px 0 1px $primary-hover-color;
+  }
+
+  @include border(bottom);
+}
+
+.header-small-section {
+  @extend .tab-bar-section;
+  @extend .middle;
+}
+
+.footer-content {
+  @extend .top-buffer;
+  @extend .row;
+  
+  @include border(top);
+
+  color: $font-color;
+  padding-top: rem-calc(20);
+
+  .footer-title {
+    @extend .row;
+    @extend .text-center;
+    
+    .icon-heart {
+      color: red;
+    }
+  }
+}
+
+.footer-links {
+  @extend .text-center;
+
+  font-size: rem-calc(12);
+  margin: 0px auto;
+  list-style-type: none;
+      
+  li {
+    display: inline-block;
+    padding-left: 10px;
+      
+    a {
+      @extend .menu-link;  
+      
+      color: $link-hover-color;
+  
+      &:hover {
+        color: $font-color;
+      }
+      &:focus {
+        color: $font-color;
+      }
+    }
+  }
+}

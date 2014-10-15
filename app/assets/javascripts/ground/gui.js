@@ -1,6 +1,6 @@
 function GUI(ground, client) {
-    this._ground = ground;
-    this._client = client;
+    this.ground = ground;
+    this.client = client;
 
     this.sharedURL = $('#sharedURL').hide();
 
@@ -51,18 +51,18 @@ GUI.prototype.scrollToTop = function() {
 };
 
 GUI.prototype.switchToSelectedOption = function(option, link) {
-    var code = link.data(option);
-    var label = link.text();
+    var code = link.data(option),
+        label = link.text();
 
-    this._ground.set(option, code);
+    this.ground.set(option, code);
     this.dropdownUpdate(option, label);
 };
 
 GUI.prototype.bindEvents = function() {
     var self = this;
     this.button.share.on('click', function(event) {
-        var language = self._ground.getLanguage();
-        var code = self._ground.getCode();
+        var language = self.ground.getLanguage(),
+            code = self.ground.getCode();
       
         self.submitShareFormWith(language, code);
     });
@@ -70,15 +70,15 @@ GUI.prototype.bindEvents = function() {
     this.button.run.on('click', function(event) {
         self.disableRunButtonFor(500);
 
-        var language = self._ground.getLanguage();
-        var code = self._ground.getCode();
+        var language = self.ground.getLanguage(),
+            code = self.ground.getCode();
 
-        self._client.send('run', { language: language, code: code });
+        self.client.send('run', { language: language, code: code });
     });
 
     this.button.back.on('click', function(event) {
         self.scrollToTop();
-        self._ground._editor.focus(); 
+        self.ground.editor.focus(); 
     });
 
     $.each(this.link, function(language, link) {
@@ -91,7 +91,7 @@ GUI.prototype.bindEvents = function() {
         self.sharedURL.val(response.shared_url).show().focus().select();
     });
 
-    this._ground._editor.on('input', function() {
+    this.ground.editor.on('input', function() {
         self.sharedURL.hide();
     });
 };

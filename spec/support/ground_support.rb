@@ -1,5 +1,5 @@
 module GroundSupport
-  EDITOR = 'ground._editor'
+  EDITOR = 'ground.editor'
 
   def refresh
     visit(ground_show_path)

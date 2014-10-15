@@ -9,57 +9,49 @@
 
 <% end %>
 
-<div class="row editor-header">
+<div class="row">
 
-  <div class="large-12 column">
-
-    <%= render 'option_dropdown', option: :language %>
-
-    <%= render 'option_dropdown', option: :theme %>
-
-    <%= render 'option_dropdown', option: :indent %>
-
-    <%= render 'option_dropdown', option: :keyboard %>
-
-    <%= button_tag(type: 'button', id: :share, class: 'tiny button radius') do
+  <div class="editor-heading">
+  
+    <% [:language, :theme, :indent, :keyboard].each do |option| %>
+       <%= render 'option_dropdown', option: option %>
+    <% end %>
+  
+    <%= button_tag(type: 'button', id: :share, class: 'button') do
       content_tag(:strong, fa_icon('share', text: t('editor.share')))
     end %>
-
+  
   </div>
+  
+  <%= content_tag(:div, @ground.code, id: :ground_editor, class: 'editor-body', data: @ground.editor) %>
 
 </div>
 
-<%= content_tag(:div, @ground.code, id: :ground_editor, class: 'row code-editor', data: @ground.editor) %>
+<div class="spaced-row">
 
-<div class="row top-buffer">
-
-  <input name="sharedURL" type="text" id="sharedURL" class="radius">
+  <input name="sharedURL" type="text" id="sharedURL" class="rounded">
   
-  <%= button_tag(type: 'button', id: :run, class: 'tiny button radius') do
+  <%= button_tag(type: 'button', id: :run, class: 'button') do
     content_tag(:strong, fa_icon('play', text: t('editor.run')))
   end %>
 
 </div>
 
-<div class="row console radius top-buffer">
+<div class="console">
 
-  <div class="large-12 column">
+  <h6><%= fa_icon('terminal', text: t('editor.console')) %></h6>
 
-    <h6><%= fa_icon('terminal', text: t('editor.console')) %></h6>
+  <pre id="waiting" class="waiting" hidden="true"><%= t('editor.waiting') %></pre>
 
-    <pre id="waiting" class="waiting" hidden="true"><%= t('editor.waiting') %></pre>
+  <pre id="connect_error" class="stderr" hidden="true"><%= t('editor.error.connect') %></pre>
 
-    <pre id="connect_error" class="stderr" hidden="true"><%= t('editor.error.connect') %></pre>
-
-    <pre id="output"></pre>
-
-  </div>
+  <pre id="output"></pre>
 
 </div>
 
-<div class="row top-buffer">
+<div class="spaced-row">
 
-  <%= button_tag(type: 'button', id: :back, class: 'tiny button radius') do
+  <%= button_tag(type: 'button', id: :back, class: 'button') do
     content_tag(:strong, fa_icon('long-arrow-up', text: t('editor.back')))
   end %>
 
