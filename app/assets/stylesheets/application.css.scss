@@ -1,2 +1,112 @@
 @import "vendor_application";
-@import "ground";
+
+$buffer: rem-calc(20);
+$primary-color: #f2f2f2;
+$primary-light-color: adjust-color($primary-color, $lightness: 5%);
+$primary-hover-color: adjust-color($primary-color, $lightness: -15%);
+$primary-active-color: adjust-color($primary-color, $lightness: -25%);
+$error-color: #c60f13;
+$border-color: #DDD;
+$font-color: #333;
+$link-hover-color: #4183c4;
+
+.top-buffer    { margin-top:    $buffer }
+.bottom-buffer { margin-bottom: $buffer }
+
+@mixin border($sides: left top right bottom, $width: 1px, $color: $border-color, $style: solid) {
+  @each $side in $sides {
+    border-#{$side}: $width $color $style;
+  }
+}
+
+a {
+  @extend a;
+  color: $link-hover-color;
+  
+  &:hover {
+    color: adjust-color($link-hover-color, $lightness: 8%);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $font-color;
+}
+
+.rounded {
+  @extend .radius;
+}
+
+.button {
+  @extend .button.secondary;
+  @extend .rounded;
+
+  @include border;
+
+  margin: 0;
+  
+  &:hover {
+    background-color: $primary-hover-color;
+  }
+  &:focus {
+    background-color: $primary-active-color;
+  }
+}
+
+.button {
+  @extend .button;
+  @extend .tiny;
+}
+
+.dropdown {
+  @extend .button;
+  background-color: $primary-light-color;
+  color: $font-color;
+  &.tiny {
+    &:after {
+      border-color: $font-color transparent transparent transparent;
+    }
+  }
+}
+
+.dropdown-items {
+  @extend .f-dropdown;
+}
+
+
+.row {
+  @extend .row;
+}
+
+.spaced-row {
+  @extend .row;
+  @extend .top-buffer;
+}
+
+.grid-sized {
+  @extend .contain-to-grid;
+  background-color: $primary-color;
+  @include border(bottom);
+}
+
+.left-small {
+  @extend .left-small;
+  
+  @include border(right);
+}
+
+.rounded-img {
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px $border-color;
+  @include border($width: 5px, $color: $primary-color);
+}
+
+.medium-panel {
+  @extend .large-8;
+  @extend .large-centered;
+  @extend .column;
+  @extend .panel;
+  @extend .radius
+}
+
+@import "layout";
+@import "editor";

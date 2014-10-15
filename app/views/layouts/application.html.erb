@@ -13,14 +13,14 @@
   </head>
 
   <body>
-    
-    <div class="off-canvas-wrap" data-offcanvas>
 
-      <div class="inner-wrap">
+    <section class="off-canvas-wrap" data-offcanvas>
+
+      <section class="inner-wrap">
 
         <%= render 'layouts/sidemenu' %>
 
-        <section role="page">
+        <section class="main-content" role="page">
         
           <header>
         
@@ -28,15 +28,9 @@
   
           </header>
 
-          <section class="content-wrap" role="document">
-  
-            <div class="top-buffer"></div>
-  
-            <%= yield %>
-      
-          </section>
+          <%= yield %>
           
-          <footer id="footer">
+          <footer>
   
             <%= render 'layouts/footer' %>
       
@@ -44,9 +38,9 @@
         
         </section>
     
-      </div>
+      </section>
 
-    </div>
+    </section>
 
   </body>
 </html>

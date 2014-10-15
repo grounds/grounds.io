@@ -1,0 +1,29 @@
+.editor-heading {
+  background-color: $primary-color;
+  border-radius: 3px 3px 0 0;
+  padding: rem-calc(10) rem-calc(10);
+  @include border(left top right);
+}
+
+.editor-body {
+  height: rem-calc(400);
+  border-radius: 0 0 3px 3px; 
+  @include border;
+}
+
+.console {
+  @extend .panel;
+  @extend .row;
+  @extend .rounded;
+  @extend .top-buffer;
+
+  .waiting {
+    color: $link-hover-color;
+  }
+  .stderr {
+    color: $error-color;
+  }
+  .status {
+    color: green;
+  }
+}
