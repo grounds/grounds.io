@@ -1,5 +1,5 @@
 class GroundDecorator < BaseDecorator
-  def editor
+  def data_attributes
     {
       theme: h.session[:theme] ||= default(:theme),
       indent: h.session[:indent] ||= default(:indent),
@@ -10,20 +10,20 @@ class GroundDecorator < BaseDecorator
   end
   
   def options(option)
-    geditor.options(option)
+    editor.options(option)
   end
   
   def selected_label(option)
-    geditor.option(option, editor[option])[:label]
+    editor.option(option, data_attributes[option])[:label]
   end
 
   private
   
   def default(option)
-    geditor.default_option_code(option)
+    editor.default_option_code(option)
   end
   
-  def geditor
-    GroundEditor
+  def editor
+    Editor
   end
 end

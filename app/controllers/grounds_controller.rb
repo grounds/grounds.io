@@ -22,7 +22,7 @@ class GroundsController < ApplicationController
 
   def switch_option
     option, code = params[:option], params[:code]
-    if GroundEditor.has_option?(option, code)
+    if Editor.has_option?(option, code)
       session[option] = code
       render json: {}
     else
@@ -37,6 +37,6 @@ class GroundsController < ApplicationController
   end
   
   def selected_language
-    session[:language] || GroundEditor.default_option_code(:language)
+    session[:language] || Editor.default_option_code(:language)
   end
 end

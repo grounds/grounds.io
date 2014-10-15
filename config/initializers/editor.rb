@@ -1,6 +1,6 @@
 require 'yaml'
 
-module GroundEditor
+module Editor
   extend self
 
   config = YAML.load_file("#{Rails.root}/config/editor.yml")

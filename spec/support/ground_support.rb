@@ -103,20 +103,20 @@ module GroundSupport
   end
   
   def default_code(option)
-    geditor.default_option_code(option)
+    editor.default_option_code(option)
   end
   
   def default_label(option)
-    geditor.default_option_label(option)
+    editor.default_option_label(option)
   end
 
   def label(option, code)
-    geditor.option(option, code)[:label]
+    editor.option(option, code)[:label]
   end
   
   private
   
-  def geditor
-    GroundEditor
+  def editor
+    Editor
   end
 end
