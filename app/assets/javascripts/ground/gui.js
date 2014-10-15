@@ -16,11 +16,11 @@ function GUI(ground, client) {
         language: $('#ground_language'),
     };
 
-    this.link = {
-        language: $('.language-link'),
-        theme: $('.theme-link'),
-        indent: $('.indent-link'),
-        keyboard: $('.keyboard-link'),
+    this.options = {
+        language: $('.language-selection'),
+        theme: $('.theme-selection'),
+        indent: $('.indent-selection'),
+        keyboard: $('.keyboard-selection'),
     }
 
     this.bindEvents();
@@ -50,9 +50,9 @@ GUI.prototype.scrollToTop = function() {
     $('body').animate({scrollTop: 0}, 'fast');
 };
 
-GUI.prototype.switchToSelectedOption = function(option, link) {
-    var code = link.data(option),
-        label = link.text();
+GUI.prototype.switchToSelectedOption = function(option, selected) {
+    var code = selected.data(option),
+        label = selected.text();
 
     this.ground.set(option, code);
     this.dropdownUpdate(option, label);
@@ -81,9 +81,9 @@ GUI.prototype.bindEvents = function() {
         self.ground.editor.focus(); 
     });
 
-    $.each(this.link, function(language, link) {
-        link.on('click', function(event, date) {
-            self.switchToSelectedOption(language, $(this));
+    $.each(this.options, function(option, selection) {
+        selection.on('click', function(event, date) {
+            self.switchToSelectedOption(option, $(this));
         });
     });
 
