@@ -35,7 +35,7 @@ as the CI server.
 ## Contributing
 
 Before sending a pull request, please checkout the contributing
-[guidelines](https://github.com/grounds/grounds-exec/blob/master/docs/CONTRIBUTING.md).
+[guidelines](CONTRIBUTING.md).
 
 ## Licensing
 
