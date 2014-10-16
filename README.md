@@ -6,7 +6,7 @@ This project is the web application behind [Grounds](http://beta.42grounds.io).
 `Grounds` aims to provide a way to share runnable snippets within various languages inside a web browser.
 
 All you need is `docker` and `rake` to run this project inside
-`docker`containers with the same environment used in production.
+`docker`containers with the same environment as in production.
 
 `Grounds` uses a `socket.io` server to execute arbitrary code inside `docker` containers, called `grounds-exec`. `grounds-exec` has its own repository
 [here](https://github.com/grounds/grounds-exec).
@@ -28,7 +28,7 @@ e.g. With `boot2docker` on `darwin`:
 ## Tests
 
 Tests will also run inside `docker` containers with the same environment
-used by the CI server.
+as the CI server.
 
     rake test
 
