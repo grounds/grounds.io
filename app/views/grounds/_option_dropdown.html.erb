@@ -15,7 +15,9 @@
     <%= link_to(label,
                 ground_switch_option_path(option: "#{option}", code: code),
                 data: { "#{option}" => code },
-                class: "#{option}-link", method: :put, remote: true) %>
+                class: "#{option}-selection",
+                method: :put,
+                remote: true) %>
 
     </li>
 
