@@ -1,29 +1,71 @@
 var utils = {
     getMode: function(language) {
-        return this._getFor(language, 1);
+        return this.samples[language].mode;
     },
     
     getSample: function(language) {
-        return this._getFor(language, 2);
+        return this.samples[language].code.join('\n');
     },
     
-    _getFor: function(language, key) {
-        var value = '';
-        this._samples.forEach(function(sample) { 
-            if (sample[0] == language) value = sample[key]; 
-        });
-        return value;
-    },
-  
-    _samples: [
-        // Code - Mode - Sample
-        ['ruby', 'ruby', 'puts "Hello world"'],
-        ['golang', 'golang', 'package main\r\n\r\nimport "fmt"\r\n\r\nfunc main() {\r\n\tfmt.Println("Hello world")\r\n}'],
-        ['python2', 'python', 'print "Hello World"'],
-        ['python3', 'python', 'print("Hello World")'],
-        ['c', 'c_cpp', '#include <stdio.h>\r\n\r\nint main()\r\n{\r\n\tprintf("Hello World\\n");\r\n\treturn 0;\r\n}'],
-        ['cpp', 'c_cpp', '#include <iostream>\r\n\r\nint main()\r\n{\r\n\tstd::cout << "Hello World\\n";\r\n\treturn 0;\r\n}'],
-        ['csharp', 'csharp', 'using System;\r\n\r\nclass Program\r\n{\r\n\tstatic void Main(string[] args)\r\n\t{\r\n\t\tConsole.WriteLine("Hello world");\r\n\t}\r\n}'],
-        ['php', 'php', '<?php\r\n\r\nprint("Hello world\\n");']
-    ]
+    samples: {}
 };
+
+utils.samples['ruby'] = { mode: 'ruby', code: [
+'puts "Hello world"'
+]};
+
+utils.samples['golang'] = { mode: 'golang', code: [
+'package main',
+'',
+'import "fmt"',
+'',
+'func main() {',
+'	fmt.Println("Hello world")',
+'}'
+]};
+
+utils.samples['python2'] = { mode: 'python', code: [
+'print "Hello world"'
+]};
+
+utils.samples['python3'] = { mode: 'python', code: [
+'print("Hello World")'
+]};
+
+utils.samples['c'] = { mode: 'c_cpp', code: [
+'#include <stdio.h>',
+'',
+'int main()',
+'{',
+'	printf("Hello World\n");',
+'	return 0;',
+'}'
+]};
+
+utils.samples['cpp'] = { mode: 'c_cpp', code: [
+'#include <iostream>',
+'',
+'int main()',
+'{',
+'	std::cout << "Hello World\n";',
+'	return 0;',
+'}'
+]};
+
+utils.samples['csharp'] = { mode: 'csharp', code: [
+'using System;',
+'',
+'class Program',
+'{',
+'	static void Main(string[] args)',
+'	{',
+'		Console.WriteLine("Hello world");',
+'	}',
+'}'
+]};
+
+utils.samples['php'] = { mode: 'php', code: [
+'<?php',
+'',
+'print("Hello world\n");'
+]};
