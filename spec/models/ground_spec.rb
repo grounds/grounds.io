@@ -1,15 +1,9 @@
 require 'spec_helper'
 
 describe Ground do
-  context 'when language is specified' do
-    let(:model) { FactoryGirl.build(:ground) }
-    
-    it_behaves_like 'a valid redis model'
-  end
+  it { should validate_presence_of(:language) }
 
-  context 'when language is not specified' do
-    let(:model) { FactoryGirl.build(:invalid_ground) }
+  subject { FactoryGirl.build(:ground) }
 
-    it_behaves_like 'an invalid redis model'
-  end
+  it_behaves_like 'a redis model'
 end
