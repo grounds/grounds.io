@@ -3,7 +3,7 @@ require 'mock_redis'
 
 shared_examples_for 'a redis model' do
   before(:each) do
-    subject.stub(:valid?).and_return(true)
+    allow(subject).to receive(:valid?).and_return(true)
   end
   
   it 'is convertible to an hash' do
@@ -13,6 +13,24 @@ shared_examples_for 'a redis model' do
   context 'when already saved' do
     before(:each) do
       subject.save
+    end
+    
+    it 'has an id' do
+      expect(subject.id).not_to be_nil
+    end
+
+    it 'is persistent' do
+      expect(subject).to be_persisted
+    end
+
+    it 'can be found by its id' do
+      expected = described_class.find(subject.id)
+      expect(subject.attributes).to eq(expected.attributes)
+    end
+
+    it 'is destroyable' do
+      subject.destroy
+      expect(subject).not_to be_persisted
     end
 
     context 'when saved again' do
@@ -34,20 +52,6 @@ shared_examples_for 'a redis model' do
         end
       end
     end
-
-    it 'is persistent' do
-      expect(subject).to be_persisted
-    end
-
-    it 'can be found by its id' do
-      expected = described_class.find(subject.id)
-      expect(subject.attributes).to eq(expected.attributes)
-    end
-
-    it 'is destroyable' do
-      subject.destroy
-      expect(subject).not_to be_persisted
-    end
   end
   
   context 'when not saved' do
@@ -66,7 +70,7 @@ shared_examples_for 'a redis model' do
   
   context 'when invalid' do
     before(:each) do
-      subject.stub(:valid?).and_return(false)
+      allow(subject).to receive(:valid?).and_return(false)
     end
   
     it "can't be saved" do
