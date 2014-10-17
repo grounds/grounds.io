@@ -155,6 +155,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shoulda-matchers (2.7.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     socket.io-rails (1.0.6)
       railties (>= 3.1)
@@ -214,6 +216,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  shoulda-matchers
   socket.io-rails
   spring
   sqlite3

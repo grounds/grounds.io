@@ -29,6 +29,7 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers', require: false
   gem 'rack_session_access'
   gem 'mock_redis'
   gem 'capybara'

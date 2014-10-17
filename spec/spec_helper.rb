@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'shoulda/matchers'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'rack_session_access/capybara'
@@ -33,9 +34,7 @@ RSpec.configure do |config|
 end
 
 Capybara.register_driver :poltergeist do |app|
-    options = {
-      js_errors: true,
-    }
+    options = { js_errors: true }
     Capybara::Poltergeist::Driver.new(app, options)
 end
 
