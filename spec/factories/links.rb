@@ -1,16 +1,10 @@
 MenuLinks = [
-  ['about page', '/about']
-]
-
-MenuExternalLinks = [
-  ['project sources', 'https://github.com/grounds']
+  ['about page', I18n.t('site.about'), '/about'],
+  ['project sources', I18n.t('site.sources'), 'https://github.com/grounds']
 ]
 
 FooterLinks = [
-  ['about page', '/about']
-]
-
-FooterExternalLinks = [
-  ['contact project developers', 'https://github.com/grounds/grounds.io/issues/new'],
-  ['project sources', 'https://github.com/grounds']
+  ['about page', I18n.t('site.about'), '/about'],
+  ['contact project developers', I18n.t('site.contact'), 'https://github.com/grounds/grounds.io/issues/new'],
+  ['project sources', I18n.t('site.sources'), 'https://github.com/grounds']
 ]

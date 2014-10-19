@@ -58,6 +58,12 @@ describe GroundsController do
         expect(response.body).to eq(empty)
       end
     end
+    
+    private
+    
+    def switch_option(option, code)
+      put(:switch_option, option: option, code: code)
+    end
   end
 
   describe '#share' do
@@ -74,10 +80,9 @@ describe GroundsController do
   
       it 'responds with ground shared url' do
         ground.save
-  
-        expected = ground_shared_url(ground)
         shared_url = JSON.parse(response.body)['shared_url']
-        expect(shared_url).to eq(expected)
+
+        expect(shared_url).to eq(ground_shared_url(ground))
       end
     end
 
@@ -92,13 +97,11 @@ describe GroundsController do
         expect(response.body).to eq(empty)
       end
     end
-  end
-
-  def switch_option(option, code)
-    put(:switch_option, option: option, code: code)
-  end
-
-  def share(ground)
-    post(:share, ground: ground.attributes)
+    
+    private
+    
+    def share(ground)
+      post(:share, ground: ground.attributes)
+    end
   end
 end
