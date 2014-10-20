@@ -6,7 +6,7 @@ feature 'Header' do
   end
 
   scenario 'has a link to site root' do
-    has_link_to_site_root
+    expect(header).to have_link(root_title, href: root_path)
   end
   
   MenuLinks.each do |description, name, href|
@@ -23,15 +23,19 @@ feature 'Header' do
     end
 
     scenario 'has a link to site root' do
-      has_link_to_site_root
+      expect(header_small).to have_link(root_title, href: root_path)
     end
   end
   
-  def has_link_to_site_root
-    expect(header).to have_link(I18n.t('site.title'), href: root_path)
+  def header
+    find('.header')
   end
   
-  def header
-    find('header')
+  def header_small
+    find('.header-small')
+  end
+  
+  def root_title
+    I18n.t('site.title')
   end
 end
