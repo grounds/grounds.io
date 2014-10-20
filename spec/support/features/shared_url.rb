@@ -6,7 +6,7 @@ class SharedUrl
   end
 
   def has_focus?
-    return false unless visible?
+    return false if hidden?
     
     evaluate_script('document.activeElement.id') == 'sharedURL'
   end
