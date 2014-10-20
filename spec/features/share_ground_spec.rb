@@ -7,16 +7,16 @@ feature 'Share a ground' do
     ground.visit
     ground.share
   end
-  
-  scenario 'page has a link to this ground shared url', js: :true do
-    expect(ground.shared_url).to have_value
+
+  scenario 'adds to page a shared url to this ground', js: :true do
+    expect(ground.shared_url).not_to be_empty
   end
 
-  scenario 'page has a visible link to this ground shared url', js: :true do
+  scenario 'adds to page a visible link to this shared ground', js: :true do
     expect(ground.shared_url).to be_visible
   end
   
-  scenario 'page has focus on this visible link', js: :true do
+  scenario 'switches focus on a link to this shared ground', js: :true do
     expect(ground.shared_url).to have_focus
   end
 
