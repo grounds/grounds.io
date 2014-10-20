@@ -8,14 +8,13 @@ class CodeEditor
   def has_content?(content)
     evaluate_script("#{js_object}.getValue();") == content
   end
+
+  def has_default_option?(option)
+    has_option?(option, config.default_code(option))
+  end
   
   def has_option?(option, code)
     send("has_#{option}?", code)
-  end
-
-  def has_default_option?(option)
-    code = config.default_code(option)
-    has_option?(option, code)
   end
   
   def has_language?(code)
