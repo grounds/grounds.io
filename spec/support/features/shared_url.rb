@@ -14,11 +14,11 @@ class SharedUrl
   end
 
   def visible?
-    !find('#sharedURL', visible: true).nil?
+    present?(true)
   end
 
   def hidden?
-    !find('#sharedURL', visible: false).nil?
+    present?(false)
   end
   
   def has_path?(path)
@@ -26,6 +26,10 @@ class SharedUrl
   end
 
   private
+  
+  def present?(visible)
+    !find('#sharedURL', visible: visible).nil?
+  end
 
   def value
     find('input[name="sharedURL"]').value
