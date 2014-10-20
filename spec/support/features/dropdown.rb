@@ -2,16 +2,16 @@ class Dropdown < Struct.new(:option)
   include Capybara::DSL
   
   def closed?
-    object['aria-expanded'] == 'false'
+    element['aria-expanded'] == 'false'
   end
   
   def open
-    object.click
+    element.click
   end
   
   private
   
-  def object
+  def element
     find("a[data-dropdown='#{option}-dropdown']")
   end
 end
