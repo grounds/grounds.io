@@ -6,10 +6,13 @@ class SharedUrl
   end
 
   def has_focus?
-    visible?
+    return false unless visible?
     
     evaluate_script('document.activeElement.id') == 'sharedURL'
   end
+
+  # It's mandatory to use find with capybara with the exact selector, in
+  # javascript mode, find waits for the exact element to appear on the page.
 
   def visible?
     !find('#sharedURL', visible: true).nil?
@@ -24,7 +27,7 @@ class SharedUrl
   end
 
   private
-  
+
   def value
     find('input[name="sharedURL"]').value
   end
