@@ -22,6 +22,10 @@ module Editor
     _, label = options(option).first
     label
   end
+  
+  def option_label(option, code)
+    option(option, code)[:label] if has_option?(option, code)
+  end
 
   def option(option, code)
     options = options(option)

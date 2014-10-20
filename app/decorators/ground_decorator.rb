@@ -1,4 +1,6 @@
 class GroundDecorator < BaseDecorator
+  delegate :options, to: :editor
+  
   def data_attributes
     {
       theme: h.session[:theme] ||= default(:theme),
@@ -9,12 +11,8 @@ class GroundDecorator < BaseDecorator
     }
   end
   
-  def options(option)
-    editor.options(option)
-  end
-  
   def selected_label(option)
-    editor.option(option, data_attributes[option])[:label]
+    editor.option_label(option, data_attributes[option])
   end
 
   private
