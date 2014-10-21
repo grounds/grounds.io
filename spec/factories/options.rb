@@ -1,4 +1,4 @@
-TestOptions = [
+GroundOptions = [
   ['language', 'golang'],
   ['language', 'python2'],
 
@@ -11,3 +11,12 @@ TestOptions = [
   ['keyboard', 'vim'],
   ['keyboard', 'ace'],
 ]
+
+options = GroundOptions.map { |option, _| [option] }.uniq.flatten
+
+AllGroundOptions = []
+
+options.each do |option|
+  opts = Editor.options(option).to_a.map { |value| [option].concat(value) }
+  AllGroundOptions.concat(opts)
+end
