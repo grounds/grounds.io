@@ -10,7 +10,7 @@ module Editor
 
   def default_option(option)
     code, label = options(option).first
-    format_option(code, label) if code.present? 
+    format_option(code, label) 
   end
 
   def default_option_code(option)
@@ -24,24 +24,25 @@ module Editor
   end
   
   def option_label(option, code)
-    option(option, code)[:label] if has_option?(option, code)
+    option(option, code)[:label]
   end
 
   def option(option, code)
-    options = options(option)
-    label = options[code]
-    format_option(code, label) if label.present?
+    label = options(option)[code]
+    format_option(code, label)
   end
 
   def options(option)
     method = "__#{option.to_s.pluralize(2)}__"
-    send(method) if respond_to?(method)
+    if respond_to?(method)
+      send(method)
+    else
+      {}
+    end
   end
 
   def has_option?(option, code)
-    options = options(option)
-    return false if options.nil?
-    options.has_key?(code)
+    options(option).has_key?(code)
   end
 
   private
