@@ -54,12 +54,9 @@ Ground.prototype.setIndent = function (indent) {
 };
 
 Ground.prototype.setKeyboard = function (keyboard) {
-    var keyboardHandler = null;
-    
-    if (keyboard !== 'ace') {
-        keyboardHandler = 'ace/keyboard/' + keyboard;
-    }
-    this.editor.setKeyboardHandler(keyboardHandler);
+    var handler = keyboard !== 'ace' && 'ace/keyboard/' + keyboard;
+
+    this.editor.setKeyboardHandler(handler);
 };
 
 Ground.prototype.set = function (option, code) {

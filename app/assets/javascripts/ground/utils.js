@@ -37,7 +37,7 @@ utils.samples['c'] = { mode: 'c_cpp', code: [
 '',
 'int main()',
 '{',
-'	printf("Hello World\n");',
+'	printf("Hello World\\n");',
 '	return 0;',
 '}'
 ]};
@@ -47,7 +47,7 @@ utils.samples['cpp'] = { mode: 'c_cpp', code: [
 '',
 'int main()',
 '{',
-'	std::cout << "Hello World\n";',
+'	std::cout << "Hello World\\n";',
 '	return 0;',
 '}'
 ]};
@@ -67,5 +67,5 @@ utils.samples['csharp'] = { mode: 'csharp', code: [
 utils.samples['php'] = { mode: 'php', code: [
 '<?php',
 '',
-'print("Hello world\n");'
+'print("Hello world\\n");'
 ]};
