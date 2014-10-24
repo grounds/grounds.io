@@ -43,6 +43,11 @@ RUN curl -O http://ftp.ruby-lang.org/pub/ruby/$RUBY_MAJOR/ruby-$RUBY_MINOR.tar.g
 # Install bundler.
 RUN gem install bundler
 
+# Add file for pry history
+RUN mkdir /home/grounds
+RUN touch /home/grounds/.pry_history
+RUN chown -R grounds:grounds /home/grounds
+
 # Copy the Gemfile and Gemfile.lock into the image.
 COPY Gemfile $APP/Gemfile
 COPY Gemfile.lock $APP/Gemfile.lock
@@ -61,9 +66,6 @@ RUN chown -R grounds:grounds $APP
 
 # Set user as grounds.
 USER grounds
-
-# Make the app knows it's running inside a container.
-ENV CONTAINER $HOSTNAME
 
 # Set the final working dir to the Rails app's location.
 WORKDIR /grounds

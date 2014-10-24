@@ -21,18 +21,23 @@ feature 'Share a ground' do
   end
 
   context 'when selecting another language' do
-    scenario 'page has no visible link to this ground shared url', js: :true do
+    before(:each) do
       ground.show_options('language')
       ground.select_option('language', 'golang')
+    end
 
+    scenario 'page has no visible link to this ground shared url', js: :true do      
       expect(ground.shared_url).to be_hidden
     end
   end
 
   context 'when typing inside the code editor' do
-    scenario 'page has no visible link to this ground shared url', js: :true do
+    before(:each) do
       ground.editor_type_inside
+    end
 
+    # FIXME: dry a bit
+    scenario 'page has no visible link to this ground shared url', js: :true do
       expect(ground.shared_url).to be_hidden
     end
   end

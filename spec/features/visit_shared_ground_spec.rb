@@ -9,6 +9,10 @@ feature 'Visit a shared ground' do
     visit(ground_shared_path(shared_ground))
   end
 
+  scenario 'page has no visible link to this ground shared url', js: :true do
+    expect(ground.shared_url).to be_hidden
+  end
+
   scenario 'code editor content is equal to shared ground code', js: :true do
     expect(ground.editor).to have_content(shared_ground.code)
   end

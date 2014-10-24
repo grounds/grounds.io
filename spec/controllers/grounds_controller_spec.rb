@@ -17,14 +17,15 @@ describe GroundsController do
       end
       
       it 'responds with status :bad_request (400)' do
-        expect(response.status).to eq(400)
+        respond_with_status(400)
       end
       
       it 'responds with an empty body' do
         expect(response.body).to eq(empty)
       end
     end
-  
+ 
+   # FIXME: dry a bit 
     context "when option type doesn't exist" do
       let(:option) { 'unknown' }
       let(:code)   { 'ruby' }
@@ -34,7 +35,7 @@ describe GroundsController do
       end
       
       it 'responds with status :bad_request (400)' do
-        expect(response.status).to eq(400)
+        respond_with_status(400)
       end
       
       it 'responds with an empty body' do
@@ -46,20 +47,18 @@ describe GroundsController do
       let(:option) { 'language' }
       let(:code)   { 'ruby' }
 
-      it "saves option in session" do
+      it 'saves option in session' do
         expect(session[option]).to eq(code)
       end
       
       it 'respond with status :ok (200)' do
-        expect(response.status).to eq(200)
+        respond_with_status(200)
       end
       
       it 'responds with an empty body' do
         expect(response.body).to eq(empty)
       end
     end
-    
-    private
     
     def switch_option(option, code)
       put(:switch_option, option: option, code: code)
@@ -71,11 +70,11 @@ describe GroundsController do
       share(ground)
     end
 
-    context 'when sharing an invalid ground' do
+    context 'when sharing a valid ground' do
       let(:ground) { FactoryGirl.build(:ground) }
 
       it 'respond with status :ok (200)' do
-        expect(response.status).to eq(200)
+        respond_with_status(200)
       end
   
       it 'responds with ground shared url' do
@@ -90,7 +89,7 @@ describe GroundsController do
       let(:ground) { FactoryGirl.build(:invalid_ground) }
   
       it 'responds with status :bad_request (400)' do
-        expect(response.status).to eq(400)
+        respond_with_status(400)
       end
   
       it 'responds with an empty body' do
@@ -98,10 +97,12 @@ describe GroundsController do
       end
     end
     
-    private
-    
     def share(ground)
       post(:share, ground: ground.attributes)
     end
+  end
+
+  def respond_with_status(code)
+    expect(response.status).to eq(code)
   end
 end
