@@ -46,9 +46,6 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     diff-lcs (1.2.5)
-    dotenv (1.0.1)
-    dotenv-rails (1.0.1)
-      dotenv (= 1.0.1)
     erubis (2.7.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
@@ -195,7 +192,6 @@ DEPENDENCIES
   ace-rails-ap
   capybara
   coffee-rails (~> 4.0.0)
-  dotenv-rails
   factory_girl_rails
   font-awesome-rails
   foundation-rails

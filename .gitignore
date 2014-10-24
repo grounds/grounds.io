@@ -13,6 +13,7 @@ capybara-*.html
 /public/system/*
 /coverage/
 /spec/tmp/*
+/public/assets/*
 spring/*
 **.orig
 rerun.txt

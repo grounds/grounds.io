@@ -21,7 +21,7 @@ feature 'Sidemenu' do
     end
     
     scenario 'can be opened' do
-     sidemenu.open
+      sidemenu.open
       
       expect(sidemenu).to be_open
     end
