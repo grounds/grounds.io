@@ -19,7 +19,7 @@ pull the official Docker image.
 Grounds requires a redis instance and will automatically spawn a Docker
 container with a new redis instance.
 
-### First pull docker exec images
+### First pull grounds-exec Docker images
 
     make pull
     
