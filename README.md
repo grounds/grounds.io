@@ -27,6 +27,8 @@ If you want to pull those images from your own repository:
     
     REPOSITORY="<you repository>" make pull
 
+### Set `DOCKER_URL`
+
 You need to specify a Docker remote API url to connect with.
 
     export DOCKER_URL="https://127.0.0.1:2375"
