@@ -19,7 +19,6 @@ spring/*
 rerun.txt
 pickle-email-*.html
 .project
-*.sh
 *~
 #*#
 regex
