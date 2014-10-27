@@ -26,9 +26,7 @@ feature 'Share a ground' do
       ground.select_option('language', 'golang')
     end
 
-    scenario 'page has no visible link to this ground shared url', js: :true do      
-      expect(ground.shared_url).to be_hidden
-    end
+    it_behaves_like 'a ground without shared url'
   end
 
   context 'when typing inside the code editor' do
@@ -36,9 +34,6 @@ feature 'Share a ground' do
       ground.editor_type_inside
     end
 
-    # FIXME: dry a bit
-    scenario 'page has no visible link to this ground shared url', js: :true do
-      expect(ground.shared_url).to be_hidden
-    end
+    it_behaves_like 'a ground without shared url'
   end
 end
