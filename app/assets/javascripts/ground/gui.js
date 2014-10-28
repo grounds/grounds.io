@@ -81,8 +81,8 @@ GUI.prototype.bindEvents = function() {
         self.ground.editor.focus(); 
     });
 
-    $.each(this.options, function(option, selection) {
-        selection.on('click', function(event, date) {
+    $.each(this.options, function(option, code) {
+        code.on('click', function(event, date) {
             self.switchToSelectedOption(option, $(this));
         });
     });
