@@ -5,10 +5,10 @@ This project is the web application behind [Grounds](http://beta.42grounds.io).
 
 Grounds aims to provide a way to share runnable snippets within various languages from a web browser.
 
-Grounds is using a socket.io server to execute arbitrary code inside Docker containers, called grounds-exec.
-grounds-exec has its own repository [here](https://github.com/grounds/grounds-exec).
+Grounds is using a [socket.io](http://socket.io/) server to execute arbitrary code inside Docker
+containers, called grounds-exec. grounds-exec has its own repository [here](https://github.com/grounds/grounds-exec).
 
-All you need is Docker >= 1.3, fig >= 1.0 and make to run this project inside
+All you need is `Docker >= 1.3`, `Fig >= 1.0` and `make` to run this project inside
 Docker containers with the same environment as in production.
 
 ## Web application
@@ -23,7 +23,7 @@ container with a new redis instance.
 
     make pull
     
-If you want to pull those images from your own repository:
+If you want to pull these images from your own repository:
     
     REPOSITORY="<you repository>" make pull
 
@@ -33,7 +33,7 @@ You need to specify a Docker remote API url to connect with.
 
     export DOCKER_URL="https://127.0.0.1:2375"
 
-Nb: If your are using docker API through `https`, your `DOCKER_CERT_PATH` will be
+Nb: If your are using Docker API through `https`, your `DOCKER_CERT_PATH` will be
 mounted has a volume inside the container.
 
 Be careful: boot2docker enforces tls verification since version 1.3.
