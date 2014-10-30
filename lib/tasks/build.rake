@@ -9,7 +9,7 @@ task :run => :environment do
   end
   sh <<-EOF
   REDIS_URL=#{redis_url} \
-  WEBSOCKET_URL=#{grounds_exec_url} \
+  RUNNER_URL=#{grounds_exec_url} \
   bundle exec rails server -p #{RAILS_PORT}
   EOF
 end
@@ -23,7 +23,7 @@ def production?
 end
 
 def grounds_exec_url
-  return ENV['WEBSOCKET_URL'] if ENV['WEBSOCKET_URL'].present?
+  return ENV['RUNNER_URL'] if ENV['RUNNER_URL'].present?
 
   if ENV['DOCKER_URL'].present?
     uri = URI.parse(ENV['DOCKER_URL'])

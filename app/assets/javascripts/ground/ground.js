@@ -1,16 +1,16 @@
-function Ground(editor, language, theme, indent, keyboard) {
-    this.editor = editor;
+function Ground(params) {
+    this.editor = params.editor;
 
     this.editor.getSession().setUseWorker(false);
 
     if (this.getCode() !== '')
-        this.setLanguage(language, true);
+        this.setLanguage(params.language, true);
     else
-        this.setLanguage(language);
+        this.setLanguage(params.language);
 
-    this.setTheme(theme);
-    this.setIndent(indent);
-    this.setKeyboard(keyboard);
+    this.setTheme(params.theme);
+    this.setIndent(params.indent);
+    this.setKeyboard(params.keyboard);
 }
 
 Ground.prototype.getCode = function () {

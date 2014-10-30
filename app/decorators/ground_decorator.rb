@@ -7,7 +7,7 @@ class GroundDecorator < BaseDecorator
       indent: h.session[:indent] ||= default(:indent),
       keyboard: h.session[:keyboard] ||= default(:keyboard),
       language: language,
-      websocket: WebSocket.url
+      runner_url: Runner.url
     }
   end
   

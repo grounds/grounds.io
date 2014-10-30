@@ -7,15 +7,18 @@ function loadGround() {
     if (!$groundEditor[0]) return;
 
     // Load data
-    var editor    = ace.edit('ground_editor'),
-        theme     = $groundEditor.data('theme'),
-        language  = $groundEditor.data('language'),
-        indent    = $groundEditor.data('indent'),
-        keyboard  = $groundEditor.data('keyboard'),
-        websocket = $groundEditor.data('websocket');
+    var ground_params = {
+        editor:     ace.edit('ground_editor'),
+        theme:      $groundEditor.data('theme'),
+        language:   $groundEditor.data('language'),
+        indent:     $groundEditor.data('indent'),
+        keyboard:   $groundEditor.data('keyboard'),
+    };
+    
+    var runnerUrl = $groundEditor.data('runner-url');
 
-    client = new Client(websocket);
-    ground = new Ground(editor, language, theme, indent, keyboard);
+    client = new Client(runnerUrl);
+    ground = new Ground(ground_params);
 
     var gui = new GUI(ground, client);
 }

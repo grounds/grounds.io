@@ -1,6 +1,6 @@
 class GroundsController < ApplicationController
   def show
-    ground = Ground.new(language: selected_language)
+    ground = Ground.new_or_default(session[:language]) 
     @ground = GroundDecorator.new(ground, view_context)
   end
 
@@ -34,9 +34,5 @@ class GroundsController < ApplicationController
 
   def ground_params
     params.require(:ground).permit(:language, :code)
-  end
-  
-  def selected_language
-    session[:language] || Editor.default_option_code(:language)
   end
 end

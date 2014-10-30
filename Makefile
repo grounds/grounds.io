@@ -4,7 +4,7 @@ REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG 	   := $(if $(TAG),$(TAG),'latest')
 RAILS_ENV  := $(if $(RAILS_ENV),$(RAILS_ENV),'development')
 
-fig := RAILS_ENV=$(RAILS_ENV) fig
+env := RAILS_ENV=$(RAILS_ENV)
 
 build:
 	fig -p groundsio build image
@@ -17,16 +17,17 @@ push:
 
 clean:
 	fig kill
+	fig rm --force
 
 fclean:
 	rm -f tmp/pids/server.pid
 
 run: build fclean
-	$(fig) up groundsexec web
+	$(env) fig up groundsexec web
 
 test: build
 	fig run test
 
 console: build
-	$(fig) run web rails console
+	$(env) fig run web rails console
 

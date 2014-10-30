@@ -63,6 +63,7 @@ header {
 
 .footer-content {
   @extend .top-buffer;
+  @extend .bottom-buffer;
   @extend .row;
   
   @include border(top);
@@ -90,17 +91,16 @@ header {
   li {
     display: inline-block;
     padding-left: 10px;
-      
+    color: $secondary-color;
+ 
     a {
-      @extend .menu-link;  
-      
       color: $link-hover-color;
   
       &:hover {
-        color: $font-color;
+        text-decoration: underline;
       }
       &:focus {
-        color: $font-color;
+        text-decoration: underline;
       }
     }
   }
