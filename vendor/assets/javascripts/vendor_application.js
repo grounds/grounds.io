@@ -19,5 +19,5 @@
 
 //= require ace/keybinding-vim
 //= require ace/keybinding-emacs
-//
+
 //= require socket.io
