@@ -22,14 +22,14 @@ test:
     - TEST_OPTS
 
 redis:
-  image: dockerfile/redis          
+  image: dockerfile/redis
   expose:
-    - '6379'   
-  volumes:     
+    - '6379'
+  volumes:
     - /redis:/data
     
 groundsexec:
-  image: grounds/grounds-exec                                                                                                           
+  image: grounds/grounds-exec
   command: hack/server.sh
   ports:
     - '8080:8080'
@@ -38,7 +38,3 @@ groundsexec:
   environment:
     - DOCKER_URL
     - REPOSITORY
- 
-
- 
-
