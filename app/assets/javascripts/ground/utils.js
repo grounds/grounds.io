@@ -69,3 +69,12 @@ utils.samples['php'] = { mode: 'php', code: [
 '',
 'print("Hello world\\n");'
 ]};
+
+utils.samples['java'] = { mode: 'java', code: [
+'public class Main {',
+'',
+'	public static void main(String[] args) {',
+'		System.out.println("Hello world");',
+'	}',
+'}'
+]};
