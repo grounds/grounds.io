@@ -20,6 +20,7 @@ languages:
   csharp: 'C#'
   php: 'PHP'
   java: 'Java'
+  node: 'Node.js'
 
 keyboards:
   ace: 'Ace'

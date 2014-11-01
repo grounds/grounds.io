@@ -78,3 +78,7 @@ utils.samples['java'] = { mode: 'java', code: [
 '	}',
 '}'
 ]};
+
+utils.samples['node'] = { mode: 'javascript', code: [
+'console.log("Hello world");'
+]};
