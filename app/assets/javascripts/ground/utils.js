@@ -84,8 +84,7 @@ utils.samples['node'] = { mode: 'javascript', code: [
 ]};
 
 utils.samples['rust'] = { mode: 'rust', code: [
-'fn main()',
-'{',
-'   println!("Hello, world");',
+'fn main() {',
+'	println!("Hello world");',
 '}'
 ]}
