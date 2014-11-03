@@ -1,4 +1,5 @@
 # grounds.io
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/grounds/grounds.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [ ![Codeship Status for grounds/grounds.io](https://codeship.io/projects/ad989680-2460-0132-1117-12e55c6fdf6c/status)](https://codeship.io/projects/36826)
 
 This project is the web application behind [Grounds](http://beta.42grounds.io).
