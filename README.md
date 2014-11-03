@@ -22,6 +22,8 @@ Grounds currently supports latest version of:
 * C++
 * C#
 * Go
+* Java
+* Node.js
 * PHP
 * Python 2 and 3
 * Ruby
