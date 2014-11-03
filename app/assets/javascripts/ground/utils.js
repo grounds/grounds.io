@@ -2,11 +2,11 @@ var utils = {
     getMode: function(language) {
         return this.samples[language].mode;
     },
-    
+
     getSample: function(language) {
         return this.samples[language].code.join('\n');
     },
-    
+
     samples: {}
 };
 
@@ -82,3 +82,10 @@ utils.samples['java'] = { mode: 'java', code: [
 utils.samples['node'] = { mode: 'javascript', code: [
 'console.log("Hello world");'
 ]};
+
+utils.samples['rust'] = { mode: 'rust', code: [
+'fn main()',
+'{',
+'   println!("Hello, world");',
+'}'
+]}

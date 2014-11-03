@@ -13,6 +13,7 @@
 //= require ace/mode-php
 //= require ace/mode-java
 //= require ace/mode-javascript
+//= require ace/mode-rust
 
 //= require ace/theme-tomorrow_night
 //= require ace/theme-textmate

@@ -21,6 +21,7 @@ languages:
   php: 'PHP'
   java: 'Java'
   node: 'Node.js'
+  rust: 'Rust'
 
 keyboards:
   ace: 'Ace'
