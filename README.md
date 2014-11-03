@@ -25,6 +25,7 @@ Grounds currently supports latest version of:
 * PHP
 * Python 2 and 3
 * Ruby
+* Rust
 
 Checkout this [documentation](/docs/NEW_LANGUAGE.md) to get more informations
 about how to add support for a new language stack.

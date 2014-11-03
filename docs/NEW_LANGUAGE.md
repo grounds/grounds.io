@@ -13,7 +13,8 @@
 
         php: 'PHP'
 
-3. Add to `app/assets/javascripts/utils.js` an hello world example:
+3. Add to `app/assets/javascripts/grounds/utils.js` an hello world
+example:
 
     e.g. For PHP:
 
