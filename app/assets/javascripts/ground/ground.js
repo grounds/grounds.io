@@ -13,6 +13,10 @@ function Ground(params) {
     this.setKeyboard(params.keyboard);
 }
 
+Ground.prototype.focusEditor = function() {
+    this.editor.focus();
+};
+
 Ground.prototype.getCode = function () {
     return this.editor.getValue();
 };
