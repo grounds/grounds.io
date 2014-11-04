@@ -8,7 +8,7 @@
     purpose.
 
 2. Assign a label to your language code in `config/editor.yml`:
-    
+
     e.g. For PHP:
 
         php: 'PHP'
@@ -44,8 +44,4 @@ request.
     If a pull request already exists to add support for this language
     to grounds-exec, mark yours blocked by it.
 
-**Thanks for your contribution!** 
-
-
-
-
+**Thanks for your contribution!**

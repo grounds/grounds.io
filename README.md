@@ -72,6 +72,14 @@ You can also run Grounds in production mode:
 
     RAILS_ENV=production make run
 
+>When running in production mode, a default secret key is set, to change
+it you can specify `SECRET_KEY_BASE`.
+
+If you want [New Relic](http://newrelic.com/) metrics you can also specify:
+
+* `NEWRELIC_LICENSE_KEY`
+* `NEWRELIC_APP_NAME`
+
 ### Open Rails console
 
     make console

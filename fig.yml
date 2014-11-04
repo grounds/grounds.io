@@ -11,10 +11,12 @@ web:
   volumes:
     - .:/grounds
   environment:
-    RAILS_ENV:
-    DOCKER_URL:
-    SECRET_KEY_BASE: '729ef9ead52e970ae6c02c30ff1be69409c603036990fb11f5701a48fff0626f6259c58b0ccdd1f8b1e7a81bc59e61240cd0411e74c4a7b6094f371369f97caf'
-    
+    - RAILS_ENV
+    - DOCKER_URL
+    - SECRET_KEY_BASE
+    - NEWRELIC_LICENSE_KEY
+    - NEWRELIC_APP_NAME
+
 test:
   image: groundsio_image
   command: rake test
@@ -27,8 +29,8 @@ redis:
     - '6379'
   volumes:
     - /redis:/data
-    
-groundsexec:
+
+runner:
   image: grounds/grounds-exec
   command: hack/server.sh
   ports:
