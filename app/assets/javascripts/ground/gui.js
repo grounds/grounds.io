@@ -78,7 +78,7 @@ GUI.prototype.bindEvents = function() {
 
     this.button.back.on('click', function(event) {
         self.scrollToTop();
-        self.ground.editor.focus(); 
+        self.ground.focusEditor(); 
     });
 
     $.each(this.options, function(option, code) {

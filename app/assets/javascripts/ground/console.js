@@ -12,6 +12,7 @@ Console.prototype.clean = function() {
 };
 
 Console.prototype.startWaiting = function() {
+    this.clean();
     this.waiting.show();
 };
 
@@ -21,9 +22,6 @@ Console.prototype.stopWaiting = function() {
 
 Console.prototype.write = function(stream, chunk) {
     switch (stream) {
-        case 'start':
-            this.clean();
-            return;
         case 'status':
             this.stopWaiting();
             chunk = '[Program exited with status: ' + chunk + ']';
