@@ -38,6 +38,9 @@ end
 
 # Parse docker url with a custom port
 def docker_url_with(port)
-  uri = URI.parse(ENV['DOCKER_URL'])
-  "http://#{uri.host}:#{port}"
+  "http://#{docker_host}:#{port}"
+end
+
+def docker_host
+  URI.parse(ENV['DOCKER_URL']).host
 end
