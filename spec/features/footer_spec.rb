@@ -10,7 +10,7 @@ feature 'Footer' do
       expect(footer).to have_link(name, href: href)
     end
   end
-  
+
   def footer
     find('footer')
   end

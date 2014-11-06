@@ -1,6 +1,6 @@
 .menu-link {
   color: $font-color;
-  
+
   &:hover {
     color: $link-hover-color;
   }
@@ -39,16 +39,16 @@ header {
   @extend .show-for-small;
 
   background-color: $primary-color;
-  
+
   h1 a {
     @extend .menu-link;
-    
+
     font-weight: normal;
     font-size: rem-calc(16);
   }
-  
+
   .menu-icon span::after {
-      box-shadow: 0 0px 0 1px $primary-hover-color, 
+      box-shadow: 0 0px 0 1px $primary-hover-color,
                   0 7px 0 1px $primary-hover-color,
                   0 14px 0 1px $primary-hover-color;
   }
@@ -65,7 +65,7 @@ header {
   @extend .top-buffer;
   @extend .bottom-buffer;
   @extend .row;
-  
+
   @include border(top);
 
   color: $font-color;
@@ -74,7 +74,7 @@ header {
   .footer-title {
     @extend .row;
     @extend .text-center;
-    
+
     .icon-heart {
       color: red;
     }
@@ -87,15 +87,15 @@ header {
   font-size: rem-calc(12);
   margin: 0px auto;
   list-style-type: none;
-      
+
   li {
     display: inline-block;
     padding-left: 10px;
     color: $secondary-color;
- 
+
     a {
       color: $link-hover-color;
-  
+
       &:hover {
         text-decoration: underline;
       }

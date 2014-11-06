@@ -10,7 +10,7 @@ module Editor
 
   def default_option(option)
     code, label = options(option).first
-    format_option(code, label) 
+    format_option(code, label)
   end
 
   def default_option_code(option)
@@ -22,7 +22,7 @@ module Editor
     _, label = options(option).first
     label
   end
-  
+
   def option_label(option, code)
     option(option, code)[:label]
   end
@@ -48,6 +48,6 @@ module Editor
   private
 
   def format_option(code, label)
-    { code: code, label: label } 
+    { code: code, label: label }
   end
 end

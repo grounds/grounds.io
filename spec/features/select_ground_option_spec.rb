@@ -14,15 +14,15 @@ feature 'Select a ground option' do
       scenario "saves selected #{option} in session" do
         expect(ground).to have_in_session(option, code)
       end
-  
+
       scenario "updates #{option} label", js: :true do
         expect(ground).to have_selected_label(option, code)
       end
-      
+
       scenario "updates code editor #{option}", js: :true do
         expect(ground.editor).to have_option(option, code)
       end
-      
+
       scenario "closes properly #{option} dropdown", js: :true do
         expect(ground.dropdown(option)).to be_closed
       end

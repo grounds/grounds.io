@@ -12,20 +12,20 @@ feature 'Sidemenu' do
       expect(sidemenu).to have_link(name, href: href)
     end
   end
-  
+
   context 'on a small screen', js: true do
     let(:screen) { Screen.new }
-    
+
     before(:each) do
       screen.resize_to_small
     end
-    
+
     scenario 'can be opened' do
       sidemenu.open
-      
+
       expect(sidemenu).to be_open
     end
-    
+
     scenario 'can be closed' do
       sidemenu.close
 
