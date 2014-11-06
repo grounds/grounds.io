@@ -14,12 +14,12 @@ feature 'Visit a new ground' do
       scenario "initializes #{option} label with default #{option}" do
         expect(ground).to have_default_label(option)
       end
-      
+
       scenario "initializes code editor #{option} with default #{option}", js: :true do
         expect(ground.editor).to have_default_option(option)
       end
     end
-    
+
     context "when #{option}: #{code} is present in session" do
       before(:each) do
         ground.set_session(option, code)
@@ -29,7 +29,7 @@ feature 'Visit a new ground' do
       scenario "initializes #{option} label from session" do
         expect(ground).to have_selected_label(option, code)
       end
-  
+
       scenario "initializes code editor #{option} from session", js: :true do
         expect(ground.editor).to have_option(option, code)
       end

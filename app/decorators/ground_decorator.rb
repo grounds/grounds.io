@@ -1,7 +1,7 @@
 class GroundDecorator < BaseDecorator
   delegate :options, to: :editor
-  
-  def data_attributes
+
+  def data
     {
       theme: h.session[:theme] ||= default(:theme),
       indent: h.session[:indent] ||= default(:indent),
@@ -10,17 +10,17 @@ class GroundDecorator < BaseDecorator
       runner_url: Runner.url
     }
   end
-  
+
   def selected_label(option)
-    editor.option_label(option, data_attributes[option])
+    editor.option_label(option, data[option])
   end
 
   private
-  
+
   def default(option)
     editor.default_option_code(option)
   end
-  
+
   def editor
     Editor
   end

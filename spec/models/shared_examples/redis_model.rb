@@ -5,16 +5,16 @@ shared_examples_for 'a redis model' do
   before(:each) do
     allow(subject).to receive(:valid?).and_return(true)
   end
-  
+
   it 'is convertible to an hash' do
     expect(subject.attributes).to be_a(Hash)
-  end 
-  
+  end
+
   context 'when already saved' do
     before(:each) do
       subject.save
     end
-    
+
     it 'has an id' do
       expect(subject.id).not_to be_nil
     end
@@ -39,7 +39,7 @@ shared_examples_for 'a redis model' do
         subject.save
         expect(subject.id).to eq(old_id)
       end
-      
+
       context 'with different attributes' do
         it "hasn't the same id" do
           old_id = subject.id
@@ -53,7 +53,7 @@ shared_examples_for 'a redis model' do
       end
     end
   end
-  
+
   context 'when not saved' do
     it 'has no id' do
       expect(subject.id).to be_nil
@@ -67,16 +67,16 @@ shared_examples_for 'a redis model' do
       expect { described_class.find(subject.id) }.to raise_error
     end
   end
-  
+
   context 'when invalid' do
     before(:each) do
       allow(subject).to receive(:valid?).and_return(false)
     end
-  
+
     it "can't be saved" do
       expect(subject.save).to be false
     end
-  
+
     it "can't be persistent" do
       subject.save
       expect(subject).not_to be_persisted

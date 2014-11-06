@@ -63,10 +63,10 @@ GUI.prototype.bindEvents = function() {
     this.button.share.on('click', function(event) {
         var language = self.ground.getLanguage(),
             code = self.ground.getCode();
-      
+
         self.submitShareFormWith(language, code);
     });
-    
+
     this.button.run.on('click', function(event) {
         self.disableRunButtonFor(500);
 
@@ -78,7 +78,7 @@ GUI.prototype.bindEvents = function() {
 
     this.button.back.on('click', function(event) {
         self.scrollToTop();
-        self.ground.focusEditor(); 
+        self.ground.focusEditor();
     });
 
     $.each(this.options, function(option, code) {

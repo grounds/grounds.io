@@ -14,7 +14,7 @@ function loadGround() {
         indent:     $groundEditor.data('indent'),
         keyboard:   $groundEditor.data('keyboard'),
     };
-    
+
     var runnerUrl = $groundEditor.data('runner-url');
 
     client = new Client(runnerUrl);

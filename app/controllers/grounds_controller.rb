@@ -1,6 +1,6 @@
 class GroundsController < ApplicationController
   def show
-    ground = Ground.new_or_default(session[:language]) 
+    ground = Ground.new_or_default(session[:language])
     @ground = GroundDecorator.new(ground, view_context)
   end
 

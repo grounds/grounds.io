@@ -25,5 +25,5 @@ languages:
 
 keyboards:
   ace: 'Ace'
-  vim: 'Vim'
+  'vim': 'Vim'
   emacs: 'Emacs'
