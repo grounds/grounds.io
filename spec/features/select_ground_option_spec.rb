@@ -3,10 +3,13 @@ require 'spec_helper'
 feature 'Select a ground option' do
   let(:ground) { GroundPage.new(ground_show_path) }
 
+  before(:each) do
+    ground.visit
+  end
+
   GroundOptions.each do |option, code|
-    context "selecting #{option}: #{code}" do
+    context "when selecting #{option}: #{code}" do
       before(:each) do
-        ground.visit
         ground.show_options(option)
         ground.select_option(option, code)
       end
