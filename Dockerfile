@@ -17,7 +17,7 @@ RUN apt-get update -q && \
     libxslt1-dev \
     libxml2-dev \
     libcurl4-openssl-dev \
-    libsqlite3-dev \
+    libpq-dev \
     nodejs \
     phantomjs
 

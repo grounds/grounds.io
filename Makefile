@@ -1,4 +1,4 @@
-.PHONY: all re clean build update pull push run test console
+.PHONY: build push clean fclean run test console
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -38,7 +38,13 @@ push: build
 run: build clean
 	$(env) $(secret) fig up runner web
 
-test: build clean
+fclean:
+	rm -f tmp/pids/server.pid
+
+run: build fclean
+	$(env) fig up runner web
+
+test: build
 	fig run test
 
 # Open rails console
