@@ -1,4 +1,4 @@
-.PHONY: build push clean fclean run test console
+.PHONY: build push clean fclean run test shell console
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -28,7 +28,10 @@ run: build fclean
 	$(env) fig up runner web
 
 test: build
-	fig run test
+	RAILS_ENV=test fig run web rake db:create db:migrate test
+
+shell: build
+	$(env) fig run web /bin/bash
 
 console: build
 	$(env) fig run web rails console

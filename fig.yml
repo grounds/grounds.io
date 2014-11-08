@@ -4,10 +4,11 @@ image:
 web:
   image: groundsio_image
   command: rake run
-  ports:    
+  ports:
     - '3000:3000'
   links:
     - redis
+    - db
   volumes:
     - .:/grounds
   environment:
@@ -16,12 +17,18 @@ web:
     - SECRET_KEY_BASE
     - NEWRELIC_LICENSE_KEY
     - NEWRELIC_APP_NAME
+    - DB_USERNAME=docker
+    - DB_PASSWORD=docker
 
 test:
   image: groundsio_image
   command: rake test
+  links:
+    - db
   environment:
     - TEST_OPTS
+    - DB_USERNAME=docker
+    - DB_PASSWORD=docker
 
 redis:
   image: dockerfile/redis
@@ -29,6 +36,11 @@ redis:
     - '6379'
   volumes:
     - /redis:/data
+
+db:
+  image: orchardup/postgresql
+  expose:
+    - '5432'
 
 runner:
   image: grounds/grounds-exec
