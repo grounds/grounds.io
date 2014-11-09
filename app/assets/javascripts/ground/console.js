@@ -6,8 +6,8 @@ function Console() {
 
 Console.prototype.clean = function() {
     this.connectError.hide();
-    this.output.find('span').each(function() {
-        this.remove();
+    this.output.find('pre').each(function() {
+        $(this).text('');
     });
 };
 
@@ -32,7 +32,7 @@ Console.prototype.write = function(stream, chunk) {
             this.clean();
             break;
     }
-    this.output.append($('<span class="' + stream + '">').text(chunk));
+    this.output.find('.' + stream).append(chunk);
 };
 
 Console.prototype.error = function(error) {

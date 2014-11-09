@@ -25,7 +25,7 @@ class Console
   end
 
   def has_status?(status)
-    find('.status').text == "[Program exited with status: #{status}]"
+    has_output?('status', "[Program exited with status: #{status}]")
   end
 
   private
@@ -35,6 +35,6 @@ class Console
   end
 
   def has_output?(stream, chunk)
-    find(".#{stream}").text == chunk
+    find(".#{stream}", text: chunk)
   end
 end
