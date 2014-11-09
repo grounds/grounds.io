@@ -4,7 +4,7 @@ image:
 web:
   image: groundsio_image
   command: rake run
-  ports:    
+  ports:
     - '3000:3000'
   links:
     - redis
@@ -22,6 +22,7 @@ test:
   command: rake test
   environment:
     - TEST_OPTS
+    - DOCKER_URL
 
 redis:
   image: dockerfile/redis

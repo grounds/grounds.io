@@ -1,8 +1,8 @@
 class CodeEditor
   include Capybara::DSL
 
-  def type_inside
-    evaluate_script("#{js_object}.setValue('typing...');")
+  def type_inside(text = '')
+    evaluate_script("#{js_object}.setValue('#{text}');")
   end
   
   def has_content?(content)
