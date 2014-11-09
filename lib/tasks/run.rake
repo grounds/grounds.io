@@ -14,7 +14,10 @@ task :run => :environment do
 end
 
 task :test => :environment do
-  sh "bundle exec rspec --format documentation --color #{TEST_OPTS}"
+  sh <<-EOF
+  RUNNER_URL=#{runner_url} \
+  bundle exec rspec --format documentation --color #{TEST_OPTS}
+  EOF
 end
 
 def production?

@@ -28,6 +28,7 @@ run: build fclean
 	$(env) fig up runner web
 
 test: build
+	fig up -d runner
 	fig run test
 
 console: build

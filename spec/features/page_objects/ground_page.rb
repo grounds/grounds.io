@@ -7,6 +7,10 @@ class GroundPage < Struct.new(:path)
     page.visit(path)
   end
 
+  def run
+    find('#run').click
+  end
+
   def share
     find('#share').click
   end
@@ -17,6 +21,10 @@ class GroundPage < Struct.new(:path)
 
   def editor
     CodeEditor.new
+  end
+
+  def console
+    Console.new
   end
 
   def show_options(option)
