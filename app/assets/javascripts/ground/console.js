@@ -1,13 +1,13 @@
 function Console() {
-    this.output = $('#output');
+    this.output = $('.output');
     this.connectError = $('#connect_error');
     this.waiting = $('#waiting');
 }
 
 Console.prototype.clean = function() {
     this.connectError.hide();
-    this.output.find('pre').each(function() {
-        $(this).text('');
+    this.output.find('span').each(function() {
+        this.remove();
     });
 };
 
@@ -32,7 +32,7 @@ Console.prototype.write = function(stream, chunk) {
             this.clean();
             break;
     }
-    this.output.find('.' + stream).append(chunk);
+    this.output.append($('<span class="'+stream+'">').text(chunk));
 };
 
 Console.prototype.error = function(error) {
