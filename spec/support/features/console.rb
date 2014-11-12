@@ -35,6 +35,10 @@ class Console
   end
 
   def has_output?(stream, chunk)
-    find(".#{stream}", text: chunk)
+    output.find(".#{stream}", text: chunk, match: :first)
+  end
+
+  def output
+    find('.output')
   end
 end

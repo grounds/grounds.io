@@ -33,7 +33,7 @@ feature 'Run a ground', js: true do
     end
   end
 
-  # Custom code example is a ruby program writting "Hello stderr"
+  # Custom code example is a ruby program writting content
   # on stderr and exiting with a status equal to -1.
   context 'when running custom code example' do
     before(:each) do
@@ -42,7 +42,7 @@ feature 'Run a ground', js: true do
     end
 
     scenario 'console displays runner output on stderr' do
-      expect(ground.console).to have_on_stderr('Hello stderr')
+      expect(ground.console).to have_on_stderr(content)
     end
 
     scenario 'console displays a status equal to -1' do
@@ -50,7 +50,11 @@ feature 'Run a ground', js: true do
     end
 
     def custom_code
-      '$stderr.puts "Hello stderr" ; exit -1'
+      "$stderr.puts \"#{content}\" ; exit -1"
+    end
+
+    def content
+      '<div>Hello world</div>'
     end
   end
 
