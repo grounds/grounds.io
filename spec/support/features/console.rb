@@ -7,7 +7,7 @@ class Console
 
   # We need to verify using capybara asynchronous find, that there is
   # a waiting message on the console output and then that this waiting 
-  # message is no longer visible .
+  # message is no longer visible.
   def has_waited?
     waiting?
     waiting_visible?(false)
