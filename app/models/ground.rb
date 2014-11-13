@@ -3,7 +3,7 @@ class Ground < RedisModel
 
   validates :language, presence: true
 
-  def self.new_or_default(language)
+  def self.new_or_default(language = nil)
     self.new(language: language || Editor.default_option_code(:language))
   end
 end
