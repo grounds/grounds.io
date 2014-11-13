@@ -5,8 +5,9 @@ class Console
     waiting_visible?(true)
   end
 
-  # We need to verify that it's waiting then that waiting message is
-  # no longer visible using capybara asynchronous find.
+  # We need to verify using capybara asynchronous find, that there is
+  # a waiting message on the console output and then that this waiting 
+  # message is no longer visible .
   def has_waited?
     waiting?
     waiting_visible?(false)
@@ -21,7 +22,7 @@ class Console
   end
 
   def has_connection_error?
-    find('#connect_error')
+    find('#connect_error', visible: true)
   end
 
   def has_status?(status)
