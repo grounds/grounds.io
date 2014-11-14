@@ -9,10 +9,11 @@ describe Ground do
 
   describe('.new_or_default') do
     context 'when language is specified' do
-      let(:ground) { Ground.new_or_default('test') }
+      let(:language) { 'test' }
+      let(:ground)   { Ground.new_or_default(language) }
 
       it 'returns a ground for this language' do
-        expect(ground.language).to eq('test')
+        expect(ground.language).to eq(language)
       end
     end
 

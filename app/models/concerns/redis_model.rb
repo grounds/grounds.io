@@ -16,7 +16,7 @@ class RedisModel
   def persisted?
     @@storage.exists(@id)
   end
-  
+
   def save
     return false unless valid?
 
@@ -33,7 +33,11 @@ class RedisModel
   def attributes
     instance_values.slice!('id', 'validation_context', 'errors')
   end
-  
+
+  def ==(other)
+    attributes == other.attributes
+  end
+
   def self.find(id)
     attributes = @@storage.hgetall(id)
 
