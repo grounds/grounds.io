@@ -6,13 +6,15 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'rack_session_access/capybara'
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-
-Dir[Rails.root.join('spec/features/page_objects/**/*.rb')].each {|f| require f}
-Dir[Rails.root.join('spec/features/shared_examples/**/*.rb')].each {|f| require f}
-
-Dir[Rails.root.join('spec/controllers/shared_examples/**/*.rb')].each {|f| require f}
-Dir[Rails.root.join('spec/models/shared_examples/**/*.rb')].each {|f| require f}
+[
+  'support',
+  'features/page_objects',
+  'features/shared_examples',
+  'controllers/shared_examples',
+  'models/shared_examples'
+].each do |dirname|
+  Dir[Rails.root.join("spec/#{dirname}/**/*.rb")].each { |f| require f }
+end
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.

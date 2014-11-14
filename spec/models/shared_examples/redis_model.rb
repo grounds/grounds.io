@@ -23,9 +23,9 @@ shared_examples_for 'a redis model' do
       expect(subject).to be_persisted
     end
 
-    it 'can be found by its id' do
+    it 'can be retrieved by its id' do
       expected = described_class.find(subject.id)
-      expect(subject.attributes).to eq(expected.attributes)
+      expect(subject).to eq(expected)
     end
 
     it 'is destroyable' do
@@ -34,21 +34,26 @@ shared_examples_for 'a redis model' do
     end
 
     context 'when saved again' do
+      let!(:id) { subject.id }
+
       it 'has the same id' do
-        old_id = subject.id
-        subject.save
-        expect(subject.id).to eq(old_id)
+        expect(subject.id).to eq(id)
       end
 
       context 'with different attributes' do
-        it "hasn't the same id" do
-          old_id = subject.id
-          attribute = subject.attributes.first.first
-          value = subject.attributes.first.second
-
+        before(:each) do
+          attribute, value = subject.attributes.first
           subject.send("#{attribute}=", "#{value}0")
           subject.save
-          expect(subject.id).not_to eq(old_id)
+        end
+
+        it 'has a different id' do
+          expect(subject.id).not_to eq(id)
+        end
+
+        it 'is not equal to previous subject' do
+          previous = described_class.find(id)
+          expect(subject).not_to eq(previous)
         end
       end
     end
