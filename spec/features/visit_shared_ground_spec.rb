@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Visit a shared ground' do
   let(:shared_ground) { FactoryGirl.build(:ground) }

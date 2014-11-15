@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 require 'mock_redis'
 
 shared_examples_for 'a redis model' do
