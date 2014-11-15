@@ -20,6 +20,8 @@ web:
 test:
   image: groundsio_image
   command: rake test
+  links:
+    - runner
   environment:
     - TEST_OPTS
     - DOCKER_URL

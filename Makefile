@@ -1,4 +1,4 @@
-.PHONY: build push clean fclean run test console
+.PHONY: all build push clean run test console
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -6,7 +6,10 @@ RAILS_ENV  := $(if $(RAILS_ENV),$(RAILS_ENV),'development')
 
 SECRET_KEY_BASE := $(if $(SECRET_KEY_BASE),$(SECRET_KEY_BASE),'729ef9ead52e970ae6c02c30ff1be69409c603036990fb11f5701a48fff0626f6259c58b0ccdd1f8b1e7a81bc59e61240cd0411e74c4a7b6094f371369f97caf')
 
-env := RAILS_ENV=$(RAILS_ENV) SECRET_KEY_BASE=$(SECRET_KEY_BASE)
+env    := RAILS_ENV=$(RAILS_ENV)
+secret := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
+
+all: test
 
 build:
 	fig -p groundsio build image
@@ -20,15 +23,12 @@ push:
 clean:
 	fig kill
 	fig rm --force
-
-fclean:
 	rm -f tmp/pids/server.pid
 
-run: build fclean
-	$(env) fig up runner web
+run: build clean
+	$(env) $(secret) fig up runner web
 
-test: build
-	fig up -d runner
+test: build clean
 	fig run test
 
 console: build
