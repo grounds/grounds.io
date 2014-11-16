@@ -7,7 +7,7 @@ Grounds is a 100% open source developer tool built to provide a way to share
 runnable snippets within various languages from a web browser.
 
 Grounds is using a [socket.io](http://socket.io/) server to execute arbitrary
-code inside Docker containers, called grounds-exec. grounds-exec has its own 
+code inside Docker containers, called grounds-exec. grounds-exec has its own
 repository [here](https://github.com/grounds/grounds-exec).
 
 All you need is [Docker 1.3+](https://docker.com/), [Fig 1.0+](http://www.fig.sh/)
@@ -45,9 +45,9 @@ spawn a Docker container with a new Redis instance inside.
 ### First pull grounds-exec Docker images
 
     make pull
-    
+
 If you want to pull these images from your own repository:
-    
+
     REPOSITORY="<you repository>" make pull
 
 ### Set Docker remote API url
@@ -95,7 +95,7 @@ To run the test suite:
 
 To run specific test files or add a flag for [RSpec](http://rspec.info/) you can
 specify `TEST_OPTS`:
-    
+
     TEST_OPTS="spec/models/ground_spec.rb" make test
 
 ## Contributing

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Run a ground', js: true do
   let(:ground) { GroundPage.new(ground_show_path) }
