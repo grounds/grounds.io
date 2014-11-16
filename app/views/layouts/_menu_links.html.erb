@@ -7,3 +7,10 @@
     content_tag(:span, fa_icon('github', text: t('site.sources')))
   end %>
 </li>
+<li>
+  <% if logged_in? %>
+      <%= link_to  current_user.email, page_path('profile') %>
+  <% else %>
+      <%= link_to 'Login using Github', auth_at_provider_path(provider: :github) %>
+  <% end %>
+</li>

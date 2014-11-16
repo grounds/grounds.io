@@ -1,17 +1,17 @@
 <% title t('site.about') %>
 
-<div class="row">
+  <div class="row">
 
-  <div class="medium-panel">
+    <div class="medium-panel">
 
-    <p>
-    Grounds receives a program, compiles and runs the program inside a
-    <%= link_to('Docker', 'http://docker.com/', target: '_blank') %> container,
-    and returns the output. Each container is destroyed after a run.
-    </p>
+      <p>
+        Grounds receives a program, compiles and runs the program inside a
+        <%= link_to('Docker', 'http://docker.com/', target: '_blank') %> container,
+        and returns the output. Each container is destroyed after a run.
+      </p>
 
-    <p>
-      However Grounds has some limitations:
+      <p>
+        However Grounds has some limitations:
 
       <ul>
 
@@ -27,23 +27,23 @@
 
       </ul>
 
-    </p>
+      </p>
 
-    <p>
-    Grounds strives to use the latest stable release of each supported language. If you find
-    that your favorite language is not up to date, you are welcomed to open an issue on
-    <%= link_to('GitHub', 'https://github.com/grounds/grounds.io/issues/new', target: '_blank') %>.
-    </p>
+      <p>
+        Grounds strives to use the latest stable release of each supported language. If you find
+        that your favorite language is not up to date, you are welcomed to open an issue on
+        <%= link_to('GitHub', 'https://github.com/grounds/grounds.io/issues/new', target: '_blank') %>.
+      </p>
 
-    <p>
-    Pull requests are also welcomed. There is a lot of documentation on the official
-    <%= link_to('repository', 'https://github.com/grounds/grounds.io', target: '_blank') %> to help
-    new contributors getting started.
-    </p>
+      <p>
+        Pull requests are also welcomed. There is a lot of documentation on the official
+        <%= link_to('repository', 'https://github.com/grounds/grounds.io', target: '_blank') %> to help
+        new contributors getting started.
+      </p>
 
-  </div>
+    </div>
 
-  <center>
+  <div align="center">
 
     <%= gravatar_tag('folie.adrien@gmail.com', alt: 'Adrien Folie', class: 'rounded-img') %>
 
@@ -51,6 +51,6 @@
 
     <%= link_to('www.foliea.io', 'http://www.foliea.io', target: '_blank') %>
 
-  </center>
+  </div>
 
 </div>

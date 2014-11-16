@@ -19,6 +19,8 @@ web:
     - NEWRELIC_APP_NAME
     - DB_USERNAME=docker
     - DB_PASSWORD=docker
+    - SORCERY_GITHUB_KEY=
+    - SORCERY_GITHUB_SECRET=
 
 test:
   image: groundsio_image
