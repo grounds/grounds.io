@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : t('site.title') %></title>
+  <title><%= content_for?(:title) ? yield(:title) : t('site.title') %></title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'modernizr' %>
-    <%= csrf_meta_tag %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'modernizr' %>
+  <%= csrf_meta_tag %>
+</head>
 
-  <body>
+<body>
 
-    <section class="off-canvas-wrap" data-offcanvas>
+<section class="off-canvas-wrap" data-offcanvas>
+
+  <section class="inner-wrap">
+
+    <%= render 'layouts/sidemenu' %>
+
+    <section class="main-content" role="page">
+
+      <header>
+
+        <%= render 'layouts/header' %>
+
+      </header>
 
       <section class="inner-wrap">
-
-        <%= render 'layouts/sidemenu' %>
-
-        <section class="main-content" role="page">
-
-          <header>
-
-            <%= render 'layouts/header' %>
-
-          </header>
-
-          <%= yield %>
-
-          <footer>
-
-            <%= render 'layouts/footer' %>
-
-          </footer>
-
-        </section>
-
+        <%= render 'layouts/messages' %>
       </section>
+
+      <%= yield %>
+
+      <footer>
+
+        <%= render 'layouts/footer' %>
+
+      </footer>
 
     </section>
 
-  </body>
+  </section>
+
+</section>
+
+</body>
 </html>

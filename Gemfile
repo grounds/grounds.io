@@ -45,5 +45,5 @@ gem 'modernizr-rails'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'socket.io-rails'
-
+gem 'sorcery'
 gem 'puma'
