@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 # Set ruby version.
-ENV RUBY_VERSION 2.1.2
+ENV RUBY_VERSION 2.1.5
 
 # Set app's location.
 ENV APP /grounds
