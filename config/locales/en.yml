@@ -5,6 +5,7 @@ en:
     status: 'Status'
     sources: 'Sources'
     about: 'About'
+    profile: 'Profile'
     copyright: '© 2014 Adrien Folie'
   editor:
     error:
