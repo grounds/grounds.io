@@ -76,6 +76,7 @@ GEM
     minitest (5.4.3)
     mock_redis (0.13.2)
     modernizr-rails (2.7.1)
+    mousetrap-rails (1.4.6)
     multi_json (1.10.1)
     newrelic_rpm (3.9.7.266)
     nokogiri (1.6.4.1)
@@ -195,6 +196,7 @@ DEPENDENCIES
   jquery-rails
   mock_redis
   modernizr-rails
+  mousetrap-rails
   newrelic_rpm
   poltergeist
   pry-rails

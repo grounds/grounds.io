@@ -41,6 +41,7 @@ group :production do
 end
 
 gem 'ace-rails-ap'
+gem 'mousetrap-rails'
 gem 'modernizr-rails'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
