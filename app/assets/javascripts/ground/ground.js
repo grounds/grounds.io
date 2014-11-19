@@ -79,3 +79,23 @@ Ground.prototype.set = function (option, code) {
             break;
     }
 };
+
+Ground.prototype.addCommand = function (name, keys, button) {
+    var win = keys[0],
+        mac = keys[1];
+
+    // Add command inside editor
+    this.editor.commands.addCommand({
+        name: name,
+        bindKey: {win: win,  mac: mac},
+        exec: function(editor) { button.click(); },
+        readOnly: false
+    });
+
+    // Add command outside editor
+    Mousetrap.bindGlobal([win.toLowerCase(), mac.toLowerCase()], function(e) {
+        button.click();
+        // Returning false here is preventing key default behavior
+        return false;
+    });
+};

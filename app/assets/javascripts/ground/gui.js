@@ -21,7 +21,13 @@ function GUI(ground, client) {
         theme: $('.theme-selection'),
         indent: $('.indent-selection'),
         keyboard: $('.keyboard-selection'),
-    }
+    };
+
+    this.keys = {
+        'share': ['Ctrl+S', 'Command+S'],
+        'run': ['Ctrl+Enter', 'Command+Enter'],
+        'back': ['Ctrl+Backspace', 'Command+Backspace']
+    };
 
     this.bindEvents();
 }
@@ -43,7 +49,7 @@ GUI.prototype.disableRunButtonFor = function(milliseconds) {
 
 GUI.prototype.dropdownUpdate = function(option, label) {
     $('a[data-dropdown="' + option + '-dropdown"]').click();
-    $("#" + option + "-name").text(label);
+    $('#' + option + '-name').text(label);
 };
 
 GUI.prototype.scrollToTop = function() {
@@ -79,6 +85,15 @@ GUI.prototype.bindEvents = function() {
     this.button.back.on('click', function(event) {
         self.scrollToTop();
         self.ground.focusEditor();
+    });
+
+    // Add key bindings
+    $.each(this.button, function(name, button) {
+        var keys = self.keys[name];
+
+        if (!keys) return;
+
+        self.ground.addCommand(name, keys, button);
     });
 
     $.each(this.options, function(option, code) {

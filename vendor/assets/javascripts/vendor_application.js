@@ -2,6 +2,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
+//= require socket.io
+
+//= require mousetrap
+//= require mousetrap/global
 
 //= require ace/ace
 
@@ -22,5 +26,3 @@
 
 //= require ace/keybinding-vim
 //= require ace/keybinding-emacs
-
-//= require socket.io
