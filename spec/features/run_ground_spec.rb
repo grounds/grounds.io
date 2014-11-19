@@ -7,15 +7,27 @@ feature 'Run a ground', js: true do
     ground.visit
   end
 
-  # Default code example is a ruby program writting "Hello world"
-  # on stdout and exiting with a status equal to 0.
-  context 'when running default code example' do
+  context 'when running any code example' do
     before(:each) do
       ground.run
     end
 
     scenario 'console displays a waiting message' do
       expect(ground.console).to be_waiting
+    end
+    
+    context 'after a run' do
+      scenario "console stop displaying a waiting message" do
+        expect(ground.console).to have_waited
+      end
+    end
+  end
+  
+  # Default code example is a ruby program writting "Hello world"
+  # on stdout and exiting with a status equal to 0.
+  context 'when running default code example' do
+    before(:each) do
+      ground.run
     end
 
     scenario 'console displays runner output on stdout' do
@@ -24,12 +36,6 @@ feature 'Run a ground', js: true do
 
     scenario 'console displays a status equal to 0' do
       expect(ground.console).to have_status(0)
-    end
-
-    context 'after a run' do
-      scenario "console stop displaying a waiting message" do
-        expect(ground.console).to have_waited
-      end
     end
   end
 
