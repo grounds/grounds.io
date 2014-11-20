@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Select a ground option' do
   let(:ground) { GroundPage.new(ground_show_path) }
+  let(:custom_session) { CustomSession.new }
 
   before(:each) do
     ground.visit
@@ -15,7 +16,7 @@ feature 'Select a ground option' do
       end
 
       scenario "saves selected #{option} in session" do
-        expect(ground).to have_in_session(option, code)
+        expect(custom_session).to have_option(option, code)
       end
 
       scenario "updates #{option} label", js: :true do
