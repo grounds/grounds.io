@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Visit a new ground' do
   let(:ground) { GroundPage.new(ground_show_path) }
+  let(:custom_session) { CustomSession.new }
 
   before(:each) do
     ground.visit
@@ -22,7 +23,7 @@ feature 'Visit a new ground' do
 
     context "when #{option}: #{code} is present in session" do
       before(:each) do
-        ground.set_session(option, code)
+        custom_session.set_option(option, code)
         ground.visit
       end
 

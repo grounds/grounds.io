@@ -15,14 +15,26 @@ feature 'Run a ground', js: true do
     scenario 'console displays a waiting message' do
       expect(ground.console).to be_waiting
     end
-    
+
+    scenario 'run button is disabled' do
+      expect(run_button).to be_disabled
+    end
+
     context 'after a run' do
       scenario "console stop displaying a waiting message" do
         expect(ground.console).to have_waited
       end
+
+      scenario 'run button is released' do
+        expect(run_button).to be_released
+      end
+    end
+
+    def run_button
+      ground.button(:run)
     end
   end
-  
+
   # Default code example is a ruby program writting "Hello world"
   # on stdout and exiting with a status equal to 0.
   context 'when running default code example' do
