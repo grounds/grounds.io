@@ -72,8 +72,8 @@ You can also run Grounds in production mode:
 
     RAILS_ENV=production make run
 
->When running in production mode, a default secret key is set, to change
-it you can specify `SECRET_KEY_BASE`.
+>When running in production mode, a default secret key is set as convenience,
+but this should be changed in production by specifying `SECRET_KEY_BASE`.
 
 If you want [New Relic](http://newrelic.com/) metrics you can also specify:
 
