@@ -16,7 +16,7 @@ feature 'Share a ground' do
     expect(ground.shared_url).to be_visible
   end
 
-  scenario 'switches focus on a link to this shared ground', js: :true do
+  scenario 'sets focus to this shared ground url', js: :true do
     expect(ground.shared_url).to have_focus
   end
 
