@@ -31,7 +31,7 @@ feature 'Select a ground option' do
         expect(ground.dropdown(option)).to be_closed
       end
 
-      scenario 'set focus on code editor' , js: true do
+      scenario 'sets focus to code editor' , js: true do
         expect(ground.editor).to be_focused
       end
     end
