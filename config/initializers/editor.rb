@@ -34,11 +34,8 @@ module Editor
 
   def options(option)
     method = "__#{option.to_s.pluralize(2)}__"
-    if respond_to?(method)
-      send(method)
-    else
-      {}
-    end
+    return {} unless respond_to?(method)
+    send(method)
   end
 
   def has_option?(option, code)

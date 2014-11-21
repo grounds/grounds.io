@@ -9,20 +9,52 @@
 
 //= require ace/ace
 
-//= require ace/mode-ruby
 //= require ace/mode-golang
-//= require ace/mode-python
 //= require ace/mode-c_cpp
 //= require ace/mode-csharp
-//= require ace/mode-php
 //= require ace/mode-java
 //= require ace/mode-javascript
+//= require ace/mode-php
+//= require ace/mode-python
+//= require ace/mode-ruby
 //= require ace/mode-rust
 
 //= require ace/theme-tomorrow_night
 //= require ace/theme-textmate
 //= require ace/theme-monokai
 //= require ace/theme-github
+//= require ace/theme-ambiance
+//= require ace/theme-chaos
+//= require ace/theme-chrome
+//= require ace/theme-clouds
+//= require ace/theme-clouds_midnight
+//= require ace/theme-cobalt
+//= require ace/theme-crimson_editor
+//= require ace/theme-dawn
+//= require ace/theme-dreamweaver
+//= require ace/theme-eclipse
+//= require ace/theme-github
+//= require ace/theme-idle_fingers
+//= require ace/theme-katzenmilch
+//= require ace/theme-kr_theme
+//= require ace/theme-kuroir
+//= require ace/theme-merbivore
+//= require ace/theme-merbivore_soft
+//= require ace/theme-mono_industrial
+//= require ace/theme-monokai
+//= require ace/theme-pastel_on_dark
+//= require ace/theme-solarized_dark
+//= require ace/theme-solarized_light
+//= require ace/theme-terminal
+//= require ace/theme-textmate
+//= require ace/theme-tomorrow
+//= require ace/theme-tomorrow_night
+//= require ace/theme-tomorrow_night_blue
+//= require ace/theme-tomorrow_night_bright
+//= require ace/theme-tomorrow_night_eighties
+//= require ace/theme-twilight
+//= require ace/theme-vibrant_ink
+//= require ace/theme-xcode
 
-//= require ace/keybinding-vim
 //= require ace/keybinding-emacs
+//= require ace/keybinding-vim

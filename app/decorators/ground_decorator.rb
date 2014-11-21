@@ -1,6 +1,4 @@
 class GroundDecorator < BaseDecorator
-  delegate :options, to: :editor
-
   def data
     {
       theme: h.session[:theme] ||= default(:theme),
@@ -13,6 +11,10 @@ class GroundDecorator < BaseDecorator
 
   def selected_label(option)
     editor.option_label(option, data[option])
+  end
+
+  def options(option)
+    editor.options(option).sort
   end
 
   private
