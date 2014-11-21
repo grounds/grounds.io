@@ -53,6 +53,10 @@ class CodeEditor
     pos['row'].to_i == line
   end
 
+  def focused?
+    evaluate_script("#{js_object}.isFocused();")
+  end
+
   private
 
   def mode

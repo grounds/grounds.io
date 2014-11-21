@@ -30,6 +30,10 @@ feature 'Select a ground option' do
       scenario "closes properly #{option} dropdown", js: :true do
         expect(ground.dropdown(option)).to be_closed
       end
+
+      scenario 'set focus on code editor' , js: true do
+        expect(ground.editor).to be_focused
+      end
     end
   end
 end
