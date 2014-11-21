@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   @extend .f-dropdown;
 
   max-height: rem-calc(400);
-  overflow-y: scroll;
+  overflow-y: inherit;
 }
 
 .row {
