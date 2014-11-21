@@ -17,10 +17,6 @@
        <%= render 'option_dropdown', option: option %>
     <% end %>
 
-    <%= button_tag(type: 'button', id: :share, class: 'button') do
-      content_tag(:strong, fa_icon('share', text: t('editor.share')))
-    end %>
-
   </div>
 
   <%= content_tag(:div, @ground.code, id: :ground_editor, class: 'editor-body', data: @ground.data) %>
@@ -33,6 +29,10 @@
 
   <%= button_tag(type: 'button', id: :run, class: 'button') do
     content_tag(:strong, fa_icon('play', text: t('editor.run')))
+  end %>
+
+  <%= button_tag(type: 'button', id: :share, class: 'button') do
+    content_tag(:strong, fa_icon('share', text: t('editor.share')))
   end %>
 
 </div>
