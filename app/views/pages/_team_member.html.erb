@@ -1,0 +1,11 @@
+<div class="team-member">
+  <%= gravatar_tag(gravatar, alt: name) %>
+
+  <h5><%= name.upcase %></h5>
+
+  <h6><%= role %></h6>
+
+  <%= link_to(fa_icon('github-square'), github, target: '_blank') %>
+  <%= link_to(fa_icon('twitter-square'), twitter, target: '_blank') %>
+  <%= link_to(fa_icon('linkedin-square'), linkedin, target: '_blank') %>
+</div>
