@@ -11,7 +11,7 @@ en:
     sources: 'Sources'
     about: 'About'
     profile: 'Profile'
-    copyright: '© 2014 Adrien Folie'
+    copyright: '© 2014 Grounds'
   editor:
     error:
       connect: 'Connection with remote server failed. Trying to reconnect...'
