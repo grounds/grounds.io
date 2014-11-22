@@ -24,7 +24,7 @@ $link-hover-color: #4183c4;
 a {
   @extend a;
   color: $link-hover-color;
-  
+
   &:hover {
     color: adjust-color($link-hover-color, $lightness: 8%);
   }
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   @include border;
 
   margin: 0;
-  
+
   &:hover {
     background-color: $primary-hover-color;
   }
@@ -92,7 +92,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .left-small {
   @extend .left-small;
-  
   @include border(right);
 }
 
@@ -108,4 +107,15 @@ h1, h2, h3, h4, h5, h6 {
   @extend .column;
   @extend .panel;
   @extend .radius
+}
+.column-2,
+.column-3 {
+  @extend .columns;
+}
+.column-2 {
+  @extend .large-2;
+}
+
+.column-3 {
+  @extend .large-3;
 }
