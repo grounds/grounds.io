@@ -1,2 +1,6 @@
-.env
+docs
+hack
+fig.yml
+LICENSE
+Makefile
 README.md

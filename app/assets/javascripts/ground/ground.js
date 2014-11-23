@@ -1,19 +1,16 @@
 function Ground(params) {
-    this.editor = params.editor;
+    this.editor = ace.edit(params.id);
+    this.session = this.editor.getSession();
+    this.commands = this.editor.commands;
 
-    this.editor.getSession().setUseWorker(false);
-
-    if (this.getCode() !== '')
-        this.setLanguage(params.language, true);
-    else
-        this.setLanguage(params.language);
-
+    this.session.setUseWorker(false);
+    this.setLanguage(params.language, !this.getCode());
     this.setTheme(params.theme);
     this.setIndent(params.indent);
     this.setKeyboard(params.keyboard);
 }
 
-Ground.prototype.focusEditor = function() {
+Ground.prototype.focus = function() {
     this.editor.focus();
 };
 
@@ -26,7 +23,8 @@ Ground.prototype.getLanguage = function () {
 };
 
 Ground.prototype.setCursor = function (cursor) {
-    var lastLine = this.editor.session.getLength();
+    var lastLine = this.session.getLength();
+
     this.editor.gotoLine(lastLine);
     this.editor.focus();
 };
@@ -35,11 +33,12 @@ Ground.prototype.setCode = function (code) {
     this.editor.setValue(code);
 };
 
-Ground.prototype.setLanguage = function (language, withoutSample) {
+Ground.prototype.setLanguage = function (language, useSample) {
     this.language = language;
-    this.editor.getSession().setMode('ace/mode/' + utils.getMode(language));
-    if (!withoutSample)
-        this.setCode(utils.getSample(language));
+    this.session.setMode('ace/mode/' + utils.getMode(language));
+
+    if (useSample) this.setCode(utils.getSample(language));
+
     this.setCursor();
 };
 
@@ -48,13 +47,12 @@ Ground.prototype.setTheme = function (theme) {
 };
 
 Ground.prototype.setIndent = function (indent) {
-    if (indent == 'tab') {
-        this.editor.getSession().setUseSoftTabs(false);
-        this.editor.getSession().setTabSize(8);
-    } else {
-        this.editor.getSession().setUseSoftTabs(true);
-        this.editor.getSession().setTabSize(indent);
-    }
+    var useSoftTab = indent !== 'tab';
+
+    if (!useSoftTab) indent = 8;
+
+    this.session.setUseSoftTabs(useSoftTab);
+    this.session.setTabSize(indent);
 };
 
 Ground.prototype.setKeyboard = function (keyboard) {
@@ -66,7 +64,7 @@ Ground.prototype.setKeyboard = function (keyboard) {
 Ground.prototype.set = function (option, code) {
     switch(option) {
         case 'language':
-            this.setLanguage(code);
+            this.setLanguage(code, true);
             break;
         case 'theme':
             this.setTheme(code);
@@ -85,7 +83,7 @@ Ground.prototype.addCommand = function (name, keys, button) {
         mac = keys[1];
 
     // Add command inside editor
-    this.editor.commands.addCommand({
+    this.commands.addCommand({
         name: name,
         bindKey: {win: win,  mac: mac},
         exec: function(editor) { button.click(); },

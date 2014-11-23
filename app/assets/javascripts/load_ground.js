@@ -8,7 +8,7 @@ function loadGround() {
 
     // Load data
     var ground_params = {
-        editor:     ace.edit('ground_editor'),
+        id:         'ground_editor',
         theme:      $groundEditor.data('theme'),
         language:   $groundEditor.data('language'),
         indent:     $groundEditor.data('indent'),
