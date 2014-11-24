@@ -1,8 +1,8 @@
-class Button < Struct.new(:id)
+class Button < Struct.new(:id, :label)
   include Capybara::DSL
 
   def click
-    find(selector).click
+    click_button(label)
   end
 
   def disabled?

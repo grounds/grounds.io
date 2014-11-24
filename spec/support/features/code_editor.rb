@@ -2,11 +2,11 @@ class CodeEditor
   include Capybara::DSL
 
   def type_inside(text = '')
-    evaluate_script("#{js_object}.setValue('#{text}');")
+    evaluate_script("#{this}.editor.setValue('#{text}');")
   end
 
   def has_content?(content)
-    evaluate_script("#{js_object}.getValue();") == content
+    evaluate_script("#{this}.editor.getValue();") == content
   end
 
   def has_default_option?(option)
@@ -44,35 +44,35 @@ class CodeEditor
   end
 
   def has_soft_tabs?
-    evaluate_script("#{js_object}.getSession().getUseSoftTabs();")
+    evaluate_script("#{this}.session.getUseSoftTabs();")
   end
 
   def has_cursor_on_last_line?
-    pos = evaluate_script("#{js_object}.getCursorPosition();")
-    line = evaluate_script("#{js_object}.session.getLength();") - 1;
+    pos = evaluate_script("#{this}.editor.getCursorPosition();")
+    line = evaluate_script("#{this}.session.getLength();") - 1;
     pos['row'].to_i == line
   end
 
   def focused?
-    evaluate_script("#{js_object}.isFocused();")
+    evaluate_script("#{this}.editor.isFocused();")
   end
 
   private
 
   def mode
-    evaluate_script("#{js_object}.getSession().getMode().$id;").gsub('ace/mode/', '')
+    evaluate_script("#{this}.session.getMode().$id;").gsub('ace/mode/', '')
   end
 
   def theme
-    evaluate_script("#{js_object}.getTheme();").gsub('ace/theme/', '')
+    evaluate_script("#{this}.editor.getTheme();").gsub('ace/theme/', '')
   end
 
   def tab_size
-    evaluate_script("#{js_object}.getSession().getTabSize();")
+    evaluate_script("#{this}.session.getTabSize();")
   end
 
   def keyboard
-     keyboard = evaluate_script("#{js_object}.getKeyboardHandler().$id;")
+      keyboard = evaluate_script("#{this}.editor.getKeyboardHandler().$id;")
      # Ace default keyboard has null value
      return '' if keyboard.nil?
      keyboard.gsub('ace/keyboard/', '')
@@ -82,11 +82,7 @@ class CodeEditor
     EditorConfig.new
   end
 
-  def html_object
-    find('#ground_editor')
-  end
-
-  def js_object
-    'ground.editor'
+  def this
+    'ground'
   end
 end
