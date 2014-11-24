@@ -4,7 +4,7 @@ function Ground(params) {
     this.commands = this.editor.commands;
 
     this.session.setUseWorker(false);
-    this.setLanguage(params.language, !this.getCode());
+    this.setLanguage(params.language, !params.shared);
     this.setTheme(params.theme);
     this.setIndent(params.indent);
     this.setKeyboard(params.keyboard);

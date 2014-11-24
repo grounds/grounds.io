@@ -12,7 +12,7 @@ feature 'Visit a shared ground' do
   it_behaves_like 'a ground without shared url'
 
   scenario 'code editor content is equal to shared ground code', js: :true do
-    expect(ground.editor).to have_content(shared_ground.code)
+    expect(ground.editor).to have_value(shared_ground.code)
   end
 
   scenario 'share will provide the same shared url', js: :true do
@@ -22,6 +22,14 @@ feature 'Visit a shared ground' do
 
   scenario 'selected language label is equal to shared ground language label' do
     expect(ground).to have_selected_label('language', shared_ground.language)
+  end
+
+  context 'when shared ground code is empty' do
+    let(:shared_ground) { FactoryGirl.build(:empty_ground) }
+
+    scenario 'code editor is empty', js: :true do
+      expect(ground.editor).to have_value('')
+    end
   end
 
   context "when shared ground doesn't exist" do

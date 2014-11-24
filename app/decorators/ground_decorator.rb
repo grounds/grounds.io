@@ -5,6 +5,7 @@ class GroundDecorator < BaseDecorator
       indent: h.session[:indent] ||= default(:indent),
       keyboard: h.session[:keyboard] ||= default(:keyboard),
       language: language,
+      shared: id.present?,
       runner_url: Runner.url
     }
   end
