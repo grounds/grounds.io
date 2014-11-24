@@ -43,4 +43,5 @@ test: build clean
 
 # Open rails console
 console: build
+	touch pry/.pry_history
 	$(env) fig run web rails console
