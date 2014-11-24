@@ -32,7 +32,7 @@ class GroundPage < Struct.new(:path)
   end
 
   def button(id)
-    Button.new(id)
+    Button.new(id, I18n.t("editor.#{id}"))
   end
 
   def show_options(option)
