@@ -6,8 +6,8 @@ ENV RUBY_VERSION 2.1.5
 # Set app's location.
 ENV APP /grounds
 
-# Add user grounds.
-RUN useradd grounds
+# Add user dev.
+RUN useradd dev
 
 # Install dependencies.
 RUN apt-get update -q && \
@@ -29,17 +29,15 @@ RUN curl -sL http://s3.amazonaws.com/pkgr-buildpack-ruby/current/ubuntu-14.04/ru
 # Install bundler.
 RUN gem install bundler
 
-# Add file for pry history
-RUN mkdir /home/grounds
-RUN touch /home/grounds/.pry_history
-RUN chown -R grounds:grounds /home/grounds
-
 # Copy the Gemfile and Gemfile.lock into the image.
 COPY Gemfile $APP/Gemfile
 COPY Gemfile.lock $APP/Gemfile.lock
 
 # Install ruby gems.
 RUN cd $APP && bundle install
+
+# Configure pry
+COPY pry/.pryrc /home/dev/.pryrc
 
 # Everything up to here was cached. This includes
 # the bundle install, unless the Gemfiles changed.
@@ -48,10 +46,10 @@ RUN cd $APP && bundle install
 COPY . $APP
 
 # Changes app's files owner.
-RUN chown -R grounds:grounds $APP
+RUN chown -R dev:dev $APP
 
-# Set user as grounds.
-USER grounds
+# Set user as dev.
+USER dev
 
 # Set the final working dir to the Rails app's location.
-WORKDIR /grounds
+WORKDIR $APP
