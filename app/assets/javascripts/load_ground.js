@@ -13,6 +13,7 @@ function loadGround() {
         language:   $groundEditor.data('language'),
         indent:     $groundEditor.data('indent'),
         keyboard:   $groundEditor.data('keyboard'),
+        shared:     $groundEditor.data('shared')
     };
 
     var runnerUrl = $groundEditor.data('runner-url');

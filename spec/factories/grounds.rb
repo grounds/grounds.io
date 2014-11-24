@@ -9,6 +9,10 @@ FactoryGirl.define do
       language ''
     end
 
+    factory :empty_ground do
+      code nil
+    end
+
     initialize_with { new(attributes) }
   end
 end

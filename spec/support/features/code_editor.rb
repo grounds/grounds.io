@@ -5,8 +5,8 @@ class CodeEditor
     evaluate_script("#{this}.editor.setValue('#{text}');")
   end
 
-  def has_content?(content)
-    evaluate_script("#{this}.editor.getValue();") == content
+  def has_value?(value)
+    evaluate_script("#{this}.editor.getValue();") == value
   end
 
   def has_default_option?(option)
@@ -19,7 +19,7 @@ class CodeEditor
 
   def has_language?(code)
     mode == config.mode(code) &&
-    has_content?(config.sample(code)) &&
+    has_value?(config.sample(code)) &&
     has_cursor_on_last_line?
   end
 
@@ -74,8 +74,7 @@ class CodeEditor
   def keyboard
       keyboard = evaluate_script("#{this}.editor.getKeyboardHandler().$id;")
      # Ace default keyboard has null value
-     return '' if keyboard.nil?
-     keyboard.gsub('ace/keyboard/', '')
+     (keyboard || '').gsub('ace/keyboard/', '')
   end
 
   def config
