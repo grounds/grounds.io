@@ -1,4 +1,9 @@
 en:
+  character:
+    command: '⌘'
+    control: 'ctrl'
+    enter: 'enter'
+    backspace: ''
   site:
     title: 'Grounds Beta'
     contact: 'Contact'
@@ -14,6 +19,7 @@ en:
     back: 'Back to editor'
     share: 'Share'
     console: 'Console'
+    shortcuts: 'Shortcuts'
     select:
       language: 'Language:'
       theme: 'Theme:'

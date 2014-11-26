@@ -1,4 +1,10 @@
-.editor-heading {
+$editor-size: rem-calc(400);
+
+.editor {
+  @extend .row;
+}
+
+.editor-header {
   background-color: $primary-color;
   border-radius: 3px 3px 0 0;
   padding: rem-calc(10) rem-calc(10);
@@ -6,9 +12,13 @@
 }
 
 .editor-body {
-  height: rem-calc(400);
+  height: $editor-size;
   border-radius: 0 0 3px 3px;
   @include border;
+}
+
+.controls-up {
+  @extend .spaced-row;
 }
 
 .console {
@@ -25,5 +35,39 @@
   }
   .status {
     color: green;
+  }
+}
+
+.controls-down {
+  @extend .spaced-row;
+}
+
+.shortcuts-tooltip {
+  @extend .dropdown-content;
+  
+  cursor: initial;
+}
+
+.shortcuts-list {
+  list-style: none;
+  margin: 0 rem-calc(10);
+  
+
+  li {
+    margin: rem-calc(10) 0;
+    cursor: initial;
+
+    &:hover {
+      background-color: white;
+    }
+    
+    span {
+      @extend .button;
+      cursor: initial;
+      
+      &:hover, &:focus {
+        background-color: $secondary-color;
+      }
+    }
   }
 }
