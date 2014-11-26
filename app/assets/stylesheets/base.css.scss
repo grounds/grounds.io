@@ -1,12 +1,14 @@
 $buffer: rem-calc(20);
 
 $primary-color: #f2f2f2;
+
 $primary-light-color: adjust-color($primary-color, $lightness: 5%);
 $primary-hover-color: adjust-color($primary-color, $lightness: -15%);
 $primary-active-color: adjust-color($primary-color, $lightness: -25%);
 
-$secondary-color: #777;
+$secondary-color: #e7e7e7;
 
+$faded-color: #777;
 $error-color: #c60f13;
 $border-color: #DDD;
 $font-color: #333;
@@ -70,11 +72,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.dropdown-items {
+.dropdown-list {
   @extend .f-dropdown;
 
   max-height: rem-calc(400);
-  overflow-y: inherit;
+  overflow-y: auto;
+}
+
+.dropdown-content {
+  @extend .f-dropdown;
+
+  max-width: none;
+  width: auto;
+  overflow: auto;
 }
 
 .row {
@@ -110,4 +120,8 @@ h1, h2, h3, h4, h5, h6 {
   @extend .column;
   @extend .panel;
   @extend .radius
+}
+
+.hint {
+  margin: 0 rem-calc(15);
 }

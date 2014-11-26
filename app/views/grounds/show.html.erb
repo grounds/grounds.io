@@ -9,9 +9,9 @@
 
 <% end %>
 
-<div class="row">
+<div class="editor">
 
-  <div class="editor-heading">
+  <div class="editor-header">
 
     <% [:language, :theme, :indent, :keyboard].each do |option| %>
        <%= render 'option_dropdown', option: option %>
@@ -23,7 +23,7 @@
 
 </div>
 
-<div class="spaced-row">
+<div class="controls-up">
 
   <input name="sharedURL" type="text" id="sharedURL" class="rounded">
 
@@ -34,6 +34,25 @@
   <%= button_tag(type: 'button', id: :share, class: 'button') do
     content_tag(:strong, fa_icon('share', text: t('editor.share')))
   end %>
+  
+  <%= button_tag(type: 'button', class: 'button', data: { dropdown: 'shortcuts' },
+                 html: { 'aria-controls' => 'shortcuts', 'aria-expanded' => 'false' }) do
+    content_tag(:strong, fa_icon('keyboard-o', text: t('editor.shortcuts')))
+  end %>
+
+  <div id="shortcuts" data-dropdown-content class="shortcuts-tooltip" aria-hidden="true" tabindex="-1">
+
+    <ul class="shortcuts-list">
+
+      <li><span>⌘ / ctrl</span> + <span>enter</span> <%= t('editor.run') %></li>
+      
+      <li><span>⌘ / ctrl</span> + <span>s</span> <%= t('editor.share') %></li>
+
+      <li><span>⌘ / ctrl</span> + <span>←</span> <%= t('editor.back') %></li>
+
+    </ul>
+
+  </div>
 
 </div>
 
@@ -49,7 +68,7 @@
 
 </div>
 
-<div class="spaced-row">
+<div class="controls-down">
 
   <%= button_tag(type: 'button', id: :back, class: 'button') do
     content_tag(:strong, fa_icon('long-arrow-up', text: t('editor.back')))
