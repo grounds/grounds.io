@@ -1,4 +1,6 @@
-<a href="#" data-dropdown="<%= "#{option}-dropdown" %>" class="dropdown">
+<% id = "#{option}-dropdown" %>
+
+<a href="#" data-dropdown="<%= id %>" class="dropdown">
 
   <%= t("editor.select.#{option}") %>
 
@@ -6,7 +8,7 @@
 
 </a>
 
-<ul id=<%= "#{option}-dropdown" %> data-dropdown-content class="dropdown-list">
+<ul id=<%= id %> data-dropdown-content class="dropdown-list">
 
   <% @ground.options(option).each do |code, label| %>
 

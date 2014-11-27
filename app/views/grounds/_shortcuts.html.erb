@@ -1,0 +1,15 @@
+<% id = "#{of}-dropdown" %>
+
+<%= button_tag(type: 'button', class: 'button', data: { dropdown: id },
+               html: { 'aria-controls' => id,
+                       'aria-expanded' => 'false' }) do
+    content_tag(:strong, fa_icon('keyboard-o', text: t('editor.shortcuts')))
+end %>
+
+<ul id=<%= id %> data-dropdown-content class="shortcuts" aria-hidden="true" tabindex="-1">
+  <% with.each do |modifier, key, label| %>
+
+    <li><span><%= modifier %></span> + <span><%= key %></span> <%= label %></li>
+
+  <% end %>
+</ul>

@@ -10,6 +10,15 @@ class GroundDecorator < BaseDecorator
     }
   end
 
+  def shortcuts
+    [
+      ['⌘ / ctrl', 'enter', I18n.t('editor.run')],
+      ['⌘ / ctrl', 's', I18n.t('editor.share')],
+      ['⌘ / ctrl', '←', I18n.t('editor.back')],
+    ]
+  end
+
+
   def selected_label(option)
     editor.option_label(option, data[option])
   end
