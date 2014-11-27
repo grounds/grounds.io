@@ -42,16 +42,11 @@ $editor-size: rem-calc(400);
   @extend .spaced-row;
 }
 
-.shortcuts-tooltip {
+.shortcuts {
   @extend .dropdown-content;
-  
-  cursor: initial;
-}
 
-.shortcuts-list {
   list-style: none;
-  margin: 0 rem-calc(10);
-  
+  padding: rem-calc(10);
 
   li {
     margin: rem-calc(10) 0;
@@ -60,11 +55,11 @@ $editor-size: rem-calc(400);
     &:hover {
       background-color: white;
     }
-    
+
     span {
       @extend .button;
       cursor: initial;
-      
+
       &:hover, &:focus {
         background-color: $secondary-color;
       }

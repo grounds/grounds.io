@@ -34,25 +34,8 @@
   <%= button_tag(type: 'button', id: :share, class: 'button') do
     content_tag(:strong, fa_icon('share', text: t('editor.share')))
   end %>
-  
-  <%= button_tag(type: 'button', class: 'button', data: { dropdown: 'shortcuts' },
-                 html: { 'aria-controls' => 'shortcuts', 'aria-expanded' => 'false' }) do
-    content_tag(:strong, fa_icon('keyboard-o', text: t('editor.shortcuts')))
-  end %>
 
-  <div id="shortcuts" data-dropdown-content class="shortcuts-tooltip" aria-hidden="true" tabindex="-1">
-
-    <ul class="shortcuts-list">
-
-      <li><span>⌘ / ctrl</span> + <span>enter</span> <%= t('editor.run') %></li>
-      
-      <li><span>⌘ / ctrl</span> + <span>s</span> <%= t('editor.share') %></li>
-
-      <li><span>⌘ / ctrl</span> + <span>←</span> <%= t('editor.back') %></li>
-
-    </ul>
-
-  </div>
+  <%= render 'shortcuts', of: :editor, with: @ground.shortcuts %>
 
 </div>
 
