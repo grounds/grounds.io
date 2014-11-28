@@ -7,6 +7,10 @@ feature 'Run a ground', js: true do
     ground.visit
   end
 
+  scenario 'ground is connected to runner' do
+    expect(ground).to be_connected
+  end
+
   context 'when running any code example' do
     before(:each) do
       ground.run
@@ -82,12 +86,26 @@ feature 'Run a ground', js: true do
       ground.visit
     end
 
+    scenario 'is not connected to runner' do
+      expect(ground).not_to be_connected
+    end
+
     scenario 'console displays a connection error' do
       expect(ground.console).to have_connection_error
     end
 
     def invalid_url
       'http://127.0.0.1:8081'
+    end
+  end
+
+  context 'after leaving a ground' do
+    before(:each) do
+      ground.leave
+    end
+
+    scenario 'ground is disconnected from runner' do
+      expect(ground).not_to be_connected
     end
   end
 end

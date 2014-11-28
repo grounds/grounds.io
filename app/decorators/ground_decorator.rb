@@ -1,13 +1,10 @@
 class GroundDecorator < BaseDecorator
-  def data
-    {
-      theme: h.session[:theme] ||= default(:theme),
-      indent: h.session[:indent] ||= default(:indent),
-      keyboard: h.session[:keyboard] ||= default(:keyboard),
-      language: language,
-      shared: id.present?,
-      runner_url: Runner.url
-    }
+  def editor_data
+    data = initial_data
+    [:theme, :indent, :keyboard].each do |option|
+      data[option] = session_or_default(option)
+    end
+    data
   end
 
   def shortcuts
@@ -20,7 +17,7 @@ class GroundDecorator < BaseDecorator
 
 
   def selected_label(option)
-    editor.option_label(option, data[option])
+    editor.option_label(option, editor_data[option])
   end
 
   def options(option)
@@ -29,8 +26,20 @@ class GroundDecorator < BaseDecorator
 
   private
 
+  def session_or_default(option)
+    h.session[option] ||= default(option)
+  end
+
   def default(option)
     editor.default_option_code(option)
+  end
+
+  def initial_data
+    {
+      language: language,
+      shared: id.present?,
+      runner_url: Runner.url
+    }
   end
 
   def editor

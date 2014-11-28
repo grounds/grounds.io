@@ -7,14 +7,15 @@ function loadGround() {
     if (!$groundEditor[0]) return;
 
     // Load data
-    var ground_params = {
-        id:         'ground_editor',
-        theme:      $groundEditor.data('theme'),
-        language:   $groundEditor.data('language'),
-        indent:     $groundEditor.data('indent'),
-        keyboard:   $groundEditor.data('keyboard'),
-        shared:     $groundEditor.data('shared')
-    };
+    var ground_params = { id: 'ground_editor' };
+
+    ['theme',
+     'language',
+     'indent',
+     'keyboard',
+     'shared'].forEach(function(param) {
+        ground_params[param] = $groundEditor.data(param);
+    });
 
     var runnerUrl = $groundEditor.data('runner-url');
 

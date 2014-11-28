@@ -7,6 +7,10 @@ class GroundPage < Struct.new(:path)
     page.visit(path)
   end
 
+  def leave
+    page.visit('/about')
+  end
+
   def run
     button(:run).click
   end
@@ -49,6 +53,10 @@ class GroundPage < Struct.new(:path)
 
   def has_default_label?(option)
     selected_label(option) == config.default_label(option)
+  end
+
+  def connected?
+    evaluate_script('client !== null && client.connected()')
   end
 
   private
