@@ -2,55 +2,85 @@
 
 <div class="row">
 
-  <div class="medium-panel">
+  <div class="project-description">
 
     <p>
-    Grounds receives a program, compiles and runs the program inside a
-    <%= link_to('Docker', 'http://docker.com/', target: '_blank') %> container,
-    and returns the output. Each container is destroyed after a run.
+    Grounds is a 100% open source developer tool built to provide a way to share runnable
+    snippets within various languages from a web browser. Grounds supports many languages
+    and make it really trivial to add support for other languages.
     </p>
 
-    <p>
-      However Grounds has some limitations:
+    <p>However Grounds has some limitations:</p>
 
-      <ul>
+    <ul>
 
-        <li>
-          The only communication a grounds program has to the outside world is by writing to
-          standard output and standard error.
+      <li>
+        The only communication a Grounds program has to the outside world is by writing to
+        standard output and standard error.
+      </li>
+
+      <li>
+        The only communication a Grounds program has to the outside world is by writing to
+      standard output and standard error.
         </li>
 
-        <li>
-          Grounds doesn't support HTML, CSS and client-side Javascript, and there is no plan to do it
-          in the future. Checkout the awesome <%= link_to('JS Fiddle', 'http://jsfiddle.net/', target: '_blank') %> for that.
-        </li>
+      <li>
+        A Grounds program has a limited lifetime (currently 10 seconds).
+      </li>
 
-      </ul>
+      <li>
+        Grounds doesn't support HTML, CSS and client-side Javascript, and there is no plan to do it
+        in the future.
+        Checkout the awesome <%= link_to('JS Fiddle', 'http://jsfiddle.net/', target: '_blank') %> for
+        that.
+      </li>
 
+    </ul>
+
+    <p>
+      Grounds strives to use the latest stable release of each supported language. If you find
+      that your favorite language is not up to date, you are welcomed to open an issue on
+      <%= link_to('GitHub', 'https://github.com/grounds/grounds.io/issues/new', target: '_blank') %>.
     </p>
 
     <p>
-    Grounds strives to use the latest stable release of each supported language. If you find
-    that your favorite language is not up to date, you are welcomed to open an issue on
-    <%= link_to('GitHub', 'https://github.com/grounds/grounds.io/issues/new', target: '_blank') %>.
-    </p>
-
-    <p>
-    Pull requests are also welcomed. There is a lot of documentation on the official
-    <%= link_to('repository', 'https://github.com/grounds/grounds.io', target: '_blank') %> to help
-    new contributors getting started.
+      Pull requests are also welcomed. There is a lot of documentation on the official
+      <%= link_to('repository', 'https://github.com/grounds/grounds.io', target: '_blank') %> to help
+      new contributors getting started.
     </p>
 
   </div>
 
-  <center>
+</div>
 
-    <%= gravatar_tag('folie.adrien@gmail.com', alt: 'Adrien Folie', class: 'rounded-img') %>
+<div class="team-members">
 
-    <h5>ADRIEN FOLIE</h5>
+  <h3>Team</h3>
 
-    <%= link_to('www.foliea.io', 'http://www.foliea.io', target: '_blank') %>
+  <%= render 'pages/team_member',
+    name: 'Gaetan Gueraud',
+    role: 'Developer',
+    gravatar: 'exadeci@gmail.com',
+    github: 'https://github.com/exadeci',
+    twitter: 'https://twitter.com/exadeci',
+    linkedin: 'http://fr.linkedin.com/in/gaetangueraud/fr'
+  %>
 
-  </center>
+  <%= render 'pages/team_member',
+    name: 'Adrien Folie',
+    role: 'Creator / Lead Developer',
+    gravatar: 'folie.adrien@gmail.com',
+    github: 'https://github.com/folieadrien',
+    twitter: 'https://twitter.com/folie_a',
+    linkedin: 'http://fr.linkedin.com/in/adrienfolie/'
+  %>
 
+  <%= render 'pages/team_member',
+    name: 'Thomas Petrachi',
+    role: 'Developer / Designer',
+    gravatar: 'thomas.petrachi@vodeclic.com',
+    github: 'https://github.com/petrachi',
+    twitter: 'https://twitter.com/thmszpy',
+    linkedin: 'http://fr.linkedin.com/pub/thomas-petrachi/28/1a4/b2b/fr'
+  %>
 </div>

@@ -10,7 +10,7 @@ en:
     status: 'Status'
     sources: 'Sources'
     about: 'About'
-    copyright: '© 2014 Adrien Folie'
+    copyright: '© 2014 Grounds'
   editor:
     error:
       connect: 'Connection with remote server failed. Trying to reconnect...'

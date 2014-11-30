@@ -1,0 +1,30 @@
+.project-description {
+  @extend .large-8;
+  @extend .large-centered;
+  @extend .column;
+  @extend .panel;
+  @extend .rounded;
+}
+
+.team-members {
+  @extend .row;
+  @extend .text-center;
+}
+
+.team-member {
+  @extend .column;
+  @extend .large-4;
+  @extend .top-buffer;
+
+  img {
+    @extend .rounded-img;
+  }
+
+  h6 {
+    font-weight: bold;
+  }
+
+  a {
+    font-size: rem-calc(30);
+  }
+}

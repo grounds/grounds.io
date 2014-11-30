@@ -17,9 +17,9 @@ $link-hover-color: #4183c4;
 .top-buffer    { margin-top:    $buffer }
 .bottom-buffer { margin-bottom: $buffer }
 
-@mixin border($sides: left top right bottom, $width: 1px, $color: $border-color, $style: solid) {
+@mixin border($sides: left top right bottom, $size: 1px, $color: $border-color, $style: solid) {
   @each $side in $sides {
-    border-#{$side}: $width $color $style;
+    border-#{$side}: $size $color $style;
   }
 }
 
@@ -27,7 +27,7 @@ a {
   @extend a;
   color: $link-hover-color;
 
-  &:hover {
+  &:hover, &:focus {
     color: adjust-color($link-hover-color, $lightness: 8%);
   }
 }
@@ -104,22 +104,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .left-small {
   @extend .left-small;
-
   @include border(right);
 }
 
 .rounded-img {
   border-radius: 50%;
   box-shadow: 0 0 0 1px $border-color;
-  @include border($width: 5px, $color: $primary-color);
-}
-
-.medium-panel {
-  @extend .large-8;
-  @extend .large-centered;
-  @extend .column;
-  @extend .panel;
-  @extend .radius
+  @include border($size: 5px, $color: $primary-color);
 }
 
 .hint {
