@@ -8,7 +8,7 @@ class GroundPage < Struct.new(:path)
   end
 
   def leave
-    page.visit('/about')
+    page.visit(page_path('about'))
   end
 
   def run
