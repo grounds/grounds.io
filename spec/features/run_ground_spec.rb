@@ -101,7 +101,7 @@ feature 'Run a ground', js: true do
 
   context 'after leaving a ground' do
     before(:each) do
-      ground.leave
+      visit(page_path('about'))
     end
 
     scenario 'ground is disconnected from runner' do

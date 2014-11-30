@@ -7,10 +7,6 @@ class GroundPage < Struct.new(:path)
     page.visit(path)
   end
 
-  def leave
-    page.visit(page_path('about'))
-  end
-
   def run
     button(:run).click
   end
