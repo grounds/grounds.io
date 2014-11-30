@@ -98,14 +98,4 @@ feature 'Run a ground', js: true do
       'http://127.0.0.1:8081'
     end
   end
-
-  context 'after leaving a ground' do
-    before(:each) do
-      visit(page_path('about'))
-    end
-
-    scenario 'ground is disconnected from runner' do
-      expect(ground).not_to be_connected
-    end
-  end
 end
