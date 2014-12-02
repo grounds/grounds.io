@@ -42,7 +42,7 @@ pull the latest Docker image.
 Grounds requires a [Redis](http://redis.io/) instance and will automatically
 spawn a Docker container with a new Redis instance inside.
 
-### First pull grounds-exec Docker images
+### Pull language stack Docker images
 
     make pull
 
@@ -50,16 +50,23 @@ If you want to pull these images from your own repository:
 
     REPOSITORY="<you repository>" make pull
 
+>Pulling all language stack images can take a long time and a lot of space.
+However, only ruby image is mandatory when running the test suite.
+
+Pull a specific language stack image:
+
+    docker pull grounds/exec-ruby
+
 ### Set Docker remote API url
 
 You need to specify a Docker remote API url to connect with.
 
     export DOCKER_URL="https://127.0.0.1:2375"
 
-N.B. If your are using Docker API through `https`, your `DOCKER_CERT_PATH` will be
+If your are using Docker API through `https`, your `DOCKER_CERT_PATH` will be
 mounted has a volume inside the container.
 
-Be careful: boot2docker enforces tls verification since version 1.3.
+>Be careful: boot2docker enforces tls verification since version 1.3.
 
 ### Launch the web application
 

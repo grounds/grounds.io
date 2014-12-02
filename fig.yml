@@ -1,8 +1,5 @@
-image:
-  build: .
-
 web:
-  image: groundsio_image
+  build: .
   command: rake run
   ports:
     - '3000:3000'
@@ -12,19 +9,11 @@ web:
     - .:/grounds
   environment:
     - RAILS_ENV
+    - TEST_OPTS
     - DOCKER_URL
     - SECRET_KEY_BASE
     - NEWRELIC_LICENSE_KEY
     - NEWRELIC_APP_NAME
-
-test:
-  image: groundsio_image
-  command: rake test
-  links:
-    - runner
-  environment:
-    - TEST_OPTS
-    - DOCKER_URL
 
 redis:
   image: dockerfile/redis

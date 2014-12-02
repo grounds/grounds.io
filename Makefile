@@ -1,4 +1,4 @@
-.PHONY: all re clean build update pull push run test console
+.PHONY: all re clean build install update pull push run test console
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -8,8 +8,9 @@ RAILS_ENV  := $(if $(RAILS_ENV),$(RAILS_ENV),'development')
 # but it should be changed in production.
 SECRET_KEY_BASE := $(if $(SECRET_KEY_BASE),$(SECRET_KEY_BASE),'729ef9ead52e970ae6c02c30ff1be69409c603036990fb11f5701a48fff0626f6259c58b0ccdd1f8b1e7a81bc59e61240cd0411e74c4a7b6094f371369f97caf')
 
-env    := RAILS_ENV=$(RAILS_ENV)
-secret := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
+env       := RAILS_ENV=$(RAILS_ENV)
+secret    := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
+run       := fig run web
 
 all: run
 
@@ -21,11 +22,15 @@ clean:
 	rm -f tmp/pids/server.pid
 
 build:
-	fig -p groundsio build image
+	fig -p groundsio build web
 
-# Update Gemfile.lock according to Gemfile
+# Install gems in Gemfile.lock
+install: clean
+	$(env) $(run) bundle install
+
+# Update gems in Gemfile.lock
 update: clean
-	$(env) fig run web bundle update
+	$(env) $(run) bundle update
 
 # Pull every images required to run
 pull:
@@ -36,12 +41,13 @@ push: build
 	hack/push.sh $(REPOSITORY) $(TAG)
 
 run: build clean
-	$(env) $(secret) fig up runner web
+	$(env) $(secret) fig up
 
 test: build clean
-	fig run test
+	fig up -d runner
+	RAILS_ENV="test" $(run) rake test
 
 # Open rails console
 console: build
 	touch pry/.pry_history
-	$(env) fig run web rails console
+	$(env) $(run) rails console
