@@ -22,6 +22,10 @@ Ground.prototype.getLanguage = function () {
     return this.language;
 };
 
+Ground.prototype.getAttributes = function () {
+    return { language: this.getLanguage(), code: this.getCode() };
+};
+
 Ground.prototype.setCursor = function (cursor) {
     var lastLine = this.session.getLength();
 
@@ -76,6 +80,10 @@ Ground.prototype.set = function (option, code) {
             this.setKeyboard(code);
             break;
     }
+};
+
+Ground.prototype.on = function (event, callback) {
+    this.editor.on(event, callback);
 };
 
 Ground.prototype.addCommand = function (name, keys, button) {

@@ -32,9 +32,11 @@ function GUI(ground, client) {
     this.bindEvents();
 }
 
-GUI.prototype.submitShareFormWith = function(language, code) {
-    this.form.language.val(language);
-    this.form.code.val(code);
+GUI.prototype.submitShareFormWith = function(attributes) {
+    var self = this;
+    $.each(attributes, function(key, value) {
+        self.form[key].val(value);
+    });
     this.form.obj.submit();
 };
 
@@ -58,7 +60,7 @@ GUI.prototype.scrollToTop = function() {
 };
 
 GUI.prototype.switchToSelectedOption = function(option, selected) {
-    var code = selected.data(option),
+    var code  = selected.data(option),
         label = selected.text();
 
     this.ground.set(option, code);
@@ -68,19 +70,12 @@ GUI.prototype.switchToSelectedOption = function(option, selected) {
 GUI.prototype.bindEvents = function() {
     var self = this;
     this.button.share.on('click', function(event) {
-        var language = self.ground.getLanguage(),
-            code = self.ground.getCode();
-
-        self.submitShareFormWith(language, code);
+        self.submitShareFormWith(self.ground.getAttributes());
     });
 
     this.button.run.on('click', function(event) {
         self.disableRunButtonFor(500);
-
-        var language = self.ground.getLanguage(),
-            code = self.ground.getCode();
-
-        self.client.send('run', { language: language, code: code });
+        self.client.send('run', self.ground.getAttributes());
     });
 
     this.button.back.on('click', function(event) {
@@ -107,7 +102,7 @@ GUI.prototype.bindEvents = function() {
         self.sharedURL.val(response.shared_url).show().focus().select();
     });
 
-    this.ground.editor.on('input', function() {
+    this.ground.on('input', function() {
         self.sharedURL.hide();
     });
 };
