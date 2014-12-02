@@ -11,5 +11,5 @@ if [ -z $repository ]; then
     return
 fi
 
-docker tag groundsio_image $image
+docker tag groundsio_web $image
 docker push $image
