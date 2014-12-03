@@ -71,7 +71,7 @@ mounted has a volume inside the container.
 
 >Be careful: boot2docker enforces tls verification since version 1.3.
 
-### Launch the web application
+## Launch the web application
 
     make run
 
