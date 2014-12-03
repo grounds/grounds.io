@@ -32,7 +32,7 @@ Grounds currently supports latest version of:
 Checkout this [documentation](/docs/NEW_LANGUAGE.md) to get more informations
 about how to add support for a new language stack.
 
-## Web application
+## Prerequisite
 
 Grounds is a [Ruby on Rails](http://rubyonrails.org/) web application.
 
@@ -90,7 +90,9 @@ If you want [New Relic](http://newrelic.com/) metrics you can also specify:
 * `NEWRELIC_LICENSE_KEY`
 * `NEWRELIC_APP_NAME`
 
-### Open rails console
+## Open rails console
+
+For ease of debugging, you can open a rails console inside a container:
 
     make console
 
