@@ -90,9 +90,21 @@ If you want [New Relic](http://newrelic.com/) metrics you can also specify:
 * `NEWRELIC_LICENSE_KEY`
 * `NEWRELIC_APP_NAME`
 
-### Open Rails console
+### Open rails console
 
     make console
+
+## Install / Update ruby gems
+
+You can update `Gemfile.lock` inside a container with:
+
+* When installing a new gem:
+
+        make install
+
+* When updating existing gems:
+
+        make update
 
 ## Tests
 
