@@ -90,6 +90,8 @@ If you want [New Relic](http://newrelic.com/) metrics you can also specify:
 * `NEWRELIC_LICENSE_KEY`
 * `NEWRELIC_APP_NAME`
 
+>New Relic metrics are available only when running in production mode.
+
 ## Open rails console
 
 For ease of debugging, you can open a rails console inside a container:
