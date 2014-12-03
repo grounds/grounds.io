@@ -57,6 +57,9 @@ Pull a specific language stack image:
 
     docker pull grounds/exec-ruby
 
+Checkout all available images on the official
+[repository](https://registry.hub.docker.com/repos/grounds/).
+
 ### Set Docker remote API url
 
 You need to specify a Docker remote API url to connect with.
