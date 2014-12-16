@@ -41,7 +41,7 @@ group :production do
   gem 'newrelic_rpm', '~> 3.9'
 end
 
-gem 'ace-rails-ap', '~> 3.0'
+gem 'ace-rails-ap', github: 'grounds/ace-rails-ap', branch: 'ace-v1.1.8'
 gem 'modernizr-rails', '~> 2.7'
 gem 'mousetrap-rails', '~> 1.4'
 gem 'font-awesome-rails', '~> 4.2'

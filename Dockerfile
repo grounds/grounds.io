@@ -12,6 +12,7 @@ RUN useradd dev
 # Install dependencies.
 RUN apt-get update -q && \
     apt-get -qy install \
+    git \
     curl \
     build-essential \
     libxslt1-dev \

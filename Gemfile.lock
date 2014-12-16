@@ -1,7 +1,13 @@
+GIT
+  remote: git://github.com/grounds/ace-rails-ap.git
+  revision: 54a65f4ad771fb45212c1dd44e47e8bf688548dd
+  branch: ace-v1.1.8
+  specs:
+    ace-rails-ap (3.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    ace-rails-ap (3.0.1)
     actionmailer (4.1.8)
       actionpack (= 4.1.8)
       actionview (= 4.1.8)
@@ -185,7 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ace-rails-ap (~> 3.0)
+  ace-rails-ap!
   capybara (~> 2.4)
   coffee-rails (~> 4.0)
   factory_girl_rails (~> 4.5)
