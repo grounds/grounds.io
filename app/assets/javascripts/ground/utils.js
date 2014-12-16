@@ -88,3 +88,7 @@ utils.samples['rust'] = { mode: 'rust', code: [
 '	println!("Hello world");',
 '}'
 ]}
+
+utils.samples['elixir'] = { mode: 'elixir', code: [
+'IO.puts "Hello world"'
+]}

@@ -43,6 +43,7 @@ languages:
   c: 'C'
   cpp: 'C++'
   csharp: 'C#'
+  elixir: 'Elixir'
   golang: 'Go'
   java: 'Java'
   php: 'PHP'

@@ -9,9 +9,10 @@
 
 //= require ace/ace
 
-//= require ace/mode-golang
 //= require ace/mode-c_cpp
 //= require ace/mode-csharp
+//= require ace/mode-elixir
+//= require ace/mode-golang
 //= require ace/mode-java
 //= require ace/mode-javascript
 //= require ace/mode-php
