@@ -27,6 +27,9 @@ $editor-size: rem-calc(400);
   @extend .rounded;
   @extend .top-buffer;
 
+  overflow: auto;
+  overflow-y: hidden;
+
   .waiting {
     color: $link-hover-color;
   }
