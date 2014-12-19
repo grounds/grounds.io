@@ -28,7 +28,7 @@ class GroundPage < Struct.new(:path)
   end
 
   def dropdown(option)
-    Dropdown.new(option)
+    Dropdown.new("#{option}-options")
   end
 
   def button(id)

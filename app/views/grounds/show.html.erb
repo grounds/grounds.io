@@ -13,7 +13,7 @@
 
   <div class="editor-header">
 
-    <% [:language, :theme, :indent, :keyboard].each do |option| %>
+    <% %i(language theme indent keyboard).each do |option| %>
        <%= render 'option_dropdown', option: option %>
     <% end %>
 

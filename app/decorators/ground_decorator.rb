@@ -1,7 +1,7 @@
 class GroundDecorator < BaseDecorator
   def editor_data
     data = initial_data
-    [:theme, :indent, :keyboard].each do |option|
+    %i(theme indent keyboard).each do |option|
       data[option] = session_or_default(option)
     end
     data
