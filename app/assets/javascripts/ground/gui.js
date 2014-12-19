@@ -50,7 +50,7 @@ GUI.prototype.disableRunButtonFor = function(milliseconds) {
 };
 
 GUI.prototype.dropdownUpdate = function(option, label) {
-    $('a[data-dropdown="' + option + '-dropdown"]').click();
+    $('a[data-dropdown="' + option + '-options"]').click();
     $('#' + option + '-name').text(label);
     this.ground.focus();
 };
