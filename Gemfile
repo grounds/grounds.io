@@ -47,5 +47,6 @@ gem 'mousetrap-rails', '~> 1.4'
 gem 'font-awesome-rails', '~> 4.2'
 gem 'foundation-rails', '~> 5.4'
 gem 'socket.io-rails', '~> 1.2'
+gem 'piwik_analytics'
 
 gem 'puma', '~> 2.9'
