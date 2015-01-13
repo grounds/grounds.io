@@ -7,7 +7,7 @@ feature 'Sidemenu' do
     visit(root_path)
   end
 
-  MenuLinks.each do |description, name, href|
+  MENU_LINKS.each do |description, name, href|
     scenario "has a link to #{description}" do
       expect(sidemenu).to have_link(name, href: href)
     end

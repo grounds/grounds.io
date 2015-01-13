@@ -10,7 +10,7 @@ feature 'Visit a new ground' do
 
   it_behaves_like 'a ground without shared url'
 
-  GroundOptions.each do |option, code|
+  GROUND_OPTS.each do |option, code|
     context "when #{option}: #{code} is not present in session" do
       scenario "initializes #{option} label with default #{option}" do
         expect(ground).to have_default_label(option)

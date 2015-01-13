@@ -9,7 +9,7 @@ feature 'Header' do
     expect(header).to have_link(root_title, href: root_path)
   end
 
-  MenuLinks.each do |description, name, href|
+  MENU_LINKS.each do |description, name, href|
     scenario "has a link to #{description}" do
       expect(header).to have_link(name, href: href)
     end
