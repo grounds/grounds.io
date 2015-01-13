@@ -5,7 +5,7 @@ feature 'Footer' do
     visit(root_path)
   end
 
-  FooterLinks.each do |description, name, href|
+  FOOTER_LINKS.each do |description, name, href|
     scenario "has a link to #{description}" do
       expect(footer).to have_link(name, href: href)
     end

@@ -8,7 +8,7 @@ feature 'Select a ground option' do
     ground.visit
   end
 
-  GroundOptions.each do |option, code|
+  GROUND_OPTS.each do |option, code|
     context "when selecting #{option}: #{code}" do
       before(:each) do
         ground.show_options(option)
