@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2'
 
 gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '~> 1.3'
@@ -20,6 +20,7 @@ gem 'high_voltage', '~> 2.2'
 
 group :development do
   gem 'spring', '~> 1.1'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
@@ -45,7 +46,7 @@ gem 'ace-rails-ap', '~> 3.0'
 gem 'modernizr-rails', '~> 2.7'
 gem 'mousetrap-rails', '~> 1.4'
 gem 'font-awesome-rails', '~> 4.2'
-gem 'foundation-rails', '~> 5.4'
+gem 'foundation-rails', '~> 5.4.5'
 gem 'socket.io-rails', '~> 1.2'
 gem 'piwik_analytics'
 

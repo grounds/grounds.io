@@ -9,7 +9,7 @@ task :run => :environment do
   sh <<-EOF
   REDIS_URL=#{redis_url} \
   RUNNER_URL=#{runner_url} \
-  bundle exec rails server -p #{RAILS_PORT}
+  bundle exec rails server -b 0.0.0.0 -p #{RAILS_PORT}
   EOF
 end
 
