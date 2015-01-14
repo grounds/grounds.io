@@ -45,7 +45,7 @@ gem 'ace-rails-ap', '~> 3.0'
 gem 'modernizr-rails', '~> 2.7'
 gem 'mousetrap-rails', '~> 1.4'
 gem 'font-awesome-rails', '~> 4.2'
-gem 'foundation-rails', '~> 5.4'
+gem 'foundation-rails', '~> 5.4.5'
 gem 'socket.io-rails', '~> 1.2'
 gem 'piwik_analytics'
 
