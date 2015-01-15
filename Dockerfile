@@ -10,7 +10,7 @@ ENV APP /grounds
 RUN useradd dev
 
 # Install dependencies.
-RUN apt-get update -q && \
+RUN apt-get update -qq && \
     apt-get -qy install \
     git \
     curl \
