@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 shared_examples_for 'a bad json request' do
   it 'responds with status :bad_request (400)' do

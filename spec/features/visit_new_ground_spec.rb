@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 feature 'Visit a new ground' do
   let(:ground) { GroundPage.new(ground_show_path) }
