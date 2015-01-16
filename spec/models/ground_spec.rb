@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe Ground do
   it { should validate_presence_of(:language) }

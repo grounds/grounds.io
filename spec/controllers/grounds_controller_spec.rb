@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe GroundsController do
   describe '#switch_option' do

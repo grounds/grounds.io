@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 feature 'Sidemenu' do
   let(:sidemenu) { SideMenu.new}

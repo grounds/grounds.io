@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 shared_examples_for 'a wrong option switch' do
   it "doesn't save option in session" do

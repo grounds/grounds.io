@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 feature 'Share a ground' do
   let(:ground) { GroundPage.new(ground_show_path) }
