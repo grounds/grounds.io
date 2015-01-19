@@ -72,7 +72,6 @@ utils.samples['php'] = { mode: 'php', code: [
 
 utils.samples['java'] = { mode: 'java', code: [
 'public class Main {',
-'',
 '	public static void main(String[] args) {',
 '		System.out.println("Hello world");',
 '	}',
@@ -91,4 +90,12 @@ utils.samples['rust'] = { mode: 'rust', code: [
 
 utils.samples['elixir'] = { mode: 'elixir', code: [
 'IO.puts "Hello world"'
+]}
+
+utils.samples['haxe'] = { mode: 'haxe', code: [
+'class Main {',
+'	public static function main() {',
+'		Sys.println("Hello world");',
+'	}',
+'}'
 ]}

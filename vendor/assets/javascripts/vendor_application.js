@@ -13,6 +13,7 @@
 //= require ace/mode-csharp
 //= require ace/mode-elixir
 //= require ace/mode-golang
+//= require ace/mode-haxe
 //= require ace/mode-java
 //= require ace/mode-javascript
 //= require ace/mode-php
