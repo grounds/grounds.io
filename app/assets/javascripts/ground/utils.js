@@ -92,3 +92,11 @@ utils.samples['rust'] = { mode: 'rust', code: [
 utils.samples['elixir'] = { mode: 'elixir', code: [
 'IO.puts "Hello world"'
 ]}
+
+utils.samples['haxe'] = { mode: 'haxe', code: [
+'class Main {',
+'	public static function main() {',
+'		Sys.println("Hello world");',
+'	}',
+'}'
+]}

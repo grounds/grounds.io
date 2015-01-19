@@ -45,6 +45,7 @@ languages:
   csharp: 'C#'
   elixir: 'Elixir'
   golang: 'Go'
+  haxe: 'Haxe'
   java: 'Java'
   php: 'PHP'
   python2: 'Python 2'
