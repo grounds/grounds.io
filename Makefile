@@ -22,7 +22,7 @@ clean:
 	rm -f tmp/pids/server.pid
 
 build:
-	fig -p groundsio build web
+	fig build web
 
 # Install gems in Gemfile.lock
 install: clean
