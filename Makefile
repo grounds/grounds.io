@@ -35,11 +35,11 @@ update: clean
 
 # Pull every images required to run
 pull:
-	hack/pull.sh $(REPOSITORY)
+	scripts/pull.sh $(REPOSITORY)
 
 # Push image build to a repository
 push: build
-	hack/push.sh $(REPOSITORY) $(TAG)
+	scripts/push.sh $(REPOSITORY) $(TAG)
 
 run: build clean
 	$(env) $(secret) $(compose) up
