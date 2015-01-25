@@ -10,19 +10,20 @@ SECRET_KEY_BASE := $(if $(SECRET_KEY_BASE),$(SECRET_KEY_BASE),'729ef9ead52e970ae
 
 env       := RAILS_ENV=$(RAILS_ENV)
 secret    := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
-run       := fig run web
+compose   := fig -p groundsexec
+run       := $(compose) run web
 
 all: run
 
 re: clean all
 
 clean:
-	fig kill
-	fig rm --force
+	$(compose) kill
+	$(compose) rm --force
 	rm -f tmp/pids/server.pid
 
 build:
-	fig build web
+	$(compose) build web
 
 # Install gems in Gemfile.lock
 install: clean
@@ -41,10 +42,10 @@ push: build
 	hack/push.sh $(REPOSITORY) $(TAG)
 
 run: build clean
-	$(env) $(secret) fig up
+	$(env) $(secret) $(compose) up
 
 test: build clean
-	fig up -d runner
+	$(compose) up -d runner
 	RAILS_ENV="test" $(run) rake test
 
 # Open rails console
