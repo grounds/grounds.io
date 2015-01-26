@@ -24,7 +24,7 @@ redis:
 
 runner:
   image: grounds/grounds-exec
-  command: hack/server.sh
+  command: scripts/server.sh
   ports:
     - '8080:8080'
   volumes:
