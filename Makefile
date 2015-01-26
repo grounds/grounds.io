@@ -10,7 +10,7 @@ SECRET_KEY_BASE := $(if $(SECRET_KEY_BASE),$(SECRET_KEY_BASE),'729ef9ead52e970ae
 
 env       := RAILS_ENV=$(RAILS_ENV)
 secret    := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
-compose   := fig -p groundsexec
+compose   := fig -p groundsio
 run       := $(compose) run web
 
 all: run
