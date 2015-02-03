@@ -44,6 +44,14 @@ pull the latest Docker image.
 Grounds requires a [Redis](http://redis.io/) instance and will automatically
 spawn a Docker container with a new Redis instance inside.
 
+### Clone this project
+
+    git clone https://github.com/grounds/grounds.io.git
+    
+### Get into this project directory
+    
+    cd grounds.io
+
 ### Pull language stack Docker images
 
     make pull
