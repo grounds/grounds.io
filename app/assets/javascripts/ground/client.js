@@ -34,7 +34,7 @@ Client.prototype.bindEvents = function() {
     var self = this;
     this._socket.on('run', function(data) {
         self._console.write(data.stream, data.chunk);
-    }).on('connect', function(data) {
+    }).on('connect', function() {
         self._console.clean();
     }).on('connect_error', function() {
         self._console.error();
