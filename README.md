@@ -84,6 +84,14 @@ mounted has a volume inside the container.
 ## Launch the web application
 
     make run
+    
+You can also run the web application in the background:
+
+    make detach
+
+Or:
+
+    make
 
 The web app should now be listening on port 3000 on your docker daemon (if you
 are  using boot2docker, `boot2docker ip` will tell you its address).
@@ -101,6 +109,12 @@ If you want [New Relic](http://newrelic.com/) metrics you can also specify:
 * `NEWRELIC_APP_NAME`
 
 >New Relic metrics are available only when running in production mode.
+
+If you want [Piwik](http://piwik.org/) web analytics you can also specify:
+
+* `PIWIK_URL`
+
+>Piwik web analytics are available only when running in production mode.
 
 ## Open rails console
 
