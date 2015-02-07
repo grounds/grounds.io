@@ -1,4 +1,4 @@
-.PHONY: all re clean build install update pull push run test console
+.PHONY: all re clean build install update pull push run detach test console
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -13,9 +13,9 @@ secret    := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
 compose   := fig -p groundsio
 run       := $(compose) run web
 
-all: run
+all: detach
 
-re: clean all
+re: build clean all
 
 clean:
 	$(compose) kill
@@ -38,17 +38,20 @@ pull:
 	scripts/pull.sh $(REPOSITORY)
 
 # Push image build to a repository
-push: build
+push:
 	scripts/push.sh $(REPOSITORY) $(TAG)
 
 run: build clean
 	$(env) $(secret) $(compose) up
+
+detach:
+	$(env) $(secret) $(compose) up -d
 
 test: build clean
 	$(compose) up -d runner
 	RAILS_ENV="test" $(run) rake test
 
 # Open rails console
-console: build
+console: build clean
 	touch pry/.pry_history
 	$(env) $(run) rails console
