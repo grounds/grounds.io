@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GroundsController do
   describe '#switch_option' do
     before(:each) do
-      post(:switch_option, option: option, code: code)
+      put(:switch_option, option: option, code: code)
     end
 
     context "when option doesn't exist" do
