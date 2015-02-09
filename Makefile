@@ -8,7 +8,7 @@ RAILS_ENV  := $(if $(RAILS_ENV),$(RAILS_ENV),'development')
 # but it should be changed in production.
 SECRET_KEY_BASE := $(if $(SECRET_KEY_BASE),$(SECRET_KEY_BASE),'729ef9ead52e970ae6c02c30ff1be69409c603036990fb11f5701a48fff0626f6259c58b0ccdd1f8b1e7a81bc59e61240cd0411e74c4a7b6094f371369f97caf')
 
-env       := RAILS_ENV=$(RAILS_ENV)
+env       := RAILS_ENV=$(RAILS_ENV) REPOSITORY=$(REPOSITORY)
 secret    := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
 compose   := fig -p groundsio
 run       := $(compose) run web
@@ -48,7 +48,7 @@ detach:
 	$(env) $(secret) $(compose) up -d
 
 test: build clean
-	REPOSITORY=$(REPOSITORY) $(compose) up -d runner
+	$(env) $(compose) up -d runner
 	RAILS_ENV="test" $(run) rake test
 
 # Open rails console
