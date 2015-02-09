@@ -48,7 +48,7 @@ detach:
 	$(env) $(secret) $(compose) up -d
 
 test: build clean
-	$(compose) up -d runner
+	REPOSITORY=$(REPOSITORY) $(compose) up -d runner
 	RAILS_ENV="test" $(run) rake test
 
 # Open rails console
