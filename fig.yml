@@ -14,6 +14,7 @@ web:
     - SECRET_KEY_BASE
     - NEWRELIC_LICENSE_KEY
     - NEWRELIC_APP_NAME
+    - PIWIK_URL
 
 redis:
   image: dockerfile/redis
