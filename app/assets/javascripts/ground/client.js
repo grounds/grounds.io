@@ -8,7 +8,9 @@ function Client(endpoint) {
 Client.prototype.connect = function(endpoint) {
     if (!endpoint) return;
 
-    this._socket = io.connect(endpoint);
+    // Useful when manually attempting to reconnect.
+    // e.g. With turbolinks on page load.
+    this._socket = io.connect(endpoint, { 'forceNew': true });
     this.bindEvents();
 };
 
