@@ -7,7 +7,7 @@ feature 'Run a ground', js: true do
     ground.visit
   end
 
-  expect_to_be_connected
+  it_behaves_like 'a connected ground'
 
   context 'when running any code example' do
     before(:each) do
@@ -84,7 +84,7 @@ feature 'Run a ground', js: true do
       ground.visit
     end
 
-    expect_to_be_disconnected
+    it_behaves_like 'a disconnected ground'
 
     scenario 'console displays a connection error' do
       expect(ground.console).to have_connection_error
@@ -100,26 +100,14 @@ feature 'Run a ground', js: true do
       visit(page_path('empty'))
     end
 
-    expect_to_be_disconnected
+    it_behaves_like 'a disconnected ground'
     
     context 'after returning to a ground' do
       before(:each) do
         ground.visit
         
-        expect_to_be_connected
+        it_behaves_like 'a connected ground'
       end
-    end
-  end
-  
-  def expect_to_be_disconnected
-    scenario 'ground is disconnected from runner' do
-      expect(ground).not_to be_connected
-    end
-  end
-  
-  def expect_to_be_connected
-    scenario 'ground is connected to runner' do
-      expect(ground).to be_connected
     end
   end
 end
