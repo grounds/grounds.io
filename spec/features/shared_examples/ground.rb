@@ -21,4 +21,3 @@ shared_examples_for 'a connected ground' do
     expect(ground).to be_connected
   end
 end
-
