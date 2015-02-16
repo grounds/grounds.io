@@ -10,10 +10,6 @@ shared_examples_for 'a disconnected ground' do
   scenario 'is not connected to runner' do
     expect(ground).not_to be_connected
   end
-
-  scenario 'console displays a connection error' do
-    expect(ground.console).to have_connection_error
-  end
 end
 
 shared_examples_for 'a connected ground' do
