@@ -8,7 +8,7 @@ function Client(endpoint) {
 Client.prototype.connect = function(endpoint) {
     if (!endpoint) return;
 
-    this._socket = io.connect(endpoint, { 'forceNew': true });
+    this._socket = io.connect(endpoint);
     this.bindEvents();
 };
 
