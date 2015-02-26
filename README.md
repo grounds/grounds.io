@@ -10,7 +10,8 @@ Grounds is using a [socket.io](http://socket.io/) server to execute arbitrary
 code inside Docker containers, called grounds-exec. grounds-exec has its own
 repository [here](https://github.com/grounds/grounds-exec).
 
-All you need is [Docker 1.3+](https://docker.com/), [Fig 1.0+](http://www.fig.sh/)
+All you need is [Docker 1.3+](https://docker.com/),
+[Docker Compose 1.1+](http://docs.docker.com/compose/)
 and [make](http://www.gnu.org/software/make/) to run this project inside Docker
 containers with the same environment as in production.
 
@@ -47,9 +48,9 @@ spawn a Docker container with a new Redis instance inside.
 ### Clone this project
 
     git clone https://github.com/grounds/grounds.io.git
-    
+
 ### Get into this project directory
-    
+
     cd grounds.io
 
 ### Pull language stack Docker images
@@ -84,7 +85,7 @@ mounted has a volume inside the container.
 ## Launch the web application
 
     make run
-    
+
 You can also run the web application in the background:
 
     make detach
