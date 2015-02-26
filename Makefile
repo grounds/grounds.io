@@ -1,4 +1,4 @@
-.PHONY: all re clean build install update pull push run detach test console
+.PHONY: all re clean build install update pull push run detach test runner console
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -11,7 +11,7 @@ SECRET_KEY_BASE := $(if $(SECRET_KEY_BASE),$(SECRET_KEY_BASE),'729ef9ead52e970ae
 env       := RAILS_ENV=$(RAILS_ENV) REPOSITORY=$(REPOSITORY)
 secret    := SECRET_KEY_BASE=$(SECRET_KEY_BASE)
 compose   := docker-compose -p groundsio
-run       := $(compose) run web
+run       := $(compose) run --service-ports web
 
 all: detach
 
@@ -41,15 +41,17 @@ pull:
 push:
 	scripts/push.sh $(REPOSITORY) $(TAG)
 
-run: build clean
-	$(env) $(secret) $(compose) up
+run: build clean runner
+	$(env) $(secret) $(run) rake run
 
 detach:
 	$(env) $(secret) $(compose) up -d
 
-test: build clean
-	$(env) $(compose) up -d runner
+test: build clean runner
 	RAILS_ENV="test" $(run) rake test
+
+runner:
+	$(env) $(compose) up -d runner
 
 # Open rails console
 console: build clean
