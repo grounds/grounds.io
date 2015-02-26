@@ -27,8 +27,26 @@ RUN curl -sL http://s3.amazonaws.com/pkgr-buildpack-ruby/current/ubuntu-14.04/ru
     tar xzf - -C /usr/local && \
     echo "gem: --no-document" > /usr/local/etc/gemrc
 
+# Configure home and gem path for user dev.
+ENV HOME /home/dev
+ENV GEM_HOME $HOME/.gem/ruby
+ENV GEM_PATH $GEM_HOME
+ENV PATH $PATH:$GEM_PATH/bin
+
+# Create home and gem path.
+RUN mkdir -p $GEM_PATH/cache
+
+# Configure pry.
+COPY pry/.pryrc $HOME/.pryrc
+
+# Change home and dev path owner.
+RUN chown -R dev:dev $HOME
+
+# Set user as dev.
+USER dev
+
 # Install bundler.
-RUN gem install bundler
+RUN gem install bundler --no-ri --no-rdoc
 
 # Copy the Gemfile and Gemfile.lock into the image.
 COPY Gemfile $APP/Gemfile
@@ -37,14 +55,14 @@ COPY Gemfile.lock $APP/Gemfile.lock
 # Install ruby gems.
 RUN cd $APP && bundle install
 
-# Configure pry
-COPY pry/.pryrc /home/dev/.pryrc
-
 # Everything up to here was cached. This includes
 # the bundle install, unless the Gemfiles changed.
 
 # Now copy the app into the image.
 COPY . $APP
+
+# Set user as root.
+USER root
 
 # Changes app's files owner.
 RUN chown -R dev:dev $APP

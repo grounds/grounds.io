@@ -1,4 +1,4 @@
-.PHONY: all re clean build install update pull push run detach test runner console
+.PHONY: all re clean build shell pull push run detach test runner
 
 REPOSITORY := $(if $(REPOSITORY),$(REPOSITORY),'grounds')
 TAG        := $(if $(TAG),$(TAG),'latest')
@@ -25,14 +25,6 @@ clean:
 build:
 	$(compose) build web
 
-# Install gems in Gemfile.lock
-install: clean
-	$(env) $(run) bundle install
-
-# Update gems in Gemfile.lock
-update: clean
-	$(env) $(run) bundle update
-
 # Pull every images required to run
 pull:
 	scripts/pull.sh $(REPOSITORY)
@@ -48,12 +40,12 @@ detach:
 	$(env) $(secret) $(compose) up -d
 
 test: build clean runner
-	RAILS_ENV="test" $(run) rake test
+	$(run) rake test
+
+# Open a shell with everything set up
+shell: build clean runner
+	touch pry/.pry_history
+	$(env) $(run) /bin/bash
 
 runner:
 	$(env) $(compose) up -d runner
-
-# Open rails console
-console: build clean
-	touch pry/.pry_history
-	$(env) $(run) rails console
