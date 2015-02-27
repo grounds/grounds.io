@@ -15,6 +15,7 @@ end
 
 task :test => :environment do
   sh <<-EOF
+  RAILS_ENV=test
   RUNNER_URL=#{runner_url} \
   bundle exec rspec --format documentation --color #{TEST_OPTS}
   EOF

@@ -10,7 +10,8 @@ Grounds is using a [socket.io](http://socket.io/) server to execute arbitrary
 code inside Docker containers, called grounds-exec. grounds-exec has its own
 repository [here](https://github.com/grounds/grounds-exec).
 
-All you need is [Docker 1.3+](https://docker.com/), [Fig 1.0+](http://www.fig.sh/)
+All you need is [Docker 1.3+](https://docker.com/),
+[Docker Compose 1.1+](http://docs.docker.com/compose/)
 and [make](http://www.gnu.org/software/make/) to run this project inside Docker
 containers with the same environment as in production.
 
@@ -47,9 +48,9 @@ spawn a Docker container with a new Redis instance inside.
 ### Clone this project
 
     git clone https://github.com/grounds/grounds.io.git
-    
+
 ### Get into this project directory
-    
+
     cd grounds.io
 
 ### Pull language stack Docker images
@@ -84,7 +85,7 @@ mounted has a volume inside the container.
 ## Launch the web application
 
     make run
-    
+
 You can also run the web application in the background:
 
     make detach
@@ -116,23 +117,50 @@ If you want [Piwik](http://piwik.org/) web analytics you can also specify:
 
 >Piwik web analytics are available only when running in production mode.
 
-## Open rails console
+## Get a shell in a preconfigured environment
 
-For ease of debugging, you can open a rails console inside a container:
+For ease of debugging, you can open a preconfigured environment
+inside a container with every services required to work with:
 
-    make console
+    make shell
+
+You can then launch common tasks like:
+
+    rake run
+
+    rake test
+
+    rails console
+
+    bundle install
+
+    bundle update
 
 ## Install / Update ruby gems
 
-You can update `Gemfile.lock` inside a container with:
+Open a shell inside a container:
 
-* When installing a new gem:
+    make shell
 
-        make install
+To install a new gem:
 
-* When updating existing gems:
+1. Edit `Gemfile`
 
-        make update
+2. Run bundle install
+
+        bundle install
+
+To update existing gems:
+
+    bundle update
+
+Both commands update `Gemfile.lock`, then next time that docker rebuild
+the image, it will use this configuration to install these gems inside the
+image.
+
+>Be careful: if you update the `Gemfile` first, then trying to open a shell
+will fail, docker will try to rebuild the image with an outdated
+`Gemfile.lock`.
 
 ## Tests
 
