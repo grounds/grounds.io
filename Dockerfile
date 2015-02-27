@@ -24,8 +24,7 @@ RUN apt-get update -qq && \
 
 # Install ruby.
 RUN curl -sL http://s3.amazonaws.com/pkgr-buildpack-ruby/current/ubuntu-14.04/ruby-$RUBY_VERSION.tgz -o - | \
-    tar xzf - -C /usr/local && \
-    echo "gem: --no-document" > /usr/local/etc/gemrc
+    tar xzf - -C /usr/local
 
 # Configure home and gem path for user dev.
 ENV HOME /home/dev
@@ -35,6 +34,9 @@ ENV PATH $PATH:$GEM_PATH/bin
 
 # Create home and gem path.
 RUN mkdir -p $GEM_PATH/cache
+
+# Default configuration for gem installation.
+RUN echo "gem: --no-document" > $HOME/.gemrc
 
 # Configure pry.
 COPY pry/.pryrc $HOME/.pryrc
@@ -46,7 +48,7 @@ RUN chown -R dev:dev $HOME
 USER dev
 
 # Install bundler.
-RUN gem install bundler --no-ri --no-rdoc
+RUN gem install bundler
 
 # Copy the Gemfile and Gemfile.lock into the image.
 COPY Gemfile $APP/Gemfile
