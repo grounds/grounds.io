@@ -1,0 +1,19 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - sudo pip install -U docker-compose
+    - docker-compose --version
+
+test:
+  override:
+    - docker-compose build web
+    - docker-compose run --no-deps web rake test
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - $DEPLOY

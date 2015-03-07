@@ -40,7 +40,7 @@ detach:
 	$(env) $(secret) $(compose) up -d
 
 test: build clean runner
-	$(run) rake test
+	$(env) $(run) rake test
 
 # Open a shell with everything set up
 shell: build clean runner
