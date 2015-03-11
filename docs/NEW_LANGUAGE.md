@@ -1,9 +1,9 @@
 # Add new language support
 
 1. Send a pull request to add support for this new language stack to
-[grounds-exec](https://github.com/grounds/grounds-exec).
+[grounds-images](https://github.com/grounds/grounds-images).
 
-    >You may skip this step if grounds-exec already supports this
+    >You may skip this step if grounds-images already supports this
     language or if a pull request already exist for the same
     purpose.
 
@@ -38,10 +38,10 @@ example:
 
         make test
 
-6. Send a pull request and mark it blocked by your grounds-exec pull
+6. Send a pull request and mark it blocked by your grounds-images pull
 request.
-    >If grounds-exec already supports this language, don't mark it.
+    >If grounds-images already supports this language, don't mark it.
     If a pull request already exists to add support for this language
-    to grounds-exec, mark yours blocked by it.
+    to grounds-images, mark yours blocked by it.
 
 **Thanks for your contribution!**
