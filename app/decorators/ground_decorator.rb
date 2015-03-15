@@ -15,7 +15,6 @@ class GroundDecorator < BaseDecorator
     ]
   end
 
-
   def selected_label(option)
     editor.option_label(option, editor_data[option])
   end
