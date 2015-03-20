@@ -28,7 +28,7 @@ end
 # Fetch runner url from env (if running natively),
 # or look for a runner on the same docker host
 def runner_url
-  ENV['RUNNER_URL'].present? && ENV['RUNNER_URL'] || docker_url_with(8080)
+  ENV['RUNNER_URL'].presence || docker_url_with(8080)
 end
 
 # Fetch redis url from env (if running natively),
