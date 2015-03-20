@@ -1,5 +1,5 @@
 # grounds.io
-[![Circle CI](https://circleci.com/gh/grounds/grounds.io.svg?style=svg)](https://circleci.com/gh/grounds/grounds.io)
+[![Circle CI](https://circleci.com/gh/grounds/grounds.io/tree/master.svg?style=svg)](https://circleci.com/gh/grounds/grounds.io/tree/master)
 
 This project is the web application behind [Grounds](http://beta.42grounds.io).
 
