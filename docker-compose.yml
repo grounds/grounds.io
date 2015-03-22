@@ -18,14 +18,14 @@ web:
     - PIWIK_URL
 
 redis:
-  image: redis
+  image: redis:2.8.9
   expose:
     - '6379'
   volumes:
     - /redis:/data
 
 runner:
-  image: grounds/grounds-exec
+  image: grounds/grounds-exec:0.1.0
   command: scripts/server.sh
   ports:
     - '8080:8080'
