@@ -1,10 +1,6 @@
 class GroundDecorator < BaseDecorator
   def editor_data
-    data = initial_data
-    %i(theme indent keyboard).each do |option|
-      data[option] = session_or_default(option)
-    end
-    data
+    initial_data.merge(options_data)
   end
 
   def shortcuts
@@ -39,6 +35,12 @@ class GroundDecorator < BaseDecorator
       shared: id.present?,
       runner_url: Runner.url
     }
+  end
+  
+  def options_data
+    %i(theme indent keyboard).map do |option|
+      [option, session_or_default(option)]
+    end.to_h
   end
 
   def editor
