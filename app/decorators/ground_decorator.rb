@@ -1,7 +1,7 @@
 class GroundDecorator < BaseDecorator
   def editor_data
-    %i(theme indent keyboard).inject(initial_data) do |data, option| 
-      data[option] = session_or_default(option) ; data
+    %i(theme indent keyboard).each_with_object(initial_data) do |option, data| 
+      data[option] = session_or_default(option)
     end
   end
 
