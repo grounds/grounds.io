@@ -4,9 +4,9 @@ web:
   ports:
     - '3000:3000'
   links:
-    - redis
+    - 'redis'
   volumes:
-    - .:/grounds
+    - '.:/grounds'
   environment:
     - RAILS_ENV
     - TEST_OPTS
@@ -22,7 +22,7 @@ redis:
   expose:
     - '6379'
   volumes:
-    - /redis:/data
+    - '/redis:/data'
 
 runner:
   image: grounds/grounds-exec:0.1.0
