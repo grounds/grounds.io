@@ -1,6 +1,6 @@
 # Authors
 
-* [Adrien Folie](https://github.com/folieadrien) - Creator / Developer.
+* [Adrien Folie](https://github.com/foliea) - Creator / Developer.
 * [Thomas Petrachi](https://github.com/petrachi) - Developer / Designer.
 * [Gaetan Gueraud](https://github.com/exadeci) - Developer.
 
