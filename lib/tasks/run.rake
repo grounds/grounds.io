@@ -2,6 +2,7 @@ RAILS_ENV  = ENV['RAILS_ENV']  || 'development'
 RAILS_PORT = ENV['RAILS_PORT'] || 3000
 TEST_OPTS  = ENV['TEST_OPTS']
 
+desc 'Run rails with environment properly configured'
 task :run => :environment do
   if production?
     sh 'bundle exec rake assets:precompile'
@@ -13,6 +14,7 @@ task :run => :environment do
   EOF
 end
 
+desc 'Run the test suitewith environment properly configured'
 task :test => :environment do
   sh <<-EOF
   RAILS_ENV=test
