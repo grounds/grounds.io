@@ -51,8 +51,8 @@ USER dev
 RUN gem install bundler
 
 # Copy the Gemfile and Gemfile.lock into the image.
-COPY Gemfile $APP/Gemfile
-COPY Gemfile.lock $APP/Gemfile.lock
+COPY Gemfile $APP/
+COPY Gemfile.lock $APP/
 
 # Install ruby gems.
 RUN cd $APP && bundle install
