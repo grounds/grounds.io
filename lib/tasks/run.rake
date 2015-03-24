@@ -14,7 +14,7 @@ task :run => :environment do
   EOF
 end
 
-desc 'Run the test suitewith environment properly configured'
+desc 'Run the test suite with environment properly configured'
 task :test => :environment do
   sh <<-EOF
   RAILS_ENV=test
