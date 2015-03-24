@@ -11,7 +11,7 @@ RUN useradd dev
 
 # Install dependencies.
 RUN apt-get update -qq && \
-    apt-get -qy install \
+    apt-get install -qy \
     git \
     curl \
     build-essential \
