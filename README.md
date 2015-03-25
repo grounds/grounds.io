@@ -1,5 +1,7 @@
 # grounds.io
 [![Circle CI](https://circleci.com/gh/grounds/grounds.io/tree/master.svg?style=svg)](https://circleci.com/gh/grounds/grounds.io/tree/master)
+[![Code Climate](https://codeclimate.com/github/grounds/grounds.io/badges/gpa.svg)](https://codeclimate.com/github/grounds/grounds.io)
+[![Test Coverage](https://codeclimate.com/github/grounds/grounds.io/badges/coverage.svg)](https://codeclimate.com/github/grounds/grounds.io)
 
 This project is the web application behind [Grounds](http://beta.42grounds.io).
 
