@@ -35,6 +35,7 @@ group :test do
   gem 'mock_redis', '~> 0.13'
   gem 'capybara', '~> 2.4'
   gem 'poltergeist', '~> 1.5'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 group :production do

@@ -6,6 +6,11 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'rack_session_access/capybara'
 
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
+end
+
 [
   'support',
   'features/page_objects',

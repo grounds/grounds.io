@@ -16,6 +16,7 @@ web:
     - NEWRELIC_LICENSE_KEY
     - NEWRELIC_APP_NAME
     - PIWIK_URL
+    - CODECLIMATE_REPO_TOKEN
 
 redis:
   image: redis:2.8.9
