@@ -1,45 +1,43 @@
-RAILS_ENV  = ENV['RAILS_ENV']  || 'development'
-RAILS_PORT = ENV['RAILS_PORT'] || 3000
-TEST_OPTS  = ENV['TEST_OPTS']
+TEST_OPTS = ENV['TEST_OPTS']
 
 desc 'Run rails with environment properly configured'
-task :run => :environment do
+task :run do
   if production?
     sh 'bundle exec rake assets:precompile'
   end
-  sh <<-EOF
-  REDIS_URL=#{redis_url} \
-  RUNNER_URL=#{runner_url} \
-  bundle exec rails server -b 0.0.0.0 -p #{RAILS_PORT}
-  EOF
+
+  set_runner_url
+  set_redis_url
+
+  sh 'bundle exec rails server -b 0.0.0.0 -p 3000'
 end
 
 desc 'Run the test suite with environment properly configured'
-task :test => :environment do
-  sh <<-EOF
-  RAILS_ENV=test
-  RUNNER_URL=#{runner_url} \
-  bundle exec rspec --format documentation --color #{TEST_OPTS}
-  EOF
+task :test do
+  ENV['RAILS_ENV'] = 'test'
+
+  set_runner_url
+
+  sh "bundle exec rspec --format documentation --color #{TEST_OPTS}"
 end
 
 def production?
-  RAILS_ENV == 'production'
+  ENV['RAILS_ENV'] == 'production'
 end
 
 # Fetch runner url from env (if running natively),
-# or look for a runner on the same docker host
-def runner_url
-  ENV['RUNNER_URL'].presence || docker_url_with(8080)
+# or look for a runner on the same docker host.
+def set_runner_url
+  ENV['RUNNER_URL'] = ENV['RUNNER_URL'].presence || docker_url_with(8080)
 end
 
 # Fetch redis url from env (if running natively),
 # or look for a redis instance linked to this
-# container
-def redis_url
-  url = ENV['REDIS_URL'] || ENV['REDIS_PORT'] || ''
-  url.gsub('tcp', 'redis')
-     .gsub('http', 'redis')
+# container.
+def set_redis_url
+  ENV['REDIS_URL'] = (ENV['REDIS_URL'] || ENV['REDIS_PORT'] || '')
+    .gsub('tcp', 'redis')
+    .gsub('http', 'redis')
 end
 
 # Parse docker url with a custom port
