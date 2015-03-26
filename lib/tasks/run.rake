@@ -1,5 +1,3 @@
-TEST_OPTS = ENV['TEST_OPTS']
-
 desc 'Run rails with environment properly configured'
 task :run do
   if production?
@@ -18,7 +16,7 @@ task :test do
 
   set_runner_url
 
-  sh "bundle exec rspec --format documentation --color #{TEST_OPTS}"
+  sh "bundle exec rspec --format documentation --color #{ENV['TEST_OPTS']}"
 end
 
 def production?
