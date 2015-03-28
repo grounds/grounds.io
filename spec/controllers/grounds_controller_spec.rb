@@ -52,6 +52,7 @@ describe GroundsController do
 
       it 'responds with ground shared url' do
         ground.save
+
         expected = ground_shared_url(ground)
 
         shared_url = JSON.parse(response.body)['shared_url']
