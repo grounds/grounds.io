@@ -6,7 +6,7 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'rack_session_access/capybara'
 
-if ENV['CODECLIMATE_REPO_TOKEN']
+if ENV['CODECLIMATE_REPO_TOKEN'].present?
   require 'codeclimate-test-reporter'
   CodeClimate::TestReporter.start
 end

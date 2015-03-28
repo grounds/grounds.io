@@ -8,21 +8,26 @@ describe Ground do
   it_behaves_like 'a redis model'
 
   describe('.new_or_default') do
+    subject { Ground.new_or_default(language) }
+
     context 'when language is specified' do
       let(:language) { 'test' }
-      let(:ground)   { Ground.new_or_default(language) }
 
       it 'returns a ground for this language' do
-        expect(ground.language).to eq(language)
+        expect(subject.language).to eq(language)
       end
     end
 
     context 'when language is not specified' do
-      let(:ground) { Ground.new_or_default }
+      let(:language) {}
 
       it 'returns a ground with default language' do
-        expect(ground.language).to eq(Editor.default_option_code(:language))
+        expect(subject.language).to eq(default_language)
       end
+    end
+
+    def default_language
+      Editor.default_option_code(:language)
     end
   end
 end

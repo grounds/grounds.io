@@ -7,7 +7,7 @@ task :run do
   set_runner_url
   set_redis_url
 
-  sh 'bundle exec rails server -b 0.0.0.0 -p 3000'
+  sh 'rails server -b 0.0.0.0 -p 3000'
 end
 
 desc 'Run the test suite with environment properly configured'
@@ -16,7 +16,7 @@ task :test do
 
   set_runner_url
 
-  sh "bundle exec rspec --format documentation --color #{ENV['TEST_OPTS']}"
+  sh "rspec --format documentation --color #{ENV['TEST_OPTS']}"
 end
 
 def production?

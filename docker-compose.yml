@@ -1,6 +1,6 @@
 web:
   build: .
-  command: rake run
+  command: bundle exec rake run
   ports:
     - '3000:3000'
   links:

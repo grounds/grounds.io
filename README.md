@@ -128,11 +128,11 @@ inside a container with every services required to work with:
 
 You can then launch common tasks like:
 
-    rake run
+    bundle exec rake run
 
-    rake test
+    bundle exec rake test
 
-    rails console
+    bundle exec rails console
 
     bundle install
 

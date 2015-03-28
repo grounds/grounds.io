@@ -34,13 +34,13 @@ push:
 	scripts/push.sh $(REPOSITORY) $(TAG)
 
 run: build clean runner
-	$(env) $(secret) $(run) rake run
+	$(env) $(secret) $(run) bundle exec rake run
 
 detach:
 	$(env) $(secret) $(compose) up -d
 
 test: build clean runner
-	$(env) $(run) rake test
+	$(env) $(run) bundle exec rake test
 
 # Open a shell with everything set up
 shell: build clean runner
