@@ -25,6 +25,7 @@ feature 'Visit a new ground' do
     context "when #{option}: #{code} is present in session" do
       before(:each) do
         custom_session.set_option(option, code)
+
         page.visit
       end
 

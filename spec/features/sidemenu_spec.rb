@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Sidemenu' do
-  subject { SideMenu.new}
+  subject(:sidemenu) { SideMenu.new}
 
   before(:each) do
     visit(root_path)
@@ -9,7 +9,7 @@ feature 'Sidemenu' do
 
   MENU_LINKS.each do |description, name, href|
     scenario "has a link to #{description}" do
-      expect(subject).to have_link(name, href: href)
+      expect(sidemenu).to have_link(name, href: href)
     end
   end
 
@@ -21,15 +21,15 @@ feature 'Sidemenu' do
     end
 
     scenario 'can be opened' do
-      subject.open
+      sidemenu.open
 
-      expect(subject).to be_open
+      expect(sidemenu).to be_open
     end
 
     scenario 'can be closed' do
       subject.close
 
-      expect(subject).not_to be_open
+      expect(sidemenu).not_to be_open
     end
   end
 end
