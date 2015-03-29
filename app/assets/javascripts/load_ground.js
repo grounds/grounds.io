@@ -9,11 +9,13 @@ function loadGround() {
     // Load data
     var ground_params = { id: 'ground_editor' };
 
-    ['theme',
-     'language',
-     'indent',
-     'keyboard',
-     'shared'].forEach(function(param) {
+    [
+        'theme',
+        'language',
+        'indent',
+        'keyboard',
+     '  shared'
+    ].forEach(function(param) {
         ground_params[param] = $groundEditor.data(param);
     });
 
