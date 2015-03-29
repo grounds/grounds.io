@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Ground do
-  it { should validate_presence_of(:language) }
-
   subject(:model) { FactoryGirl.build(:ground) }
+
+  it { should validate_presence_of(:language) }
 
   it_behaves_like 'a redis model'
 
