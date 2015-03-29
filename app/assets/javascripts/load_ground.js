@@ -14,7 +14,7 @@ function loadGround() {
         'language',
         'indent',
         'keyboard',
-     '  shared'
+        'shared'
     ].forEach(function(param) {
         ground_params[param] = $groundEditor.data(param);
     });
