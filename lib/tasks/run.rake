@@ -31,11 +31,10 @@ end
 
 # Fetch redis url from env (if running natively),
 # or look for a redis instance linked to this
-# container.
+# container (docker compose now use links name instead
+# of environment variables).
 def set_redis_url
-  ENV['REDIS_URL'] = (ENV['REDIS_URL'] || ENV['REDIS_PORT'] || '')
-    .gsub('tcp', 'redis')
-    .gsub('http', 'redis')
+  ENV['REDIS_URL'] = ENV['REDIS_URL'].presence || 'redis://redis:6379'
 end
 
 # Parse docker url with a custom port
