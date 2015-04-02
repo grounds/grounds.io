@@ -28,12 +28,16 @@ redis:
     - '/redis:/data'
 
 runner:
-  image: grounds/grounds-exec:0.1.0
+  image: grounds/grounds-exec:1.1.0
   command: scripts/server.sh
   ports:
     - '8080:8080'
   volumes:
-    - $DOCKER_CERT_PATH:/home/.docker
+    - '$DOCKER_CERT_PATH:/home/.docker'
+    - '/var/run/docker.sock:/var/run/docker.sock'
   environment:
-    - DOCKER_URL
+    - DOCKER_CERT_PATH=/home/.docker
+    - DOCKER_HOST
+    - DOCKER_TLS_VERIFY
     - REPOSITORY
+    - TAG
