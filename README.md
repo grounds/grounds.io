@@ -61,14 +61,20 @@ spawn a Docker container with a new Redis instance inside.
 
 If you want to pull these images from your own repository:
 
-    REPOSITORY="<you repository>" make pull
+    REPOSITORY="<you repository>" TAG="1.0.0" make pull
+
+**`REPOSITORY` and `TAG` can be changed for convenience, however we strongly
+recommend to use our official images with the latest tag incremental version.**
+
+> Warning: `latest` tag on the Docker hub matches the master branch of
+[grounds-images](http://github.com/grounds/grounds-images).
 
 >Pulling all language stack images can take a long time and a lot of space.
 However, only ruby image is mandatory when running the test suite.
 
 Pull a specific language stack image:
 
-    docker pull grounds/exec-ruby
+    docker pull grounds/exec-ruby:latest
 
 Checkout all available images on the official
 [repository](https://registry.hub.docker.com/repos/grounds/).

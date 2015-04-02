@@ -4,6 +4,12 @@ set -e
 
 repository="$1"
 
+if [ $TAG ]; then
+    tag="$TAG"
+else
+    tag="latest"
+fi
+
 runner_images() {
     echo $(docker search $repository | grep "$repository/exec-" | awk -F ' ' '{ print $1 }')
 }
@@ -14,5 +20,5 @@ if [ -z $repository ]; then
 fi
 
 for image in $(runner_images); do
-    docker pull "$image"
+    docker pull "$image:$tag"
 done
