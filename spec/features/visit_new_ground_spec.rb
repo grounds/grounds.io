@@ -5,7 +5,7 @@ feature 'Visit a new ground' do
 
   let(:custom_session) { CustomSession.new }
 
-  before(:each) do
+  before do
     page.visit
   end
 
@@ -23,7 +23,7 @@ feature 'Visit a new ground' do
     end
 
     context "when #{option}: #{code} is present in session" do
-      before(:each) do
+      before do
         custom_session.set_option(option, code)
 
         page.visit

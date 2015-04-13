@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'mock_redis'
 
 shared_examples_for 'a redis model' do
-  before(:each) do
+  before do
     allow(model).to receive(:valid?).and_return(true)
   end
 
@@ -11,7 +11,7 @@ shared_examples_for 'a redis model' do
   end
 
   context 'when already saved' do
-    before(:each) do
+    before do
       model.save
     end
 
@@ -41,7 +41,7 @@ shared_examples_for 'a redis model' do
       end
 
       context 'with different attributes' do
-        before(:each) do
+        before do
           attribute, value = model.attributes.first
           model.send("#{attribute}=", "#{value}0")
           model.save
@@ -74,7 +74,7 @@ shared_examples_for 'a redis model' do
   end
 
   context 'when invalid' do
-    before(:each) do
+    before do
       allow(model).to receive(:valid?).and_return(false)
     end
 

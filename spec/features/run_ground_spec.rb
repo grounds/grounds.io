@@ -6,7 +6,7 @@ feature 'Run a ground', js: true do
   let(:path)   { ground_show_path }
   let(:client) { page }
 
-  before(:each) do
+  before do
     page.visit
   end
 
@@ -15,7 +15,7 @@ feature 'Run a ground', js: true do
   context 'when running any code example' do
     let(:run_button) { subject.button(:run) }
 
-    before(:each) do
+    before do
       page.run
     end
 
@@ -41,7 +41,7 @@ feature 'Run a ground', js: true do
   # Default code example is a ruby program writting "Hello world"
   # on stdout and exiting with a status equal to 0.
   context 'when running default code example' do
-    before(:each) do
+    before do
       page.run
     end
 
@@ -60,7 +60,7 @@ feature 'Run a ground', js: true do
     let(:code)    { "$stderr.puts \"#{content}\" ; exit -1" }
     let(:content) { '<div>Hello world</div>' }
 
-    before(:each) do
+    before do
       page.editor_type_inside(code)
       page.run
     end
@@ -77,7 +77,7 @@ feature 'Run a ground', js: true do
   context 'when runner url is invalid' do
     let(:invalid_url) { 'http://127.0.0.1:8081' }
 
-    before(:each) do
+    before do
       allow(Runner).to receive(:url).and_return(invalid_url)
 
       page.visit
