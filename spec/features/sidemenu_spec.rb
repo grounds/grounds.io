@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Sidemenu' do
   subject(:sidemenu) { SideMenu.new}
 
-  before(:each) do
+  before do
     visit(root_path)
   end
 
@@ -16,7 +16,7 @@ feature 'Sidemenu' do
   context 'on a small screen', js: true do
     let(:screen) { Screen.new }
 
-    before(:each) do
+    before do
       screen.resize_to_small
     end
 

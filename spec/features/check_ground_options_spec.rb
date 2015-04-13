@@ -7,7 +7,7 @@ feature 'Check ground options' do
 
   ALL_GROUND_OPTS.each do |option, code, label|
     context "with #{option}: #{label}" do
-      before(:each) do
+      before do
         custom_session.set_option(option, code)
       end
 

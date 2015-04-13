@@ -6,7 +6,7 @@ feature 'Visit a shared ground' do
   let(:shared_ground) { FactoryGirl.build(:ground) }
   let(:path) { ground_shared_path(shared_ground) }
 
-  before(:each) do
+  before do
     shared_ground.save
 
     page.visit

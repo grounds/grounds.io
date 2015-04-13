@@ -5,13 +5,13 @@ feature 'Select a ground option' do
 
   let(:custom_session) { CustomSession.new }
 
-  before(:each) do
+  before do
     page.visit
   end
 
   GROUND_OPTS.each do |option, code|
     context "when selecting #{option}: #{code}" do
-      before(:each) do
+      before do
         page.show_options(option)
         page.select_option(option, code)
       end

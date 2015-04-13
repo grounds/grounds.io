@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Footer' do
   subject(:footer) { find('footer') }
 
-  before(:each) do
+  before do
     visit(root_path)
   end
 

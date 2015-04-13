@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Share a ground' do
   subject(:page) { GroundPage.new(ground_show_path) }
 
-  before(:each) do
+  before do
     page.visit
     page.share
   end
@@ -30,7 +30,7 @@ feature 'Share a ground' do
   end
 
   context 'when typing inside the code editor' do
-    before(:each) do
+    before do
       page.editor_type_inside
     end
 

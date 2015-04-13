@@ -5,7 +5,7 @@ feature 'Header' do
 
   let(:root_title) { I18n.t('site.title') }
 
-  before(:each) do
+  before do
     visit(root_path)
   end
 
@@ -24,7 +24,7 @@ feature 'Header' do
 
     let(:screen) { Screen.new }
 
-    before(:each) do
+    before do
       screen.resize_to_small
     end
 
