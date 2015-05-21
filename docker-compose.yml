@@ -41,3 +41,4 @@ runner:
     - DOCKER_TLS_VERIFY
     - REPOSITORY
     - TAG
+  user: root
