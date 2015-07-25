@@ -3,8 +3,6 @@
 [![Code Climate](https://codeclimate.com/github/grounds/grounds.io/badges/gpa.svg)](https://codeclimate.com/github/grounds/grounds.io)
 [![Test Coverage](https://codeclimate.com/github/grounds/grounds.io/badges/coverage.svg)](https://codeclimate.com/github/grounds/grounds.io)
 
-This project is the web application behind [Grounds](http://beta.42grounds.io).
-
 Grounds is a 100% open source developer tool built to provide a way to share
 runnable snippets within various languages from a web browser.
 
