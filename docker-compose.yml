@@ -2,7 +2,7 @@ web:
   build: .
   command: bundle exec rake run
   ports:
-    - '3000:3000'
+    - '3000'
   links:
     - 'redis'
   volumes:
@@ -31,7 +31,7 @@ runner:
   image: grounds/grounds-exec:1.1.0
   command: scripts/server.sh
   ports:
-    - '8080:8080'
+    - '8080'
   volumes:
     - '$DOCKER_CERT_PATH:/home/.docker'
     - '/var/run/docker.sock:/var/run/docker.sock'
